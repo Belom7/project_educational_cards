@@ -1,0 +1,71 @@
+@mixin typography($fontSize, $lineHeight, $fontWeight) {
+  display: flex;
+  align-items: center;
+
+  margin: 0;
+
+  font-family: var(--font-family-primary);
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  font-style: normal;
+  line-height: $lineHeight;
+  color: black;
+}
+
+.Body1{
+  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-regular));
+}
+
+.Body2{
+  @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-regular));
+}
+
+.Caption{
+  @include typography(var(--font-size-xs), var(--line-height-s), var(--font-weight-regular));
+}
+
+.H1{
+  @include typography(var(--font-size-xl), var(--line-height-l), var(--font-weight-bold));
+}
+
+.H2{
+  @include typography(var(--font-size-l), var(--line-height-m), var(--font-weight-bold));
+}
+
+.H3 {
+  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-bold));
+}
+
+.Large{
+  @include typography(var(--font-size-xxl), var(--line-height-l), var(--font-weight-bold));
+}
+
+.Link1{
+  @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-regular));
+
+  text-decoration-line: underline;
+}
+
+.Link2{
+  @include typography(var(--font-size-xs), var(--line-height-s), var(--font-weight-regular));
+
+  text-decoration-line: underline;
+}
+
+.Overline{
+  @include typography(var(--font-size-xs), var(--line-height-s), var(--font-weight-bold));
+}
+
+.Subtitle1{
+  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-bold));
+}
+
+.Subtitle2{
+  @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-bold));
+}
+
+.error{
+  @include typography(var(--font-size-xs), var(--line-height-m), var(--font-weight-regular));
+
+  color: var(--color-danger-300);
+}
