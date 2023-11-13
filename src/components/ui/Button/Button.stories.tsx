@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Button } from './'
+import { Button } from './Button'
 
 const meta = {
   argTypes: {
@@ -60,7 +60,7 @@ export const FullWidth: Story = {
 export const AsLink: Story = {
   args: {
     as: 'a',
-    children: 'Link that looks like a button',
+    children: 'Link that looks like a Button',
     variant: 'primary',
   },
 }

@@ -6,7 +6,7 @@ export type ButtonProps<T extends ElementType = 'button'> = {
   variant?: 'link' | 'primary' | 'secondary' | 'tertiary'
 } & ComponentPropsWithoutRef<T>
 
-import s from './button.module.scss'
+import s from './Button.module.scss'
 
 export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) => {
   const { as: Component = 'button', className, fullWidth, variant = 'primary', ...rest } = props
