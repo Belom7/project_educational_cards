@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
-import { Checkbox } from '@/comp/ui/Check-box/CheckBox'
+import { Checkbox } from '@/components/ui/Check-box/CheckBox'
 import { Meta } from '@storybook/react'
 
 export default {
   component: Checkbox,
   tags: ['autodocs'],
-  title: 'comp/Checkbox',
+  title: 'components/Checkbox',
 } satisfies Meta<typeof Checkbox>
 
 export const Uncontrolled = {
