@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
-import { Checkbox } from '@/Components/ui/Check-box/CheckBox'
+import { Checkbox } from '@/comp/ui/Check-box/CheckBox'
 import { Meta } from '@storybook/react'
 
 export default {
   component: Checkbox,
   tags: ['autodocs'],
-  title: 'Components/Checkbox',
+  title: 'comp/Checkbox',
 } satisfies Meta<typeof Checkbox>
 
 export const Uncontrolled = {
@@ -52,7 +52,7 @@ export const DefaultTrue = {
   render: (args: any) => {
     const [checked, setChecked] = useState(false)
 
-    return <Checkbox {...args} checked={true} disabled={false} onValueChange={setChecked} />
+    return <Checkbox {...args} checked disabled={false} onValueChange={setChecked} />
   },
 }
 export const DefaultFalse = {

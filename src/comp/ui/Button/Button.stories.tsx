@@ -12,7 +12,7 @@ const meta = {
   },
   component: Button,
   tags: ['autodocs'],
-  title: 'Components/Button',
+  title: 'comp/Button',
 } satisfies Meta<typeof Button>
 
 export default meta
