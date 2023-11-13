@@ -33,6 +33,7 @@ export const Typography = <T extends ElementType>(
   props: TypographyProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof TypographyProps<T>>
 ) => {
   const { basicName, className, component, variant = 'Body1', ...rest } = props
+
   const Component = component || COMPONENTS[variant] || 'span'
   const classNames = clsx(s[variant], className)
 
