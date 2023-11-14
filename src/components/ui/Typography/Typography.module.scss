@@ -9,26 +9,25 @@
   font-weight: $fontWeight;
   font-style: normal;
   line-height: $lineHeight;
-
 }
 
-.Body1{
+.Body1 {
   @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-regular));
 }
 
-.Body2{
+.Body2 {
   @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-regular));
 }
 
-.Caption{
+.Caption {
   @include typography(var(--font-size-xs), var(--line-height-s), var(--font-weight-regular));
 }
 
-.H1{
+.H1 {
   @include typography(var(--font-size-xl), var(--line-height-l), var(--font-weight-bold));
 }
 
-.H2{
+.H2 {
   @include typography(var(--font-size-l), var(--line-height-m), var(--font-weight-bold));
 }
 
@@ -36,35 +35,35 @@
   @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-bold));
 }
 
-.Large{
+.Large {
   @include typography(var(--font-size-xxl), var(--line-height-l), var(--font-weight-bold));
 }
 
-.Link1{
+.Link1 {
   @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-regular));
 
   text-decoration-line: underline;
 }
 
-.Link2{
+.Link2 {
   @include typography(var(--font-size-xs), var(--line-height-s), var(--font-weight-regular));
 
   text-decoration-line: underline;
 }
 
-.Overline{
+.Overline {
   @include typography(var(--font-size-xs), var(--line-height-s), var(--font-weight-bold));
 }
 
-.Subtitle1{
+.Subtitle1 {
   @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-bold));
 }
 
-.Subtitle2{
+.Subtitle2 {
   @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-bold));
 }
 
-.error{
+.error {
   @include typography(var(--font-size-xs), var(--line-height-m), var(--font-weight-regular));
 
   color: var(--color-danger-300);

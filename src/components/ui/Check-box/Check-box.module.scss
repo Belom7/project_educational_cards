@@ -10,7 +10,6 @@
   color: var(--color-dark-100);
 }
 
-
 .label {
   cursor: pointer;
   display: flex;
@@ -36,7 +35,7 @@
   &:disabled {
     cursor: initial;
     color: var(--color-dark-100);
-}
+  }
 
   &[data-state='checked']:disabled {
     align-items: center;
@@ -65,7 +64,7 @@
 
   &:focus-within,
   &:hover:not(.disabled),
-  &:hover:not(.disabled){
+  &:hover:not(.disabled) {
     width: 36px;
     height: 36px;
     background-color: var(--color-dark-500);
@@ -79,7 +78,7 @@
     border-radius: 50%;
   }
 
-  &:focus{
+  &:focus {
     width: 36px;
     height: 36px;
 
