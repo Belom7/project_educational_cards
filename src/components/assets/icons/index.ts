@@ -1,1 +1,5 @@
 export { default as Check } from './check'
+export { default as KeyboardArrowDown } from './componentsFromIcon/KeyboardArrowDown'
+export { default as KeyboardArrowLeft } from './componentsFromIcon/KeyboardArrowLeft'
+export { default as KeyboardArrowRight } from './componentsFromIcon/KeyboardArrowRight'
+export { default as KeyboardArrowUp } from './componentsFromIcon/KeyboardArrowUp'
