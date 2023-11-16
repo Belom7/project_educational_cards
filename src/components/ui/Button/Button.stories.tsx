@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { LogOutIcon } from '@/components/assets/icons/componentsFromIcon/LogOutIcon'
+
 import { Button } from './Button'
 
 const meta = {
@@ -20,7 +22,19 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    children: 'Primary Button',
+    children: 'Button Primary',
+    disabled: false,
+    variant: 'primary',
+  },
+}
+
+export const PrimaryIcon: Story = {
+  args: {
+    children: (
+      <>
+        <LogOutIcon /> Button Primary Icon
+      </>
+    ),
     disabled: false,
     variant: 'primary',
   },
@@ -28,21 +42,33 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   args: {
-    children: 'Secondary Button',
+    children: 'Button Secondary ',
+    disabled: false,
+    variant: 'secondary',
+  },
+}
+
+export const SecondaryIcon: Story = {
+  args: {
+    children: (
+      <>
+        <LogOutIcon /> Button Secondary Icon
+      </>
+    ),
     disabled: false,
     variant: 'secondary',
   },
 }
 export const Tertiary: Story = {
   args: {
-    children: 'Tertiary Button',
+    children: 'Tertiary',
     disabled: false,
     variant: 'tertiary',
   },
 }
 export const Link: Story = {
   args: {
-    children: 'Tertiary Button',
+    children: 'Link-button',
     disabled: false,
     variant: 'link',
   },
@@ -61,6 +87,6 @@ export const AsLink: Story = {
   args: {
     as: 'a',
     children: 'Link that looks like a Button',
-    variant: 'primary',
+    variant: 'link',
   },
 }
