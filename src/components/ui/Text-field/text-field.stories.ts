@@ -26,7 +26,7 @@ export const WithPassword: Story = {
   },
 }
 
-export const WithError: Story = {
+export const WithErrors: Story = {
   args: {
     errorMessage: 'Error message',
     label: 'Text-field error',
