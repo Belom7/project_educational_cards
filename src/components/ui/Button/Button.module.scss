@@ -10,6 +10,10 @@
 
   padding: 6px 28px;
 
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-bold);
+  font-style: normal;
+  line-height: var(--line-height-m);
   color: var(--color-light-100);
 
   border-radius: 4px;
@@ -67,11 +71,7 @@
   @include button;
 
   flex-shrink: 0;
-
-  padding: 8px 28px;
-
   color: var(--color-accent-500);
-
   border: 1px solid var(--color-accent-500);
   box-shadow: none;
 
@@ -101,7 +101,8 @@
 
   align-items: flex-start;
 
-  font-size: 12px;
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
   color: var(--color-accent-500);
 
   border: none;
