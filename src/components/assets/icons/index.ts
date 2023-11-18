@@ -3,3 +3,5 @@ export { default as KeyboardArrowDown } from './componentsFromIcon/KeyboardArrow
 export { default as KeyboardArrowLeft } from './componentsFromIcon/KeyboardArrowLeft'
 export { default as KeyboardArrowRight } from './componentsFromIcon/KeyboardArrowRight'
 export { default as KeyboardArrowUp } from './componentsFromIcon/KeyboardArrowUp'
+export { default as Eye } from './eye'
+export { default as EyeOutline } from './eye-outline'
