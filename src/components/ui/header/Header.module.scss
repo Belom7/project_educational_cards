@@ -1,0 +1,35 @@
+.header{
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 60px;
+
+  background: var(--color-dark-500);
+  border:var(--color-dark-700) 1px solid;
+
+}
+
+.logo{
+  position: relative;
+  left:10%;
+}
+
+.other{
+  position: relative;
+  left:70%;
+  display: flex;
+}
+
+.name{
+  border-bottom: 1px #FFF dashed;
+}
+
+.avatar{
+  width: 36px;
+  height: 36px;
+  margin-left: 5px;
+
+  background-color: floralwhite;
+  border-radius: 50% ;
+}
