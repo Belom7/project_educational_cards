@@ -5,3 +5,4 @@ export { default as KeyboardArrowRight } from './componentsFromIcon/KeyboardArro
 export { default as KeyboardArrowUp } from './componentsFromIcon/KeyboardArrowUp'
 export { default as Eye } from './eye'
 export { default as EyeOutline } from './eye-outline'
+export { default as Logo } from './logoItIncubator'
