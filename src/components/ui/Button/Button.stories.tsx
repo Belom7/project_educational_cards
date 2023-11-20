@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { ButtonOption } from '@/common/enums'
 import { LogOutIcon } from '@/components/assets/icons/componentsFromIcon/LogOutIcon'
 
 import { Button } from './Button'
@@ -24,7 +25,7 @@ export const Primary: Story = {
   args: {
     children: 'Button Primary',
     disabled: false,
-    variant: 'primary',
+    variant: ButtonOption.Primary,
   },
 }
 
@@ -36,7 +37,7 @@ export const PrimaryIcon: Story = {
       </>
     ),
     disabled: false,
-    variant: 'primary',
+    variant: ButtonOption.Primary,
   },
 }
 
@@ -44,7 +45,7 @@ export const Secondary: Story = {
   args: {
     children: 'Button Secondary ',
     disabled: false,
-    variant: 'secondary',
+    variant: ButtonOption.Secondary,
   },
 }
 
@@ -56,21 +57,21 @@ export const SecondaryIcon: Story = {
       </>
     ),
     disabled: false,
-    variant: 'secondary',
+    variant: ButtonOption.Secondary,
   },
 }
 export const Tertiary: Story = {
   args: {
     children: 'Tertiary',
     disabled: false,
-    variant: 'tertiary',
+    variant: ButtonOption.Tertiary,
   },
 }
 export const Link: Story = {
   args: {
     children: 'Link-button',
     disabled: false,
-    variant: 'link',
+    variant: ButtonOption.Link,
   },
 }
 
@@ -79,7 +80,7 @@ export const FullWidth: Story = {
     children: 'Full Width Button',
     disabled: false,
     fullWidth: true,
-    variant: 'primary',
+    variant: ButtonOption.Primary,
   },
 }
 
@@ -87,6 +88,6 @@ export const AsLink: Story = {
   args: {
     as: 'a',
     children: 'Link that looks like a Button',
-    variant: 'link',
+    variant: ButtonOption.Link,
   },
 }

@@ -1,14 +1,15 @@
 import { ComponentPropsWithoutRef, ElementType } from 'react'
 
-export type ButtonProps<T extends ElementType = 'button'> = {
-  as?: T
-  fullWidth?: boolean
-  variant?: 'link' | 'primary' | 'secondary' | 'tertiary'
-} & ComponentPropsWithoutRef<T>
-
+import { ButtonOption } from '@/common/enums'
 import { clsx } from 'clsx'
 
 import s from './Button.module.scss'
+
+export type ButtonProps<T extends ElementType = 'button'> = {
+  as?: T
+  fullWidth?: boolean
+  variant?: ButtonOption
+} & ComponentPropsWithoutRef<T>
 
 export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) => {
   const { as: Component = 'button', className, fullWidth, variant = 'primary', ...rest } = props
