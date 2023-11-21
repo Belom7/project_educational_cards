@@ -1,25 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { TypographyOption } from '@/common/enums'
 import { Typography } from '@/components/ui/Typography/Typography'
 
 const meta = {
   argTypes: {
     variant: {
       control: { type: 'radio' },
-      options: [
-        'Large',
-        'H1',
-        'H2',
-        'H3',
-        'Body1',
-        'Subtitle1',
-        'Body2',
-        'Subtitle2',
-        'Caption',
-        'Overline',
-        'Link1',
-        'Link2',
-      ],
+      options: Object.values(TypographyOption),
     },
   },
   component: Typography,
@@ -30,77 +18,83 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const child = 'Componenta'
+const child = 'Component'
 
 export const Body1: Story = {
   args: {
     children: child,
-    variant: 'Body1',
+    variant: TypographyOption.Body1,
   },
 }
 export const Body2: Story = {
   args: {
     children: child,
-    variant: 'Body2',
+    variant: TypographyOption.Body2,
   },
 }
 export const Caption: Story = {
   args: {
     children: child,
-    variant: 'Caption',
+    variant: TypographyOption.Caption,
+  },
+}
+export const Error: Story = {
+  args: {
+    children: child,
+    variant: TypographyOption.Error,
   },
 }
 export const H1: Story = {
   args: {
     children: child,
-    variant: 'H1',
+    variant: TypographyOption.H1,
   },
 }
 export const H2: Story = {
   args: {
     children: child,
-    variant: 'H2',
+    variant: TypographyOption.H2,
   },
 }
 export const H3: Story = {
   args: {
     children: child,
-    variant: 'H3',
+    variant: TypographyOption.H3,
   },
 }
 export const Large: Story = {
   args: {
     children: child,
-    variant: 'Large',
+    variant: TypographyOption.Large,
   },
 }
 export const Link1: Story = {
   args: {
     children: child,
-    variant: 'Link1',
+    variant: TypographyOption.Link1,
   },
 }
 export const Link2: Story = {
   args: {
     children: child,
-    variant: 'Link2',
+    variant: TypographyOption.Link2,
   },
 }
 export const Overline: Story = {
   args: {
     children: child,
-    variant: 'Overline',
+    variant: TypographyOption.Overline,
   },
 }
 export const Subtitle1: Story = {
   args: {
     children: child,
-    variant: 'Subtitle1',
+    variant: TypographyOption.Subtitle1,
   },
 }
 export const Subtitle2: Story = {
   args: {
     children: child,
-    variant: 'Subtitle2',
+    variant: TypographyOption.Subtitle2,
   },
 }
