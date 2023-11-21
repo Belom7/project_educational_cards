@@ -22,17 +22,18 @@ export const Slider = forwardRef<ElementRef<typeof SliderRadix.Root>, SliderProp
         </Typography>
 
         <div className={s.container}>
-          <Typography component={'div'} variant={TypographyOption.Body1}>
-            {title}
+          <Typography className={s.optionValue} component={'div'} variant={TypographyOption.Body1}>
+            {restProps?.value?.[0]}
           </Typography>
           <SliderRadix.Root className={classNames} ref={ref} {...restProps}>
-            <SliderRadix.Track className={'SliderTrack'}>
-              <SliderRadix.Range className={'SliderRange'} />
+            <SliderRadix.Track className={s.track}>
+              <SliderRadix.Range className={s.range} />
             </SliderRadix.Track>
-            <SliderRadix.Thumb aria-label={'Volume'} className={'SliderThumb'} />
+            <SliderRadix.Thumb aria-label={'Value min'} className={s.thumb} />
+            <SliderRadix.Thumb aria-label={'Value max'} className={s.thumb} />
           </SliderRadix.Root>
-          <Typography component={'div'} variant={TypographyOption.Body1}>
-            {title}
+          <Typography className={s.optionValue} component={'div'} variant={TypographyOption.Body1}>
+            {restProps?.value?.[1]}
           </Typography>
         </div>
       </div>
