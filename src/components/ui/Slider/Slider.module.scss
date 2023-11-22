@@ -1,8 +1,6 @@
 .container {
   display: flex;
-  gap: 1.2rem;
-  align-items: center;
-  justify-content: center;
+  gap: 0.8rem;
 }
 
 .optionValue {
@@ -10,10 +8,10 @@
   align-items: center;
   justify-content: center;
 
-  width: 3.6rem;
-  height: 3.6rem;
+  width: 2rem;
+  height: 2rem;
 
-  border: 1px solid var(--color-dark-300);
+  border: 2px solid var(--color-dark-300);
   border-radius: 2px;
 }
 
@@ -32,10 +30,10 @@
 
   flex-grow: 1;
 
-  width: 15.5rem;
-  height: 0.5rem;
+  width: 10.5rem;
+  height: 0.3rem;
 
-  background-color: var(--color-accent-900);
+  background-color: var(--color-accent-700);
   border-radius: 2px;
 }
 
@@ -51,8 +49,8 @@
 
   display: block;
 
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 1.2rem;
+  height: 1.2rem;
 
   background-color: var(--color-accent-500);
   border-radius: 1rem;
@@ -61,18 +59,18 @@
     content: '';
 
     position: absolute;
-    top: 0.4rem;
-    left: 0.4rem;
+    top: 0.3rem;
+    left: 0.3rem;
 
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 0.6rem;
+    height: 0.6rem;
 
     background-color: var(--color-light-100);
     border-radius: 50%;
   }
 
   &:hover {
-    background-color: violet;
+    background-color: var(--color-accent-100);
   }
 
   &:focus {

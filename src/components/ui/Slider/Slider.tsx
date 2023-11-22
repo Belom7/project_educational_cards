@@ -22,7 +22,7 @@ export const Slider = forwardRef<ElementRef<typeof SliderRadix.Root>, SliderProp
         </Typography>
 
         <div className={s.container}>
-          <Typography className={s.optionValue} component={'div'} variant={TypographyOption.Body1}>
+          <Typography className={s.optionValue} component={'div'} variant={TypographyOption.Body2}>
             {restProps?.value?.[0]}
           </Typography>
           <SliderRadix.Root className={classNames} ref={ref} {...restProps}>
@@ -32,7 +32,7 @@ export const Slider = forwardRef<ElementRef<typeof SliderRadix.Root>, SliderProp
             <SliderRadix.Thumb aria-label={'Value min'} className={s.thumb} />
             <SliderRadix.Thumb aria-label={'Value max'} className={s.thumb} />
           </SliderRadix.Root>
-          <Typography className={s.optionValue} component={'div'} variant={TypographyOption.Body1}>
+          <Typography className={s.optionValue} component={'div'} variant={TypographyOption.Body2}>
             {restProps?.value?.[1]}
           </Typography>
         </div>
