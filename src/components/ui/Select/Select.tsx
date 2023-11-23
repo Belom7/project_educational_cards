@@ -2,6 +2,10 @@ import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
 import * as SelectRadix from '@radix-ui/react-select'
 
+import s from './Select.module.scss'
+
+import { SelectItem } from './SelectItem'
+
 export type SelectProps = {
   className: string
   value: string
@@ -12,13 +16,19 @@ export const Select = forwardRef<ElementRef<typeof SelectRadix.Root>, SelectProp
     return (
       <div>
         <SelectRadix.Root>
-          <SelectRadix.Trigger>…</SelectRadix.Trigger>
+          <SelectRadix.Trigger>{'Select-box'}</SelectRadix.Trigger>
           <SelectRadix.Portal>
             <SelectRadix.Content>
               <SelectRadix.Viewport>
-                <SelectRadix.Item>{value}</SelectRadix.Item>
-                <SelectRadix.Item>{value}</SelectRadix.Item>
-                <SelectRadix.Item>{value}</SelectRadix.Item>
+                <SelectItem className={s.selectItem} value={'Select-box'}>
+                  {'Select-box'}
+                </SelectItem>
+                <SelectItem className={s.selectItem} value={'Select-box'}>
+                  {'Select-box'}
+                </SelectItem>
+                <SelectItem className={s.selectItem} value={'Select-box'}>
+                  {'Select-box'}
+                </SelectItem>
               </SelectRadix.Viewport>
             </SelectRadix.Content>
           </SelectRadix.Portal>
