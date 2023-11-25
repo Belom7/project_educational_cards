@@ -1,5 +1,6 @@
 import { ComponentProps, ComponentPropsWithoutRef, forwardRef, useState } from 'react'
 
+import { TypographyOption } from '@/common/enums'
 import { Eye, EyeOutline } from '@/components/assets'
 import { Typography } from '@/components/ui/Typography'
 import { clsx } from 'clsx'
@@ -52,7 +53,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
     return (
       <div className={classNames.root}>
         {label && (
-          <Typography className={classNames.label} variant={'Body2'}>
+          <Typography className={classNames.label} variant={TypographyOption.Body2}>
             {label}
           </Typography>
         )}
@@ -76,7 +77,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           )}
         </div>
 
-        <Typography className={classNames.error} variant={'error'}>
+        <Typography className={classNames.error} variant={TypographyOption.Error}>
           {errorMessage}
         </Typography>
       </div>

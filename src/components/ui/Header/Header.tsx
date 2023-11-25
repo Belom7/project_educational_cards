@@ -1,3 +1,4 @@
+import { TypographyOption } from '@/common/enums'
 import { Logo } from '@/components/assets'
 import { Button } from '@/components/ui/Button'
 import { Typography } from '@/components/ui/Typography'
@@ -18,7 +19,7 @@ export const Header = ({ authorized = false, avatar, name = 'Ivan' }: HeaderProp
         <Button className={s.other}>Sing In</Button>
       ) : (
         <div className={s.other}>
-          <Typography className={s.name} variant={'Subtitle1'}>
+          <Typography className={s.name} variant={TypographyOption.Subtitle1}>
             {name}
           </Typography>
           <img alt={''} className={s.avatar} src={avatar ? avatar : ''} />

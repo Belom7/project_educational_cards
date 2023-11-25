@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef, ElementRef, ReactNode, forwardRef } from 'react'
 
+import { TypographyOption } from '@/common/enums'
 import { Typography } from '@/components/ui/Typography'
 import * as Tabs from '@radix-ui/react-tabs'
 import { clsx } from 'clsx'
@@ -18,7 +19,7 @@ const TabsTrigger = forwardRef<ElementRef<typeof Tabs.Trigger>, TabsTriggerProps
   ({ children, className, ...props }, ref) => {
     return (
       <Tabs.Trigger className={clsx(s.trigger, className)} ref={ref} {...props}>
-        <Typography className={className} variant={'Body1'}>
+        <Typography className={className} variant={TypographyOption.Body1}>
           {children}
         </Typography>
       </Tabs.Trigger>

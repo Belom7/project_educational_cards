@@ -1,5 +1,6 @@
 import { ElementRef, forwardRef } from 'react'
 
+import { TypographyOption } from '@/common/enums'
 import { Check } from '@/components/assets'
 import { Typography } from '@/components/ui/Typography'
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
@@ -33,7 +34,11 @@ export const Checkbox = forwardRef<ElementRef<typeof CheckboxRadix.Root>, Checkb
     return (
       <div className={disabled ? classNames.containerDisabled : classNames.container}>
         <LabelRadix.Root asChild>
-          <Typography className={classNames.label} component={'label'} variant={'Body2'}>
+          <Typography
+            className={classNames.label}
+            component={'label'}
+            variant={TypographyOption.Body2}
+          >
             <div className={classNames.buttonWrapper}>
               <CheckboxRadix.Root
                 checked={checked}

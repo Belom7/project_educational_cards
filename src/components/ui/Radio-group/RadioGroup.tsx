@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
+import { TypographyOption } from '@/common/enums'
 import { Typography } from '@/components/ui/Typography'
 import * as RadixRadioGroup from '@radix-ui/react-radio-group'
 import { clsx } from 'clsx'
@@ -34,7 +35,7 @@ const RadioItem = forwardRef<ElementRef<typeof RadixRadioGroup.Item>, RadioItemP
     const clnIndicator = clsx(s.button, s.RadioGroupIndicator)
 
     return (
-      <Typography className={s.Label} component={'label'} variant={'Body2'}>
+      <Typography className={s.Label} component={'label'} variant={TypographyOption.Body2}>
         <RadixRadioGroup.Item className={clnItem} ref={ref} value={title}>
           <RadixRadioGroup.Indicator className={clnIndicator} />
         </RadixRadioGroup.Item>
