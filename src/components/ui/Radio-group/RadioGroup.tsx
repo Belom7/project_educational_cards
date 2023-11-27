@@ -9,7 +9,7 @@ import s from './RadioGroup.module.scss'
 type ItemsProps = {
   title: string
 }
-type RadioGroupProps = {
+export type RadioGroupProps = {
   className?: string
   items: ItemsProps[]
 } & ComponentPropsWithoutRef<typeof RadixRadioGroup.Root>
