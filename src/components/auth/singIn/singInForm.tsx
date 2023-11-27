@@ -1,11 +1,15 @@
 import { useForm } from 'react-hook-form'
 
+import { ButtonOption, TypographyOption } from '@/common/enums'
 import ControlledCheckbox from '@/components/controlled/controlled-checkbox/controlled-checkbox'
 import { ControlledTextField } from '@/components/controlled/controlled-text-field/controlled-text-field'
 import { Button } from '@/components/ui/Button'
-import { DevTool } from '@hookform/devtools'
+import { Card } from '@/components/ui/Cards'
+import { Typography } from '@/components/ui/Typography'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+
+import s from './singInForm.module.scss'
 
 const loginSchema = z
   .object({
@@ -16,7 +20,7 @@ const loginSchema = z
   .partial() // делает поля не обязательными
 
 type FormValues = z.infer<typeof loginSchema>
-export const LoginForm = ({ onSubmit }: { onSubmit: (data: FormValues) => void }) => {
+export const SingInForm = ({ onSubmit }: { onSubmit: (data: FormValues) => void }) => {
   const {
     control,
     formState: { errors },
@@ -31,27 +35,36 @@ export const LoginForm = ({ onSubmit }: { onSubmit: (data: FormValues) => void }
     resolver: zodResolver(loginSchema),
   })
 
-  return (
-    <>
-      <DevTool control={control} />
+  console.log(s.SingInCard)
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+  return (
+    <Card className={s.singInCard}>
+      <Typography variant={TypographyOption.H1}>Sign In</Typography>
+      <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
         <ControlledTextField
           control={control}
           errorMessage={errors.email?.message}
-          label={'email'}
+          label={'Email'}
           name={'email'}
         />
         <ControlledTextField
           control={control}
           errorMessage={errors.password?.message}
-          label={'password'}
+          label={'Password'}
           name={'password'}
           type={'password'}
         />
+        <Typography className={s.forgotPass} variant={TypographyOption.Body2}>
+          Forgot Password?
+        </Typography>
         <ControlledCheckbox control={control} label={'Remember Me'} name={'rememberMe'} />
-        <Button type={'submit'}>Submit</Button>
+        <Button type={'submit'}>Sign In</Button>
       </form>
-    </>
+      <Typography className={s.forgotPass} variant={TypographyOption.Body2}>
+        {`Don't have an account?`}
+      </Typography>
+      {/*  необхогдимо доьавить  as={Link} из реакт дом и to={PATH}*/}
+      <Button variant={ButtonOption.Link}>Sign Up</Button>
+    </Card>
   )
 }
