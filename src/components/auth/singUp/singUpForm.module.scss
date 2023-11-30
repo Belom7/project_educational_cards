@@ -1,0 +1,42 @@
+.singInCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 420px;
+  height: 528px;
+  padding: 40px 0;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.checkbox{
+  margin-top: 5px;
+  margin-left: -7px;
+}
+
+.formButton{
+  margin-top: 60px;
+}
+
+.singUpButton {
+  position: relative;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    bottom: 0.6rem;
+
+    width: 50%;
+    height: 1px;
+
+    background-color: var(--color-accent-500);
+  }
+}
