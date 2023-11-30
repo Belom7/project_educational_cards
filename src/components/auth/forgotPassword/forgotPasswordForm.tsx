@@ -1,0 +1,59 @@
+import { useForm } from 'react-hook-form'
+
+import { ButtonOption, TypographyOption } from '@/common/enums'
+import { ControlledTextField } from '@/components/controlled/controlled-text-field/controlled-text-field'
+import { Button } from '@/components/ui/Button'
+import { Card } from '@/components/ui/Cards'
+import { Typography } from '@/components/ui/Typography'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+
+import s from './forgotPasswordForm.module.scss'
+
+const loginSchema = z
+  .object({
+    email: z.string().email({ message: 'Invalid email address' }),
+  })
+  .partial() // делает поля не обязательными
+
+type FormValues = z.infer<typeof loginSchema>
+export const ForgotPasswordForm = ({ onSubmit }: { onSubmit: (data: FormValues) => void }) => {
+  const {
+    control,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<FormValues>({
+    defaultValues: {
+      email: '',
+    },
+    mode: 'onSubmit',
+    resolver: zodResolver(loginSchema),
+  })
+
+  return (
+    <Card className={s.singInCard}>
+      <Typography variant={TypographyOption.H1}>Forgot your password?</Typography>
+      <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
+        <ControlledTextField
+          control={control}
+          errorMessage={errors.email?.message}
+          label={'Email'}
+          name={'email'}
+        />
+        <Typography className={s.formInformation} variant={TypographyOption.Body2}>
+          Enter your email address and we will send you further instructions
+        </Typography>
+        <Button className={s.formButton} type={'submit'}>
+          <Typography variant={TypographyOption.Subtitle2}>Send Instructions</Typography>
+        </Button>
+      </form>
+      <Typography className={s.formLink} variant={TypographyOption.Body2}>
+        Did you remember your password?
+      </Typography>
+      {/*  необхогдимо доьавить  as={Link} из реакт дом и to={PATH}*/}
+      <Button className={s.tryLoginButton} variant={ButtonOption.Link}>
+        <Typography variant={TypographyOption.Subtitle1}>Try logging in</Typography>
+      </Button>
+    </Card>
+  )
+}
