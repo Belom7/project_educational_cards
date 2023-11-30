@@ -54,17 +54,27 @@ export const SingInForm = ({ onSubmit }: { onSubmit: (data: FormValues) => void 
           name={'password'}
           type={'password'}
         />
+
+        <ControlledCheckbox
+          className={s.checkbox}
+          control={control}
+          label={'Remember Me'}
+          name={'rememberMe'}
+        />
         <Typography className={s.forgotPass} variant={TypographyOption.Body2}>
           Forgot Password?
         </Typography>
-        <ControlledCheckbox control={control} label={'Remember Me'} name={'rememberMe'} />
-        <Button type={'submit'}>Sign In</Button>
+        <Button className={s.formButton} type={'submit'}>
+          <Typography variant={TypographyOption.Subtitle2}>Sign In</Typography>
+        </Button>
       </form>
       <Typography className={s.forgotPass} variant={TypographyOption.Body2}>
         {`Don't have an account?`}
       </Typography>
       {/*  необхогдимо доьавить  as={Link} из реакт дом и to={PATH}*/}
-      <Button variant={ButtonOption.Link}>Sign Up</Button>
+      <Button className={s.singUpButton} variant={ButtonOption.Link}>
+        <Typography variant={TypographyOption.Subtitle1}> Sign Up</Typography>
+      </Button>
     </Card>
   )
 }
