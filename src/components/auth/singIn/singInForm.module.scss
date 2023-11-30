@@ -12,7 +12,6 @@
 .form{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 80%;
 }
 
@@ -22,7 +21,7 @@
 }
 
 .formButton{
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .forgotPass{
@@ -43,5 +42,6 @@
     height: 1px;
 
     background-color: var(--color-accent-500);
+
   }
 }
