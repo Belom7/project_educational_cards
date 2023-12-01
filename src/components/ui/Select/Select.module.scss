@@ -1,5 +1,9 @@
 .title {
-  color: var(--color-dark-100)
+  color: var(--color-dark-100);
+}
+
+.title.disabled {
+  color: var(--color-dark-300);
 }
 
 .trigger {
@@ -12,17 +16,55 @@
   border-radius: 2px;
 
   background: transparent;
-  //width: 100%;
-  //max-width: 210px;
+
+  .icon {
+    pointer-events: auto;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  &:hover {
+    background: var(--color-dark-300);
+  }
+
+  &:focus-visible {
+    border: 1px solid var(--color-info-700);
+    outline: 1px solid var(--color-info-700);
+  }
+
+  &[data-state='open'] .icon {
+    transform: rotate(180deg);
+  }
+
+  &[data-disabled] {
+    color: var(--color-dark-300);
+  }
+
+  &:hover[data-disabled] {
+    cursor: default;
+    background: transparent;
+  }
+
+  &[data-disabled] svg path {
+    fill: var(--color-dark-300);
+  }
 }
 
 .content {
-  border: 1px solid var(--color-dark-300);
   width: var(--radix-select-trigger-width);
+  border: 1px solid var(--color-dark-300);
+  border-radius: 2px;
 }
 
 .selectItem {
+  outline: none;
+  cursor: pointer;
 
+  &:hover {
+    border: none;
+    color: var(--color-accent-300);
+    background: var(--color-accent-900);
+  }
 }
 
 .default {

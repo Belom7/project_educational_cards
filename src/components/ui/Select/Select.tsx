@@ -19,6 +19,7 @@ export type SelectItemArgs = {
 
 export type SelectProps = {
   className?: string
+  disabled?: boolean
   placeholder: ReactNode
   selectItems: SelectItemArgs[]
   title?: string
@@ -32,16 +33,19 @@ export const Select = forwardRef<ElementRef<typeof SelectRadix.Root>, SelectProp
   ): JSX.Element => {
     const option = variant === 'default' ? TypographyOption.Body1 : TypographyOption.Body2
 
-    const classNames = clsx(s[`${variant}Paddings`], s[variant], s.selectItem, className)
+    const classNames = {
+      title: clsx(s.title, disabled && s.disabled),
+      trigger: clsx(s[`${variant}Paddings`], s[variant], s.trigger, className),
+    }
 
     return (
       <SelectRadix.Root disabled={disabled} {...restProps}>
         {title && (
-          <Typography className={s.title} variant={TypographyOption.Body2}>
+          <Typography className={classNames.title} variant={TypographyOption.Body2}>
             {title}
           </Typography>
         )}
-        <SelectRadix.Trigger className={classNames + ' ' + s.trigger} ref={ref}>
+        <SelectRadix.Trigger className={classNames.trigger} ref={ref}>
           <Typography variant={option}>
             <SelectRadix.Value placeholder={placeholder} />
           </Typography>
