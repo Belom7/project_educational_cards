@@ -20,7 +20,8 @@ export type SelectItemArgs = {
 export type SelectProps = {
   className?: string
   disabled?: boolean
-  placeholder: ReactNode
+  fullWidth?: boolean
+  placeholder?: ReactNode
   selectItems: SelectItemArgs[]
   title?: string
   variant: SelectVariant
@@ -28,14 +29,29 @@ export type SelectProps = {
 
 export const Select = forwardRef<ElementRef<typeof SelectRadix.Root>, SelectProps>(
   (
-    { className, disabled, placeholder, selectItems, title, variant = 'default', ...restProps },
+    {
+      className,
+      disabled,
+      fullWidth = false,
+      placeholder = 'Select value',
+      selectItems,
+      title,
+      variant = 'default',
+      ...restProps
+    },
     ref
   ): JSX.Element => {
     const option = variant === 'default' ? TypographyOption.Body1 : TypographyOption.Body2
 
     const classNames = {
       title: clsx(s.title, disabled && s.disabled),
-      trigger: clsx(s[`${variant}Paddings`], s[variant], s.trigger, className),
+      trigger: clsx(
+        s[`${variant}Paddings`],
+        s[variant],
+        s.trigger,
+        fullWidth && s.fullWidth,
+        className
+      ),
     }
 
     return (
