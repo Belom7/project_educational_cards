@@ -1,0 +1,28 @@
+.singInCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 420px;
+  height: 408px;
+  padding: 40px 0;
+}
+
+.formTextInformation{
+  color:var(--color-light-900);
+}
+
+.formWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formButton{
+  width: 70%;
+  margin-top: 40px;
+}
+
+
+

@@ -1,6 +1,7 @@
-export { default as UnfilledStar } from './UnfilledStar'
 export { default as FilledStar } from './FilledStar'
+export { default as UnfilledStar } from './UnfilledStar'
 export { default as Check } from './check'
+export { default as CheckEmailIcon } from './checkEmailIcon'
 export { default as KeyboardArrowDown } from './componentsFromIcon/KeyboardArrowDown'
 export { default as KeyboardArrowLeft } from './componentsFromIcon/KeyboardArrowLeft'
 export { default as KeyboardArrowRight } from './componentsFromIcon/KeyboardArrowRight'
