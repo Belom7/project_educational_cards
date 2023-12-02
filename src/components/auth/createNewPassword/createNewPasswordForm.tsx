@@ -8,7 +8,7 @@ import { Typography } from '@/components/ui/Typography'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
-import s from './createNewPasswordFoem.module.scss'
+import s from './createNewPasswordForm.module.scss'
 
 const loginSchema = z
   .object({
