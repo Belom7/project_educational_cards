@@ -12,6 +12,7 @@
 .form{
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   width: 80%;
 }
 
@@ -21,15 +22,15 @@
 }
 
 .formButton{
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
-.forgotPass{
-  display: flex;
-  justify-content: right;
+.formHaveAccount{
+  margin-top: 20px;
+  color:var(--color-light-900);
 }
 
-.singUpButton {
+.singInButton {
   position: relative;
 
   &::before {
@@ -42,6 +43,5 @@
     height: 1px;
 
     background-color: var(--color-accent-500);
-
   }
 }

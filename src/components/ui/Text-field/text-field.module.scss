@@ -1,10 +1,11 @@
 .root {
   width: 100%;
+  margin-top: 20px;
 }
 
 .fieldContainer {
-  width: 100%;
   position: relative;
+  width: 100%;
 }
 
 .field {
@@ -28,8 +29,8 @@
   }
 
   &:focus-visible {
-    outline: 1px solid var(--color-outline-focus);
     border-color: var(--color-outline-focus);
+    outline: 1px solid var(--color-outline-focus);
   }
 
   &:hover {
@@ -37,8 +38,8 @@
   }
 
   &.error {
-    border-color: var(--color-danger-300);
     color: var(--color-danger-300);
+    border-color: var(--color-danger-300);
   }
 }
 
@@ -51,10 +52,10 @@
   cursor: pointer;
 
   position: absolute;
-  bottom: 50%;
   top: 50%;
-  transform: translateY(-50%);
   right: 0;
+  bottom: 50%;
+  transform: translateY(-50%);
 
   width: 20px;
   height: 20px;
