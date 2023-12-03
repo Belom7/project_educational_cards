@@ -1,0 +1,33 @@
+.EditProfileCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+justify-content: space-evenly;
+
+  width: 420px;
+  height: 420px;
+
+}
+
+.avatar{
+  width: 96px;
+  height: 96px;
+  background-color: floralwhite;
+  border-radius: 50%;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+
+}
+
+
+
+.formButton{
+  margin-top: 30px;
+}
+
+
+
