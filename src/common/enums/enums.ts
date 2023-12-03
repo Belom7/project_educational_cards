@@ -15,6 +15,7 @@ export enum TypographyOption {
 }
 
 export enum ButtonOption {
+  Icon = 'icon',
   Link = 'link',
   Primary = 'primary',
   Secondary = 'secondary',

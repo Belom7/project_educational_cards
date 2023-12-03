@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { ButtonOption } from '@/common/enums'
+import { EditPencil } from '@/components/assets'
 import { LogOutIcon } from '@/components/assets/icons/componentsFromIcon/LogOutIcon'
 
 import { Button } from './Button'
@@ -89,5 +90,11 @@ export const AsLink: Story = {
     as: 'a',
     children: 'Link that looks like a Button',
     variant: ButtonOption.Link,
+  },
+}
+export const WithIcon: Story = {
+  args: {
+    children: <EditPencil />,
+    variant: ButtonOption.Icon,
   },
 }
