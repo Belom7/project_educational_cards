@@ -12,16 +12,41 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const defaultSelectItems: SelectItemArgs[] = [
-  { child: 'Select-box', value: 'Select-box1' },
-  { child: 'Select-box', value: 'Select-box2' },
-  { child: 'Select-box', value: 'Select-box3' },
+  { child: 'Select-box1', value: 'Select-box1' },
+  { child: 'Select-box2', value: 'Select-box2' },
+  { child: 'Select-box3', value: 'Select-box3' },
 ]
 
 export const Default: Story = {
   args: {
     className: 'default',
     disabled: false,
-    placeholder: defaultSelectItems[0].child,
+    fullWidth: false,
+    placeholder: 'Select value',
+    selectItems: defaultSelectItems,
+    title: 'Select-box',
+    variant: 'default',
+  },
+}
+
+export const fullWidth: Story = {
+  args: {
+    className: 'default',
+    disabled: false,
+    fullWidth: true,
+    placeholder: 'Select value',
+    selectItems: defaultSelectItems,
+    title: 'Select-box',
+    variant: 'default',
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    className: 'default',
+    disabled: true,
+    fullWidth: false,
+    placeholder: 'Select value',
     selectItems: defaultSelectItems,
     title: 'Select-box',
     variant: 'default',
