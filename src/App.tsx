@@ -1,3 +1,5 @@
+import { Router } from '@/common/routes'
+
 export function App() {
-  return <div>Hello</div>
+  return <Router />
 }

@@ -1,5 +1,7 @@
 import { ComponentProps, ComponentPropsWithoutRef, ElementRef, FC, forwardRef } from 'react'
 
+import { TypographyOption } from '@/common/enums'
+import { ArrowUp } from '@/components/assets'
 import { Typography } from '@/components/ui/Typography'
 import { clsx } from 'clsx'
 
@@ -61,8 +63,12 @@ export const TableHeader: FC<
       <tr>
         {columns.map(({ key, sortable, title }) => (
           <th key={key} onClick={handleSort(key, sortable)}>
-            {title}
-            {sort && sort.key === key && <span>{sort?.direction === 'asc' ? '▲' : '▼'}</span>}
+            <Typography className={s.tableHeaderTypography} variant={TypographyOption.Subtitle2}>
+              {title}
+              {sort && sort.key === key && (
+                <>{sort?.direction === 'asc' ? <ArrowUp /> : <ArrowUp className={s.icon} />}</>
+              )}
+            </Typography>
           </th>
         ))}
       </tr>
@@ -114,7 +120,7 @@ export const TableEmpty: FC<ComponentProps<'div'> & { mb?: string; mt?: string }
     <Typography
       className={classNames.empty}
       style={{ marginBottom: mb, marginTop: mt }}
-      variant={'h2'}
+      variant={TypographyOption.H2}
     >
       Пока тут еще нет данных!
     </Typography>

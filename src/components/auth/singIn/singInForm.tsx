@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 
-import { ButtonOption, TypographyOption } from '@/common/enums'
+import { ButtonOption, Routes, TypographyOption } from '@/common/enums'
 import ControlledCheckbox from '@/components/controlled/controlled-checkbox/controlled-checkbox'
 import { ControlledTextField } from '@/components/controlled/controlled-text-field/controlled-text-field'
 import { Button } from '@/components/ui/Button'
@@ -72,7 +73,7 @@ export const SingInForm = ({ onSubmit }: { onSubmit: (data: FormValues) => void 
         {`Don't have an account?`}
       </Typography>
       {/*  необхогдимо доьавить  as={Link} из реакт дом и to={PATH}*/}
-      <Button className={s.singUpButton} variant={ButtonOption.Link}>
+      <Button as={Link} className={s.singUpButton} to={Routes.SignUp} variant={ButtonOption.Link}>
         <Typography variant={TypographyOption.Subtitle1}> Sign Up</Typography>
       </Button>
     </Card>

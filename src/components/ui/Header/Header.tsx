@@ -6,7 +6,7 @@ import { Typography } from '@/components/ui/Typography'
 import s from './Header.module.scss'
 type HeaderProps = {
   authorized: boolean
-  avatar: any
+  avatar?: any
   name?: string
 }
 export const Header = ({ authorized = false, avatar, name = 'Ivan' }: HeaderProps) => {
@@ -15,7 +15,7 @@ export const Header = ({ authorized = false, avatar, name = 'Ivan' }: HeaderProp
       <div className={s.logo}>
         <Logo />
       </div>
-      {authorized ? (
+      {!authorized ? (
         <Button className={s.other}>Sing In</Button>
       ) : (
         <div className={s.other}>
