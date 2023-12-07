@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementRef, ReactNode, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, ElementRef, JSX, ReactNode, forwardRef } from 'react'
 
 import { TypographyOption } from '@/common/enums'
 import { KeyboardArrowDown } from '@/components/assets/icons'
@@ -24,7 +24,7 @@ export type SelectProps = {
   placeholder?: ReactNode
   selectItems: SelectItemArgs[]
   title?: string
-  variant: SelectVariant
+  variant?: SelectVariant
 } & ComponentPropsWithoutRef<typeof SelectRadix.Root>
 
 export const Select = forwardRef<ElementRef<typeof SelectRadix.Root>, SelectProps>(
@@ -33,9 +33,11 @@ export const Select = forwardRef<ElementRef<typeof SelectRadix.Root>, SelectProp
       className,
       disabled,
       fullWidth = false,
+      onValueChange,
       placeholder = 'Select value',
       selectItems,
       title,
+      value,
       variant = 'default',
       ...restProps
     },
@@ -55,7 +57,12 @@ export const Select = forwardRef<ElementRef<typeof SelectRadix.Root>, SelectProp
     }
 
     return (
-      <SelectRadix.Root disabled={disabled} {...restProps}>
+      <SelectRadix.Root
+        disabled={disabled}
+        {...restProps}
+        onValueChange={onValueChange}
+        value={value}
+      >
         {title && (
           <Typography className={classNames.title} variant={TypographyOption.Body2}>
             {title}
