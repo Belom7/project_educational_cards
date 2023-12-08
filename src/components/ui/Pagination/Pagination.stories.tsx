@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import { Pagination } from '@/components/ui/Pagination/Pagination'
 import { SelectItemArgs } from '@/components/ui/Select'
 import { Meta, StoryObj } from '@storybook/react'
@@ -12,11 +14,33 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const paginationSelectItems: SelectItemArgs[] = [
+  { child: '5', value: '5' },
   { child: '10', value: '10' },
-  { child: '25', value: '25' },
+  { child: '20', value: '20' },
   { child: '50', value: '50' },
-  { child: '100', value: '100' },
 ]
+
+const PaginationWithLocalState = () => {
+  const [itemsPerPage, setItemsPerPage] = useState(Number(paginationSelectItems[1].value))
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const onChangeItemsPerPage = (value: string) => {
+    setItemsPerPage(Number(value))
+  }
+
+  return (
+    <Pagination
+      currentPage={currentPage}
+      itemsCount={111}
+      itemsPerPage={itemsPerPage}
+      onValueChange={onChangeItemsPerPage}
+      placeholder={paginationSelectItems[1].child}
+      selectItems={paginationSelectItems}
+      setCurrentPage={setCurrentPage}
+      variant={'pagination'}
+    />
+  )
+}
 
 export const Default: Story = {
   args: {
@@ -27,4 +51,8 @@ export const Default: Story = {
     selectItems: paginationSelectItems,
     variant: 'pagination',
   },
+}
+
+export const Controlled: Story = {
+  render: () => <PaginationWithLocalState />,
 }
