@@ -1,13 +1,19 @@
 .pagination {
   display: flex;
   align-items: center;
-  gap: 1.5rem
-}
+  gap: 1.5rem;
 
-.pages {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .75rem
+  .pages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem
+  }
+
+  .select {
+    display: flex;
+    align-items: center;
+    gap: .75rem
+  }
 }
 
 .pageItem {
@@ -22,28 +28,23 @@
   color: var(--color-light-100);
 
   &:hover {
-    background-color: var(--color-dark-500);
+    background-color: var(--color-dark-300); // correct value var(--color-dark-500) merges with the background
     color: var(--color-light-100);
     cursor: pointer;
   }
-}
 
-.active {
-  background-color: var(--color-light-100);
-  color: var(--color-dark-900);
-}
-
-.disabled {
-  color: var(--color-dark-100);
-
-  &:hover {
-    color: var(--color-dark-100);
-    cursor: default;
+  &.active {
+    background-color: var(--color-light-100);
+    color: var(--color-dark-900);
   }
-}
 
-.select {
-  display: flex;
-  align-items: center;
-  gap: .75rem
+  &.disabled {
+    color: var(--color-dark-100);
+
+    &:hover {
+      color: var(--color-dark-100);
+      background-color: var(--color-dark-500);
+      cursor: default;
+    }
+  }
 }
