@@ -33,6 +33,15 @@
   color: var(--color-dark-900);
 }
 
+.disabled {
+  color: var(--color-dark-100);
+
+  &:hover {
+    color: var(--color-dark-100);
+    cursor: default;
+  }
+}
+
 .select {
   display: flex;
   align-items: center;

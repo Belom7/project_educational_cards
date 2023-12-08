@@ -34,7 +34,11 @@ export const Pagination: FC<PaginationProps> = ({
   return (
     <div aria-label={'Pagination'} className={s.pagination}>
       <div className={s.pages}>
-        <PageItem page={currentPage - 1} setCurrentPage={setCurrentPage}>
+        <PageItem
+          disabled={currentPage === 1}
+          page={currentPage - 1}
+          setCurrentPage={setCurrentPage}
+        >
           <KeyboardArrowLeft />
         </PageItem>
         {pagesArr.map((p, idx) => {
@@ -44,7 +48,11 @@ export const Pagination: FC<PaginationProps> = ({
             </PageItem>
           )
         })}
-        <PageItem page={currentPage + 1} setCurrentPage={setCurrentPage}>
+        <PageItem
+          disabled={currentPage === pagesCount}
+          page={currentPage + 1}
+          setCurrentPage={setCurrentPage}
+        >
           <KeyboardArrowRight />
         </PageItem>
       </div>
