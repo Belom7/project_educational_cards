@@ -13,23 +13,20 @@ export type PaginationProps = {
   itemsCount: number
   itemsPerPage: number
   setCurrentPage: (pageNumber: number) => void
-  setItemsPerPage: (pageNumber: number) => void
 } & SelectProps
 
 export const Pagination: FC<PaginationProps> = ({
   currentPage,
   itemsCount,
   itemsPerPage,
+  onValueChange,
   placeholder = itemsCount,
   selectItems,
   setCurrentPage,
-  setItemsPerPage,
   variant = 'pagination',
 }): JSX.Element => {
   const pagesCount = Math.ceil(itemsCount / itemsPerPage)
   const pagesArr = [...Array(pagesCount).keys()].map(i => i + 1)
-
-  const setItemsPerPageToNumber = (value: string) => setItemsPerPage(Number(value))
 
   return (
     <div aria-label={'Pagination'} className={s.pagination}>
@@ -59,7 +56,7 @@ export const Pagination: FC<PaginationProps> = ({
       <div className={s.select}>
         <Typography variant={TypographyOption.Body2}>Показать</Typography>
         <Select
-          onValueChange={setItemsPerPageToNumber}
+          onValueChange={onValueChange}
           placeholder={placeholder}
           selectItems={selectItems}
           variant={variant}

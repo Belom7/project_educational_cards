@@ -25,8 +25,11 @@ const PaginationWithLocalState = () => {
   const [currentPage, setCurrentPage] = useState(1)
 
   const onChangeItemsPerPage = (value: string) => {
+    setCurrentPage(1)
     setItemsPerPage(Number(value))
   }
+
+  console.log(currentPage)
 
   return (
     <Pagination
@@ -37,7 +40,6 @@ const PaginationWithLocalState = () => {
       placeholder={paginationSelectItems[1].child}
       selectItems={paginationSelectItems}
       setCurrentPage={setCurrentPage}
-      setItemsPerPage={setItemsPerPage}
     />
   )
 }
