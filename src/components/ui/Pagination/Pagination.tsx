@@ -12,7 +12,7 @@ export type PaginationProps = {
   currentPage: number
   itemsCount: number
   itemsPerPage: number
-  setPage: (pageNumber: number) => void
+  setCurrentPage: (pageNumber: number) => void
 } & SelectProps
 
 export const Pagination: FC<PaginationProps> = ({
@@ -21,6 +21,7 @@ export const Pagination: FC<PaginationProps> = ({
   itemsPerPage,
   placeholder = itemsCount,
   selectItems,
+  setCurrentPage,
   variant = 'pagination',
 }): JSX.Element => {
   const pagesCount = Math.ceil(itemsCount / itemsPerPage)
@@ -29,17 +30,17 @@ export const Pagination: FC<PaginationProps> = ({
   return (
     <div aria-label={'Pagination'} className={s.pagination}>
       <div className={s.pages}>
-        <PageItem>
+        <PageItem page={currentPage - 1} setCurrentPage={setCurrentPage}>
           <KeyboardArrowLeft />
         </PageItem>
         {pagesArr.map((p, idx) => {
           return (
-            <PageItem active={p === currentPage} key={idx}>
+            <PageItem active={p === currentPage} key={idx} page={p} setCurrentPage={setCurrentPage}>
               <Typography variant={TypographyOption.Body2}>{p}</Typography>
             </PageItem>
           )
         })}
-        <PageItem>
+        <PageItem page={currentPage + 1} setCurrentPage={setCurrentPage}>
           <KeyboardArrowRight />
         </PageItem>
       </div>
