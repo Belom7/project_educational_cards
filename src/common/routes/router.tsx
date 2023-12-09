@@ -6,6 +6,7 @@ import {
   createBrowserRouter,
 } from 'react-router-dom'
 
+import { ForgotPasswordPage } from '@/common/pages/forgotPasswordPage'
 import { LoginPage } from '@/common/pages/loginPage'
 import { SingUpPage } from '@/common/pages/singUpPage'
 
@@ -17,6 +18,10 @@ const publicRoutes: RouteObject[] = [
   {
     element: <SingUpPage />,
     path: '/sign-up',
+  },
+  {
+    element: <ForgotPasswordPage />,
+    path: '/forgot-password',
   },
 ]
 
