@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 
-import { ButtonOption, TypographyOption } from '@/common/enums'
+import { ButtonOption, Routes, TypographyOption } from '@/common/enums'
 import { ControlledTextField } from '@/components/controlled/controlled-text-field/controlled-text-field'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Cards'
@@ -51,7 +52,7 @@ export const ForgotPasswordForm = ({ onSubmit }: { onSubmit: (data: FormValues) 
         Did you remember your password?
       </Typography>
       {/*  необхогдимо доьавить  as={Link} из реакт дом и to={PATH}*/}
-      <Button className={s.tryLoginButton} variant={ButtonOption.Link}>
+      <Button as={Link} className={s.tryLoginButton} to={Routes.Login} variant={ButtonOption.Link}>
         <Typography variant={TypographyOption.Subtitle1}>Try logging in</Typography>
       </Button>
     </Card>
