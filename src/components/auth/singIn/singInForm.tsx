@@ -62,9 +62,14 @@ export const SingInForm = ({ onSubmit }: { onSubmit: (data: FormValues) => void 
           label={'Remember Me'}
           name={'rememberMe'}
         />
-        <Typography className={s.forgotPass} variant={TypographyOption.Body2}>
-          Forgot Password?
-        </Typography>
+        <Button
+          as={Link}
+          className={s.forgotPass}
+          to={Routes.ForgotPassword}
+          variant={ButtonOption.Link}
+        >
+          <Typography variant={TypographyOption.Body2}>Forgot Password?</Typography>
+        </Button>
         <Button className={s.formButton} type={'submit'}>
           <Typography variant={TypographyOption.Subtitle2}>Sign In</Typography>
         </Button>

@@ -22,6 +22,7 @@ export enum ButtonOption {
   Tertiary = 'tertiary',
 }
 export enum Routes {
+  ForgotPassword = '/forgot-password',
   Login = '/login',
   SignUp = '/sign-up',
 }

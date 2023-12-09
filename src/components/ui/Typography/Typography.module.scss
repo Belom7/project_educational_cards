@@ -43,6 +43,10 @@
   @include typography(var(--font-size-s), var(--line-height-m), var(--font-weight-regular));
 
   text-decoration-line: underline;
+
+  &:visited{
+    color: var(--color-accent-500);
+  }
 }
 
 .link2 {
