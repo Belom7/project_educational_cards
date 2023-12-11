@@ -3,6 +3,7 @@ import { FC, JSX } from 'react'
 import { TypographyOption } from '@/common/enums'
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@/components/assets/icons'
 import { PageItem } from '@/components/ui/Pagination/PageItem'
+import { usePagination } from '@/components/ui/Pagination/usePagination'
 import { Select, SelectProps } from '@/components/ui/Select'
 import { Typography } from '@/components/ui/Typography'
 
@@ -12,13 +13,17 @@ export type PaginationProps = {
   currentPage: number
   itemsCount: number
   itemsPerPage: number
+  maxLength?: 5 | 7 | 9
   setCurrentPage: (pageNumber: number) => void
 } & SelectProps
+
+export const ELLIPSIS = '...'
 
 export const Pagination: FC<PaginationProps> = ({
   currentPage,
   itemsCount,
   itemsPerPage,
+  maxLength = 7,
   onValueChange,
   placeholder = itemsCount,
   selectItems,
@@ -26,7 +31,7 @@ export const Pagination: FC<PaginationProps> = ({
   variant = 'pagination',
 }): JSX.Element => {
   const pagesCount = Math.ceil(itemsCount / itemsPerPage)
-  const pagesArr = [...Array(pagesCount).keys()].map(i => i + 1)
+  const pageArr = usePagination(currentPage, pagesCount, maxLength)
 
   return (
     <div aria-label={'Pagination'} className={s.pagination}>
@@ -38,10 +43,16 @@ export const Pagination: FC<PaginationProps> = ({
         >
           <KeyboardArrowLeft />
         </PageItem>
-        {pagesArr.map((p, idx) => {
+        {pageArr.map((p, idx) => {
           return (
-            <PageItem active={p === currentPage} key={idx} page={p} setCurrentPage={setCurrentPage}>
-              <Typography variant={TypographyOption.Body2}>{p}</Typography>
+            <PageItem
+              active={p === currentPage}
+              disabled={isNaN(p)}
+              key={idx}
+              page={p}
+              setCurrentPage={setCurrentPage}
+            >
+              <Typography variant={TypographyOption.Body2}>{!isNaN(p) ? p : ELLIPSIS}</Typography>
             </PageItem>
           )
         })}
