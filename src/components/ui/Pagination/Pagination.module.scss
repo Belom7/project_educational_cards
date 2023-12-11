@@ -28,7 +28,7 @@
   color: var(--color-light-100);
 
   &:hover {
-    background-color: var(--color-dark-300); // correct value var(--color-dark-500) merges with the background
+    background-color: var(--color-dark-500);
     color: var(--color-light-100);
     cursor: pointer;
   }
@@ -42,8 +42,7 @@
     color: var(--color-dark-100);
 
     &:hover {
-      color: var(--color-dark-100);
-      background-color: var(--color-dark-500);
+      background-color: transparent;
       cursor: default;
     }
   }
