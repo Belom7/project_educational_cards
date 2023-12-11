@@ -26,7 +26,7 @@ export const PageItem: FC<PageItemProps> = ({
   }
 
   return (
-    <a className={pageItemClassNames} onClick={() => setCurrentPage(page)}>
+    <a className={pageItemClassNames} onClick={() => setCurrentPage(page)} tabIndex={0}>
       {children}
     </a>
   )

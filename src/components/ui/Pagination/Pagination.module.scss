@@ -38,6 +38,10 @@
     color: var(--color-dark-900);
   }
 
+  &:focus-visible {
+    outline: 2px solid var(--color-info-700);
+  }
+
   &.disabled {
     color: var(--color-dark-100);
 
