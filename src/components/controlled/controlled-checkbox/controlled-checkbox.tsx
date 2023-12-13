@@ -4,7 +4,7 @@ import { Checkbox, CheckboxProps } from '@/components/ui/Check-box'
 
 type Props<T extends FieldValues> = UseControllerProps<T> &
   Omit<CheckboxProps, 'checked' | 'onValueChange'>
-const ControlledCheckbox = <T extends FieldValues>({
+export const ControlledCheckbox = <T extends FieldValues>({
   control,
   defaultValue,
   disabled,
@@ -35,5 +35,3 @@ const ControlledCheckbox = <T extends FieldValues>({
     />
   )
 }
-
-export default ControlledCheckbox
