@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef, ElementRef, JSX, ReactNode, forwardRef } from 'react'
 
+import { CloseIcon } from '@/components/assets/icons/componentsFromIcon/CloseIcon'
 import * as DialogRadix from '@radix-ui/react-dialog'
 
 export type ModalProps = {
@@ -21,7 +22,9 @@ export const Modal = forwardRef<ElementRef<typeof DialogRadix.Root>, ModalProps>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi cumque facere
               laboriosam nam perspiciatis porro repudiandae saepe ullam. Dignissimos, laboriosam.
             </DialogRadix.Description>
-            <DialogRadix.Close>close</DialogRadix.Close>
+            <DialogRadix.Close>
+              <CloseIcon />
+            </DialogRadix.Close>
           </DialogRadix.Content>
         </DialogRadix.Portal>
       </DialogRadix.Root>
