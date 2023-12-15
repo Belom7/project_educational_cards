@@ -2,11 +2,11 @@ import { ComponentPropsWithoutRef, ElementRef, JSX, ReactNode, forwardRef } from
 
 import * as DialogRadix from '@radix-ui/react-dialog'
 
-export type ModalsProps = {
+export type ModalProps = {
   trigger: ReactNode
 } & ComponentPropsWithoutRef<'div'>
 
-export const Modals = forwardRef<ElementRef<typeof DialogRadix.Root>, ModalsProps>(
+export const Modal = forwardRef<ElementRef<typeof DialogRadix.Root>, ModalProps>(
   ({ trigger }, ref): JSX.Element => {
     return (
       <DialogRadix.Root>
@@ -16,9 +16,12 @@ export const Modals = forwardRef<ElementRef<typeof DialogRadix.Root>, ModalsProp
         <DialogRadix.Portal>
           <DialogRadix.Overlay />
           <DialogRadix.Content>
-            <DialogRadix.Title />
-            <DialogRadix.Description />
-            <DialogRadix.Close />
+            <DialogRadix.Title>Title</DialogRadix.Title>
+            <DialogRadix.Description>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi cumque facere
+              laboriosam nam perspiciatis porro repudiandae saepe ullam. Dignissimos, laboriosam.
+            </DialogRadix.Description>
+            <DialogRadix.Close>close</DialogRadix.Close>
           </DialogRadix.Content>
         </DialogRadix.Portal>
       </DialogRadix.Root>
