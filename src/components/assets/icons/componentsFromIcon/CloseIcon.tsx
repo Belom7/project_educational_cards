@@ -22,7 +22,7 @@ export const CloseIcon = forwardRef((allProps: IconProps, ref: Ref<SVGSVGElement
               d={
                 'm13.41 12 4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29-4.3 4.29A1 1 0 0 0 7 18.01a1 1 0 0 0 .71-.3l4.29-4.3 4.29 4.3a1 1 0 1 0 1.42-1.42L13.41 12Z'
               }
-              fill={'#000'}
+              fill={'#fff'}
             />
           </g>
           <defs>
