@@ -29,3 +29,17 @@
   max-height: 30rem;
   overflow-y: auto;
 }
+
+::-webkit-scrollbar {
+  width: .6rem;
+
+  &-track {
+    background-color: var(--color-dark-700);
+  }
+
+  &-thumb {
+    background-color: var(--color-dark-300);
+    border-radius: 8px;
+    border: 2px solid var(--color-dark-700);
+  }
+}
