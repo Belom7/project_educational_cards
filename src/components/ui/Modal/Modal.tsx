@@ -48,7 +48,9 @@ export const Modal = forwardRef<ElementRef<typeof DialogRadix.Root>, ModalProps>
                 <div className={classNames.header}>
                   <Typography variant={TypographyOption.H2}>{title}</Typography>
                   <DialogRadix.Close asChild>
-                    <CloseIcon />
+                    <Button variant={ButtonOption.Icon}>
+                      <CloseIcon />
+                    </Button>
                   </DialogRadix.Close>
                 </div>
                 <div className={classNames.content}>{children}</div>
