@@ -1,32 +1,61 @@
 import { ComponentPropsWithoutRef, ElementRef, JSX, ReactNode, forwardRef } from 'react'
 
+import { ButtonOption, TypographyOption } from '@/common/enums'
+import { Button, Card, Typography } from '@/components'
 import { CloseIcon } from '@/components/assets/icons/componentsFromIcon/CloseIcon'
 import * as DialogRadix from '@radix-ui/react-dialog'
+import { clsx } from 'clsx'
+
+import s from './Modal.module.scss'
 
 export type ModalProps = {
-  trigger: ReactNode
+  isOpen: boolean
+  onOpen: (open: boolean) => void
+  title: string
+  trigger?: ReactNode
 } & ComponentPropsWithoutRef<'div'>
 
 export const Modal = forwardRef<ElementRef<typeof DialogRadix.Root>, ModalProps>(
-  ({ trigger }, ref): JSX.Element => {
+  (
+    {
+      children,
+      className,
+      isOpen,
+      onOpen,
+      title,
+      trigger = <Button variant={ButtonOption.Primary}>Open Modal</Button>,
+      ...restProps
+    },
+    ref
+  ): JSX.Element => {
+    const classNames = {
+      content: s.content,
+      header: s.header,
+      overlay: s.overlay,
+      root: clsx(s.root, className),
+    }
+
     return (
-      <DialogRadix.Root>
+      <DialogRadix.Root onOpenChange={onOpen} open={isOpen}>
         <DialogRadix.Trigger asChild ref={ref}>
-          {trigger}
+          <Typography variant={TypographyOption.Subtitle2}>{trigger}</Typography>
         </DialogRadix.Trigger>
-        <DialogRadix.Portal>
-          <DialogRadix.Overlay />
-          <DialogRadix.Content>
-            <DialogRadix.Title>Title</DialogRadix.Title>
-            <DialogRadix.Description>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi cumque facere
-              laboriosam nam perspiciatis porro repudiandae saepe ullam. Dignissimos, laboriosam.
-            </DialogRadix.Description>
-            <DialogRadix.Close>
-              <CloseIcon />
-            </DialogRadix.Close>
-          </DialogRadix.Content>
-        </DialogRadix.Portal>
+        {isOpen && (
+          <DialogRadix.Portal forceMount>
+            <DialogRadix.Overlay className={classNames.overlay} />
+            <DialogRadix.Content {...restProps}>
+              <Card className={classNames.root}>
+                <div className={classNames.header}>
+                  <Typography variant={TypographyOption.H2}>{title}</Typography>
+                  <DialogRadix.Close asChild>
+                    <CloseIcon />
+                  </DialogRadix.Close>
+                </div>
+                <div className={classNames.content}>{children}</div>
+              </Card>
+            </DialogRadix.Content>
+          </DialogRadix.Portal>
+        )}
       </DialogRadix.Root>
     )
   }
