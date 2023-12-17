@@ -20,21 +20,22 @@ const ModalTextControlled = (props: ModalProps) => {
 
   return (
     <Modal isOpen={isOpen} onOpen={setIsOpen} title={props.title}>
-      {
-        <Typography variant={TypographyOption.Body1}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Ut enim ad minim veniamdsa. Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit. Aspernatur consectetur, dolorem et fugiat molestiae
-          reprehenderit tenetur. A ab, alias amet atque beatae cum dicta eligendi fuga hic libero
-          mollitia omnis quia repudiandae tempore totam unde velit.
-        </Typography>
-      }
+      {props.children}
     </Modal>
   )
 }
 
 export const TextModal: Story = {
   args: {
+    children: (
+      <Typography variant={TypographyOption.Body1}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniamdsa. Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit. Aspernatur consectetur, dolorem et fugiat molestiae
+        reprehenderit tenetur. A ab, alias amet atque beatae cum dicta eligendi fuga hic libero
+        mollitia omnis quia repudiandae tempore totam unde velit.
+      </Typography>
+    ),
     isOpen: false,
     title: 'Title',
   },
