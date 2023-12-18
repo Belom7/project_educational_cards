@@ -9,7 +9,7 @@ import { clsx } from 'clsx'
 import s from './Modal.module.scss'
 
 export type ModalProps = {
-  isOpen: boolean
+  isOpen?: boolean
   onOpen: (open: boolean) => void
   title: string
   trigger?: ReactNode
@@ -20,7 +20,7 @@ export const Modal = forwardRef<ElementRef<typeof DialogRadix.Root>, ModalProps>
     {
       children,
       className,
-      isOpen,
+      isOpen = false,
       onOpen,
       title,
       trigger = <Button variant={ButtonOption.Primary}>Open Modal</Button>,

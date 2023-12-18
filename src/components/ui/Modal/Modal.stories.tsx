@@ -16,7 +16,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const ModalControlled = (props: ModalProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(props.isOpen)
+  const [isOpen, setIsOpen] = useState<boolean>(
+    props.isOpen || (props.isOpen === undefined && false)
+  )
 
   return (
     <Modal isOpen={isOpen} onOpen={() => setIsOpen(!isOpen)} title={props.title}>
@@ -36,7 +38,6 @@ export const TextModal: Story = {
         mollitia omnis quia repudiandae tempore totam unde velit.
       </Typography>
     ),
-    isOpen: false,
     title: 'Title',
   },
   render: props => <ModalControlled {...props} />,
@@ -67,7 +68,6 @@ export const TextWithScrollbarModal: Story = {
         officiis porro provident, reiciendis voluptatem!
       </Typography>
     ),
-    isOpen: false,
     title: 'Title',
   },
   render: props => <ModalControlled {...props} />,
@@ -89,7 +89,6 @@ export const TextWithButtonModal: Story = {
         </div>
       </>
     ),
-    isOpen: false,
     title: 'Title',
   },
   render: props => <ModalControlled {...props} />,
@@ -121,7 +120,6 @@ export const FormModal: Story = {
         </div>
       </>
     ),
-    isOpen: false,
     title: 'Form',
   },
   render: props => <ModalControlled {...props} />,
