@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { ButtonOption, TypographyOption } from '@/common/enums'
-import { Button, ModalProps, Typography } from '@/components'
+import { Button, ModalProps, Select, TextField, Typography } from '@/components'
 import { Meta, StoryObj } from '@storybook/react'
 
 import { Modal } from './Modal'
@@ -84,13 +84,45 @@ export const TextWithButtonModal: Story = {
           reprehenderit tenetur. A ab, alias amet atque beatae cum dicta eligendi fuga hic libero
           mollitia omnis quia repudiandae tempore totam unde velit.
         </Typography>
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '1.3rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '1rem' }}>
           <Button variant={ButtonOption.Tertiary}>Click</Button>
         </div>
       </>
     ),
     isOpen: false,
     title: 'Title',
+  },
+  render: props => <ModalControlled {...props} />,
+}
+
+export const FormModal: Story = {
+  args: {
+    children: (
+      <>
+        <Select
+          fullWidth
+          selectItems={[
+            { child: 'Select-box1', value: 'Select-box1' },
+            { child: 'Select-box2', value: 'Select-box2' },
+            { child: 'Select-box3', value: 'Select-box3' },
+          ]}
+        />
+        <TextField />
+        <div
+          style={{
+            boxSizing: 'border-box',
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginTop: '1.3rem',
+          }}
+        >
+          <Button variant={ButtonOption.Secondary}>Secondary</Button>
+          <Button>Primary</Button>
+        </div>
+      </>
+    ),
+    isOpen: false,
+    title: 'Form',
   },
   render: props => <ModalControlled {...props} />,
 }
