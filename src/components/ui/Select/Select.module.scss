@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-sizing: border-box;
 
   cursor: pointer;
   border: 1px solid var(--color-dark-300);
@@ -59,6 +60,7 @@
 .selectItem {
   outline: none;
   cursor: pointer;
+  background-color: var(--color-dark-700);
 
   &:hover {
     border: none;
