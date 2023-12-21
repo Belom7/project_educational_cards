@@ -1,6 +1,8 @@
 import { TypographyOption } from '@/common/enums'
 import { Button } from '@/components/ui/Button'
 import { Header } from '@/components/ui/Header'
+import { TabSwitcher } from '@/components/ui/Tab-Switcher'
+import { TextField } from '@/components/ui/Text-field'
 import { Typography } from '@/components/ui/Typography'
 
 import s from './packListPage.module.scss'
@@ -15,6 +17,10 @@ export const PackListPage = () => {
             <Button>
               <Typography variant={TypographyOption.Subtitle2}>Add New Pack</Typography>
             </Button>
+          </div>
+          <div>
+            <TextField></TextField>
+            <TabSwitcher></TabSwitcher>
           </div>
         </div>
       </div>
