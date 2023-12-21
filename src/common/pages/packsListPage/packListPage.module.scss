@@ -1,0 +1,17 @@
+.main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.wrapper{
+  width: 80%;
+  height: 90vh;
+}
+
+.packsList{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
