@@ -8,7 +8,8 @@ import {
 
 import { ForgotPasswordPage } from '@/common/pages/forgotPasswordPage'
 import { LoginPage } from '@/common/pages/loginPage'
-import { SingUpPage } from '@/common/pages/singUpPage'
+import { PackListPage } from '@/common/pages/packsListPage'
+import { SignUpPage } from '@/common/pages/singUpPage'
 
 const publicRoutes: RouteObject[] = [
   {
@@ -16,7 +17,7 @@ const publicRoutes: RouteObject[] = [
     path: '/login',
   },
   {
-    element: <SingUpPage />,
+    element: <SignUpPage />,
     path: '/sign-up',
   },
   {
@@ -27,7 +28,7 @@ const publicRoutes: RouteObject[] = [
 
 const privateRoutes: RouteObject[] = [
   {
-    element: <div>11</div>,
+    element: <PackListPage />,
     path: '/',
   },
 ]
@@ -44,7 +45,7 @@ export const Router = () => {
   return <RouterProvider router={router} />
 }
 function PrivateRoutes() {
-  const isAuthenticated = false
+  const isAuthenticated = true
 
   return isAuthenticated ? <Outlet /> : <Navigate to={'/login'} />
 }

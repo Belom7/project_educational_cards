@@ -17,13 +17,10 @@ export const DropDownMenu = forwardRef<HTMLDivElement, DropDownMenuPropsType>(({
       <DropdownMenu.Portal>
         <DropdownMenu.Content className={s.DropdownMenuContent} sideOffset={5}>
           <DropdownMenu.Separator className={s.DropdownMenuSeparator} />
-
           <DropdownMenu.Item className={s.DropdownMenuItem}>
             My Profile <div className={s.RightSlot}>{<PersonOutline />}</div>
           </DropdownMenu.Item>
-
-          <DropdownMenu.Separator className={s.DropdownMenuSeparator} />
-
+          <DropdownMenu.Separator className={s.DropdownMenuSeparator} />`
           <DropdownMenu.Item className={s.DropdownMenuItem}>
             <div className={s.RightSlot}>{<LogOutOutline />}</div> Sign Out
           </DropdownMenu.Item>

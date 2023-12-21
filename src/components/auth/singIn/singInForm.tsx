@@ -2,7 +2,6 @@ import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 
 import { ButtonOption, Routes, TypographyOption } from '@/common/enums'
-import ControlledCheckbox from '@/components/controlled/controlled-checkbox/controlled-checkbox'
 import { ControlledTextField } from '@/components/controlled/controlled-text-field/controlled-text-field'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Cards'
@@ -11,6 +10,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
 import s from './singInForm.module.scss'
+import {ControlledCheckbox} from "@/components/controlled/controlled-checkbox/controlled-checkbox";
 
 const loginSchema = z
   .object({
