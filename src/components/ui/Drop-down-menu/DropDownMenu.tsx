@@ -16,14 +16,24 @@ export const DropDownMenu = ({ children }: DropDownMenuPropsType) => {
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content className={s.DropdownMenuContent} sideOffset={0}>
-          <DropdownMenu.Separator className={s.DropdownMenuSeparator} />
-
           <DropdownMenu.Item className={s.DropdownMenuItem}>
-            My Profile <div className={s.RightSlot}>{<PersonOutline />}</div>
+            <div style={{ border: '1px solid green', padding: '10px' }}>
+              <img
+                alt={'img'}
+                src={'https://www.blexar.com/avatar.png'}
+                style={{ borderRadius: '20px', height: '36px', width: '36px' }}
+              />
+            </div>
+            <div>{'Дикий Ангел'}</div>
+            <div>{'@www.ru'}</div>
           </DropdownMenu.Item>
 
+          <div className={s.RightSlot}></div>
           <DropdownMenu.Separator className={s.DropdownMenuSeparator} />
-
+          <DropdownMenu.Item className={s.DropdownMenuItem}>
+            <div className={s.RightSlot}>{<PersonOutline />}</div>My Profile
+          </DropdownMenu.Item>
+          <DropdownMenu.Separator className={s.DropdownMenuSeparator} />
           <DropdownMenu.Item className={s.DropdownMenuItem}>
             <div className={s.RightSlot}>{<LogOutOutline />}</div> Sign Out
           </DropdownMenu.Item>
