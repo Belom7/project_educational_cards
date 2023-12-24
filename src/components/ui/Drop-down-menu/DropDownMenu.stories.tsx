@@ -2,13 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { ButtonOption } from '@/common/enums'
 import { Button } from '@/components/ui/Button'
-import { DropDownMenu } from '@/components/ui/Drop-down-menu/DropDownMenu'
+import { DropDownMenuFix } from '@/components/ui/Drop-down-menu/DropDownMenufFix'
 
 const meta = {
-  component: DropDownMenu,
+  component: DropDownMenuFix,
   tags: ['autoocs'],
   title: 'Components/DropDownMenu',
-} satisfies Meta<typeof DropDownMenu>
+} satisfies Meta<typeof DropDownMenuFix>
 
 export default meta
 type Story = StoryObj<typeof meta>

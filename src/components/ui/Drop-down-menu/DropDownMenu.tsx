@@ -1,4 +1,4 @@
-import { ReactNode, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, ElementRef, ReactNode, forwardRef } from 'react'
 
 import { LogOutOutline } from '@/components/assets/icons/componentsFromIcon/LogOutOutline'
 import { PersonOutline } from '@/components/assets/icons/componentsFromIcon/PersonOutline'
@@ -8,12 +8,14 @@ import s from './DropDownMenu.module.scss'
 
 type DropDownMenuPropsType = {
   children: ReactNode
-}
-export const DropDownMenu = forwardRef<HTMLDivElement, DropDownMenuPropsType>(({ children }) => {
+} & ComponentPropsWithoutRef<typeof DropdownMenu.Content>
+export const DropDownMenu = forwardRef<
+  ElementRef<typeof DropdownMenu.Content>,
+  DropDownMenuPropsType
+>(({ children }) => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>{children}</DropdownMenu.Trigger>
-
       <DropdownMenu.Portal>
         <DropdownMenu.Content className={s.DropdownMenuContent} sideOffset={5}>
           <DropdownMenu.Separator className={s.DropdownMenuSeparator} />
