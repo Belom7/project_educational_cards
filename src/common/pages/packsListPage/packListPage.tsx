@@ -1,12 +1,55 @@
-import { TypographyOption } from '@/common/enums'
+import { useState } from 'react'
+
+import { ButtonOption, TypographyOption } from '@/common/enums'
+import { Trash } from '@/components/assets'
 import { Button } from '@/components/ui/Button'
 import { Header } from '@/components/ui/Header'
+import { Slider } from '@/components/ui/Slider'
 import { TabSwitcher } from '@/components/ui/Tab-Switcher'
 import { TextField } from '@/components/ui/Text-field'
 import { Typography } from '@/components/ui/Typography'
 
 import s from './packListPage.module.scss'
+import {TableComponent} from "@/components/ui/Table/TableComponent";
+const data = [
+  {
+    cardsCount: 10,
+    createdBy: 'John Doe',
+    title: 'Project A',
+    updated: '2023-07-07',
+  },
+  {
+    cardsCount: 5,
+    createdBy: 'Jane Smith',
+    title: 'Project B',
+    updated: '2023-07-06',
+  },
+  {
+    cardsCount: 8,
+    createdBy: 'Alice Johnson',
+    title: 'Project C',
+    updated: '2023-07-05',
+  },
+  {
+    cardsCount: 3,
+    createdBy: 'Bob Anderson',
+    title: 'Project D',
+    updated: '2023-07-07',
+  },
+  {
+    cardsCount: 12,
+    createdBy: 'Emma Davis',
+    title: 'Project E',
+    updated: '2023-07-04',
+  },
+]
 export const PackListPage = () => {
+  const [value, setValue] = useState([0, 10])
+
+  const handleOnValueChange = (value: number[]) => {
+    setValue(value)
+  }
+
   return (
     <>
       <Header authorized></Header>
@@ -18,10 +61,18 @@ export const PackListPage = () => {
               <Typography variant={TypographyOption.Subtitle2}>Add New Pack</Typography>
             </Button>
           </div>
-          <div>
-            <TextField></TextField>
-            <TabSwitcher></TabSwitcher>
+          <div className={s.underCap}>
+            <TextField className={s.searchTextField}></TextField>
+            <TabSwitcher />
+            <Slider onValueChange={handleOnValueChange} title={'Number of cards'} value={value} />
+            <Button variant={ButtonOption.Secondary}>
+              <>
+                <Trash />
+                <Typography variant={TypographyOption.Subtitle2}>Clear Filter</Typography>
+              </>
+            </Button>
           </div>
+          <TableComponent data={data} />
         </div>
       </div>
     </>
