@@ -16,8 +16,8 @@ export const Slider = forwardRef<ElementRef<typeof SliderRadix.Root>, SliderProp
     const classNames = clsx(s.root, className)
 
     return (
-      <div>
-        <Typography component={'div'} variant={TypographyOption.Body1}>
+      <div className={s.slider}>
+        <Typography component={'div'} variant={TypographyOption.Body2}>
           {title}
         </Typography>
 

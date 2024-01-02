@@ -40,6 +40,7 @@ const PaginationWithLocalState = () => {
       placeholder={paginationSelectItems[1].child}
       selectItems={paginationSelectItems}
       setCurrentPage={setCurrentPage}
+      variant={'pagination'}
     />
   )
 }

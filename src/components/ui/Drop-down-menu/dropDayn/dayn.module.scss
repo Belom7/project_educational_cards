@@ -10,6 +10,10 @@ button {
   border-radius: 50%;
 }
 
+.main {
+  margin: 200px;
+}
+
 .DropdownMenuContent,
 .DropdownMenuSubContent {
   will-change: transform, opacity;
@@ -56,8 +60,9 @@ button {
   display: flex;
   align-items: center;
 
-margin: 10px 0;
+  height: 25px;
   padding: 0 5px;
+
 
   font-size: 13px;
   line-height: 1;
@@ -110,7 +115,7 @@ margin: 10px 0;
 }
 
 .DropdownMenuArrow {
-  fill: var(--color-dark-700);
+  fill: var(--color-dark-500);
 }
 
 .IconButton {
@@ -153,21 +158,6 @@ margin: 10px 0;
 
 [data-disabled] .RightSlot {
   color: red;
-}
-
-.DropDownMenuMailContent{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.DropDownMailContent{
-  color:var(--color-dark-100);
-}
-
-.DropDownMailContents{
-  margin-left: 10px;
 }
 
 @keyframes slideUpAndFade {

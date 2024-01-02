@@ -3,6 +3,13 @@
   gap: 0.8rem;
 }
 
+.slider{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
 .optionValue {
   display: flex;
   align-items: center;

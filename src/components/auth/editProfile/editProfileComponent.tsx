@@ -1,6 +1,6 @@
 import { ButtonOption, TypographyOption } from '@/common/enums'
 import { EditPencil } from '@/components/assets'
-import { LogOutIcon } from '@/components/assets/icons/componentsFromIcon/LogOutIcon'
+import { LogOut } from '@/components/assets/icons/LogOut'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Cards'
 import { Typography } from '@/components/ui/Typography'
@@ -31,7 +31,7 @@ export const EditProfileComponent: React.FC<EditProfileFormProps> = ({
         </Button>
       </div>
       <Button variant={ButtonOption.Secondary}>
-        <LogOutIcon />
+        <LogOut />
         <Typography variant={TypographyOption.Subtitle2}>Logout</Typography>
       </Button>
     </Card>

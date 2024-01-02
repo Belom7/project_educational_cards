@@ -8,9 +8,9 @@
 .wrapper{
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 1000px;
   height: 90vh;
-  
+
 
 }
 
@@ -18,4 +18,16 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 20px 0;
 }
+
+.underCap{
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: space-between;
+
+  width: 100%;
+
+}
+

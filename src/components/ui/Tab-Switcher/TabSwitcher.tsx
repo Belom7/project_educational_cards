@@ -27,28 +27,28 @@ const TabsTrigger = forwardRef<ElementRef<typeof Tabs.Trigger>, TabsTriggerProps
   }
 )
 
-const TabsContent = forwardRef<
-  ElementRef<typeof Tabs.Content>,
-  ComponentPropsWithoutRef<typeof Tabs.Content>
->(({ className, ...props }, ref) => {
-  return <Tabs.Content className={clsx(s.content, className)} ref={ref} {...props}></Tabs.Content>
-})
+// const TabsContent = forwardRef<
+//   ElementRef<typeof Tabs.Content>,
+//   ComponentPropsWithoutRef<typeof Tabs.Content>
+// >(({ className, ...props }, ref) => {
+//   return <Tabs.Content className={clsx(s.content, className)} ref={ref} {...props}></Tabs.Content>
+// })
 
 export const TabSwitcher = () => {
   return (
-    <Tabs.Root defaultValue={'tab1'} orientation={'vertical'}>
-      <TabsList>
-        <TabsTrigger value={'tab1'}>Tab-Switcher</TabsTrigger>
-        <TabsTrigger value={'tab2'}>Tab-Switcher</TabsTrigger>
-        <TabsTrigger value={'tab3'}>Tab-Switcher</TabsTrigger>
-        <TabsTrigger value={'tab4'}>Tab-Switcher</TabsTrigger>
-        <TabsTrigger disabled value={'tab5'}>
-          Disabled switcher
-        </TabsTrigger>
-      </TabsList>
-      <TabsContent value={'tab1'}>Tab one content</TabsContent>
-      <TabsContent value={'tab2'}>Tab two content</TabsContent>
-      <TabsContent value={'tab3'}>Tab three content</TabsContent>
-    </Tabs.Root>
+    <div>
+      <Typography variant={TypographyOption.Body2}>Show packs cards</Typography>
+      <Tabs.Root defaultValue={'tab1'} orientation={'vertical'}>
+        <TabsList>
+          <TabsTrigger value={'tab1'}>
+            <Typography variant={TypographyOption.Body1}>My cards</Typography>
+          </TabsTrigger>
+          <TabsTrigger value={'tab2'}>
+            <Typography variant={TypographyOption.Body1}>All Cards</Typography>
+          </TabsTrigger>
+        </TabsList>
+      </Tabs.Root>
+
+    </div>
   )
 }

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { ButtonOption } from '@/common/enums'
 import { EditPencil } from '@/components/assets'
-import { LogOutIcon } from '@/components/assets/icons/componentsFromIcon/LogOutIcon'
+import { LogOut } from '@/components/assets/icons/LogOut'
 
 import { Button } from './Button'
 
@@ -34,7 +34,7 @@ export const PrimaryIcon: Story = {
   args: {
     children: (
       <>
-        <LogOutIcon /> Button Primary Icon
+        <LogOut /> Button Primary Icon
       </>
     ),
     disabled: false,
@@ -54,7 +54,7 @@ export const SecondaryIcon: Story = {
   args: {
     children: (
       <>
-        <LogOutIcon /> Button Secondary Icon
+        <LogOut /> Button Secondary Icon
       </>
     ),
     disabled: false,
