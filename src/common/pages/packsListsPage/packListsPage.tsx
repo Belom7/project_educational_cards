@@ -10,7 +10,7 @@ import { TableComponent } from '@/components/ui/Table/TableComponent'
 import { TextField } from '@/components/ui/Text-field'
 import { Typography } from '@/components/ui/Typography'
 
-import s from './packListPage.module.scss'
+import s from './packListsPage.module.scss'
 const data = [
   {
     cardsCount: 10,
@@ -44,7 +44,7 @@ const data = [
   },
 ]
 
-export const PackListPage = () => {
+export const PackListsPage = () => {
   const [value, setValue] = useState([0, 10])
 
   const handleOnValueChange = (value: number[]) => {

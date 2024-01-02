@@ -8,8 +8,9 @@ import {
 
 import { ForgotPasswordPage } from '@/common/pages/forgotPasswordPage'
 import { LoginPage } from '@/common/pages/loginPage'
-import { PackListPage } from '@/common/pages/packsListPage'
+import { PackListsPage } from '@/common/pages/packsListsPage'
 import { SignUpPage } from '@/common/pages/singUpPage'
+import {PackListPage} from "@/common/pages/PacksListPage";
 
 const publicRoutes: RouteObject[] = [
   {
@@ -27,6 +28,10 @@ const publicRoutes: RouteObject[] = [
 ]
 
 const privateRoutes: RouteObject[] = [
+  {
+    element: <PackListsPage />,
+    path: '/my-pack-list',
+  },
   {
     element: <PackListPage />,
     path: '/',
