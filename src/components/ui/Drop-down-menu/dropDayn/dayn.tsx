@@ -35,7 +35,6 @@ export const Dayn = () => {
                 Delete
               </Typography>
             </DropdownMenu.Item>
-
             <DropdownMenu.Arrow className={s.DropdownMenuArrow} />
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
