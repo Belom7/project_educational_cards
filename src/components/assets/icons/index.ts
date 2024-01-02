@@ -1,4 +1,6 @@
 export { default as FilledStar } from './FilledStar'
+export { default as LogOut } from './LogOut'
+export { default as ProfileIcon } from './ProfileIcon'
 export { default as UnfilledStar } from './UnfilledStar'
 export { default as ArrawDown } from './arrowDown'
 export { default as ArrowUp } from './arrowUp'
