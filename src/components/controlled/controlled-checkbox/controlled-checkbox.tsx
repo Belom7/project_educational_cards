@@ -35,4 +35,3 @@ export const ControlledCheckbox = <T extends FieldValues>({
     />
   )
 }
-
