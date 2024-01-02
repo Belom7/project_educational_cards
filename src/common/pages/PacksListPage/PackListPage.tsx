@@ -8,39 +8,60 @@ import { Typography } from '@/components/ui/Typography'
 import s from './PackListPage.module.scss'
 const data = [
   {
-    cardsCount: 10,
-    createdBy: 'John Doe',
-    title: 'Project A',
-    updated: '2023-07-07',
+    answer: 'This is how "This" works in JavaScript',
+    question: 'How "This" works in JavaScript?',
+    shots: '3',
+    updated: '18.03.2021',
   },
   {
-    cardsCount: 5,
-    createdBy: 'Jane Smith',
-    title: 'Project B',
-    updated: '2023-07-06',
+    answer: 'This is how "This" works in JavaScript',
+    question: 'How "This" works in JavaScript?',
+    shots: '2',
+    updated: '18.03.2021',
   },
   {
-    cardsCount: 8,
-    createdBy: 'Alice Johnson',
-    title: 'Project C',
-    updated: '2023-07-05',
+    answer: 'This is how "This" works in JavaScript',
+    question: 'How "This" works in JavaScript?',
+    shots: '1',
+    updated: '18.03.2021',
   },
   {
-    cardsCount: 3,
-    createdBy: 'Bob Anderson',
-    title: 'Project D',
-    updated: '2023-07-07',
+    answer: 'This is how "This" works in JavaScript',
+    question: 'How "This" works in JavaScript?',
+    shots: '4',
+    updated: '18.03.2021',
   },
   {
-    cardsCount: 12,
-    createdBy: 'Emma Davis',
-    title: 'Project E',
-    updated: '2023-07-04',
+    answer: 'This is how "This" works in JavaScript',
+    question: 'How "This" works in JavaScript?',
+    shots: '6',
+    updated: '18.03.2021',
+  },
+]
+const columns = [
+  {
+    key: 'Question',
+    title: 'Question',
+  },
+  {
+    key: 'Answer',
+    title: 'Answer',
+  },
+  {
+    key: 'Last Updated',
+    sortable: true,
+    title: 'Last Updated',
+  },
+  {
+    key: 'Grade',
+    title: 'Grade',
   },
 ]
 
 export const PackListPage = () => {
-  const datas = false
+  const user = true
+
+  //const datas = false
 
   return (
     <>
@@ -52,9 +73,19 @@ export const PackListPage = () => {
             <Typography variant={TypographyOption.Body2}>Back to Packs List</Typography>
           </div>
 
-          {datas ? (
+          {data ? (
             <div>
-              <TableComponent data={data} />
+              <div className={s.namePacks}>
+                <Typography variant={TypographyOption.H1}>
+                  {user ? 'My Pack' : 'Friends Pack'}
+                </Typography>
+                <Button>
+                  <Typography variant={TypographyOption.Subtitle2}>
+                    {user ? 'Add New Card' : 'Learn to Pack'}
+                  </Typography>
+                </Button>
+              </div>
+              <TableComponent data={data} me={user} packList={false} tableHeaderData={columns} />
             </div>
           ) : (
             <div>

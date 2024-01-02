@@ -104,7 +104,12 @@ export const TableCell = forwardRef<ElementRef<'td'>, ComponentPropsWithoutRef<'
       cell: clsx(className, s.tableCell),
     }
 
-    return <td className={classNames.cell} {...rest} ref={ref} />
+
+    return (
+      <td className={classNames.cell} {...rest} ref={ref}>
+        <Typography variant={TypographyOption.Body2}>{rest.children}</Typography>
+      </td>
+    )
   }
 )
 export const TableEmpty: FC<ComponentProps<'div'> & { mb?: string; mt?: string }> = ({

@@ -2,25 +2,18 @@ import { Ref, SVGProps, forwardRef, memo } from 'react'
 const SvgComponent = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     fill={'none'}
-    height={24}
+    height={13}
     ref={ref}
-    width={24}
+    width={14}
     xmlns={'http://www.w3.org/2000/svg'}
     {...props}
   >
-    <g clipPath={'url(#a)'}>
-      <path
-        d={
-          'M17.6 21a1 1 0 0 1-.5-.1L12 18.2 6.9 21a1 1 0 0 1-1.5-1l1-5.7-4-4a1 1 0 0 1-.3-1 1 1 0 0 1 .8-.7l5.7-.8L11 2.6a1 1 0 0 1 1.8 0l2.5 5 5.7 1a1 1 0 0 1 .8.6 1 1 0 0 1-.2 1l-4.1 4 1 5.6a1 1 0 0 1-.4 1 1 1 0 0 1-.6.2Z'
-        }
-        fill={'#d99000'}
-      />
-    </g>
-    <defs>
-      <clipPath id={'a'}>
-        <path d={'M0 0h24v24H0z'} fill={'#d99000'} />
-      </clipPath>
-    </defs>
+    <path
+      d={
+        'M10.7 13a.67.67 0 0 1-.3-.07L7 11.15l-3.4 1.78a.67.67 0 0 1-.97-.71l.67-3.75L.55 5.8a.67.67 0 0 1-.16-.67.67.67 0 0 1 .54-.45l3.8-.55L6.4.7a.67.67 0 0 1 1.2 0l1.7 3.41 3.8.55a.67.67 0 0 1 .53.46.67.67 0 0 1-.16.66l-2.75 2.67.67 3.75a.67.67 0 0 1-.27.67.67.67 0 0 1-.41.12Z'
+      }
+      fill={'#E6AC39'}
+    />
   </svg>
 )
 const ForwardRef = forwardRef(SvgComponent)
