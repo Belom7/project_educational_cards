@@ -4,7 +4,10 @@ import {
   FetchBaseQueryError,
   fetchBaseQuery,
 } from '@reduxjs/toolkit/query/react'
+import { Mutex } from 'async-mutex'
 
+// create a new mutex
+const mutex = new Mutex()
 const baseQuery = fetchBaseQuery({
   baseUrl: 'https://api.flashcards.andrii.es/v1',
   credentials: 'include',
@@ -15,18 +18,28 @@ export const baseQueryWithReauth: BaseQueryFn<
   unknown,
   FetchBaseQueryError
 > = async (args, api, extraOptions) => {
+  await mutex.waitForUnlock()
   let result = await baseQuery(args, api, extraOptions)
 
   if (result.error && result.error.status === 401) {
-    // try to get a new token
-    const refreshResult = await baseQuery(
-      { method: 'POST', url: 'auth/refresh-token' },
-      api,
-      extraOptions
-    )
+    if (!mutex.isLocked()) {
+      const release = await mutex.acquire()
 
-    if (refreshResult.meta?.response?.status === 204) {
-      // retry the initial query
+      // try to get a new token
+      const refreshResult = await baseQuery(
+        { method: 'POST', url: 'auth/refresh-token' },
+        api,
+        extraOptions
+      )
+
+      if (refreshResult.meta?.response?.status === 204) {
+        // retry the initial query
+        result = await baseQuery(args, api, extraOptions)
+      }
+      release()
+    } else {
+      // wait until the mutex is available without locking it
+      await mutex.waitForUnlock()
       result = await baseQuery(args, api, extraOptions)
     }
   }
