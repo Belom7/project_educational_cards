@@ -11,6 +11,7 @@ import { ForgotPasswordPage } from '@/common/pages/forgotPasswordPage'
 import { LoginPage } from '@/common/pages/loginPage'
 import { PackListsPage } from '@/common/pages/packsListsPage'
 import { SignUpPage } from '@/common/pages/singUpPage'
+import { useMeQuery } from '@/features'
 
 const publicRoutes: RouteObject[] = [
   {
@@ -47,10 +48,21 @@ const router = createBrowserRouter([
 ])
 
 export const Router = () => {
+  const { isLoading } = useMeQuery()
+
+  if (isLoading) {
+    return <div>...Loading</div>
+  }
+
   return <RouterProvider router={router} />
 }
 function PrivateRoutes() {
-  const isAuthenticated = true
+  const { isError, isLoading } = useMeQuery()
+
+  if (isLoading) {
+    return <div>...Loading</div>
+  }
+  const isAuthenticated = !isError
 
   return isAuthenticated ? <Outlet /> : <Navigate to={'/login'} />
 }
