@@ -6,11 +6,11 @@ import {
   createBrowserRouter,
 } from 'react-router-dom'
 
+import { PackListPage } from '@/common/pages/PacksListPage'
 import { ForgotPasswordPage } from '@/common/pages/forgotPasswordPage'
 import { LoginPage } from '@/common/pages/loginPage'
 import { PackListsPage } from '@/common/pages/packsListsPage'
 import { SignUpPage } from '@/common/pages/singUpPage'
-import {PackListPage} from "@/common/pages/PacksListPage";
 
 const publicRoutes: RouteObject[] = [
   {

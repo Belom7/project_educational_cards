@@ -1,6 +1,6 @@
-import { SingInForm } from '@/components/auth/singIn/singInForm'
 import { Header } from '@/components/ui/Header'
 import { Page } from '@/components/ui/Page'
+import { SingInForm } from '@/features'
 export const LoginPage = () => {
   return (
     <>
