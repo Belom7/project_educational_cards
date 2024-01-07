@@ -1,5 +1,4 @@
 import { ForgotPasswordForm } from '@/components/auth/forgotPassword/forgotPasswordForm'
-import { Header } from '@/components/ui/Header'
 import { Page } from '@/components/ui/Page'
 import { useRecoverPasswordMutation } from '@/features'
 
@@ -11,7 +10,6 @@ export const ForgotPasswordPage = () => {
 
   return (
     <>
-      <Header authorized={false} />
       <Page>
         <ForgotPasswordForm onSubmit={handleSubmit} />
       </Page>

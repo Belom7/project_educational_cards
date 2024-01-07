@@ -1,11 +1,11 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
 import { TypographyOption } from '@/common/enums'
-import { Typography } from '@/components/ui/Typography'
 import * as RadixRadioGroup from '@radix-ui/react-radio-group'
 import { clsx } from 'clsx'
 
 import s from './RadioGroup.module.scss'
+import {Typography} from "@/components";
 type ItemsProps = {
   title: string
 }

@@ -1,8 +1,8 @@
 import { ComponentPropsWithoutRef, ElementRef, ReactNode, forwardRef } from 'react'
 
 import { TypographyOption } from '@/common/enums'
+import { Typography } from '@/components'
 import { LogOut, ProfileIcon } from '@/components/assets'
-import { Typography } from '@/components/ui/Typography'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
 import s from './DropDownMenu.module.scss'

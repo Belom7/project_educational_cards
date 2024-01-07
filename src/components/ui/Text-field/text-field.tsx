@@ -2,10 +2,10 @@ import { ComponentProps, ComponentPropsWithoutRef, forwardRef, useState } from '
 
 import { TypographyOption } from '@/common/enums'
 import { Eye, EyeOutline } from '@/components/assets'
-import { Typography } from '@/components/ui/Typography'
 import { clsx } from 'clsx'
 
 import s from './text-field.module.scss'
+import {Typography} from "@/components";
 
 export type TextFieldProps = {
   containerProps?: ComponentProps<'div'>

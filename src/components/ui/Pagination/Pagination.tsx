@@ -1,11 +1,8 @@
 import { FC, JSX } from 'react'
 
 import { TypographyOption } from '@/common/enums'
+import { PageItem, Select, SelectProps, Typography, usePagination } from '@/components'
 import { KeyboardArrowLeft, KeyboardArrowRight } from '@/components/assets/icons'
-import { PageItem } from '@/components/ui/Pagination/PageItem'
-import { usePagination } from '@/components/ui/Pagination/usePagination'
-import { Select, SelectProps } from '@/components/ui/Select'
-import { Typography } from '@/components/ui/Typography'
 
 import s from './Pagination.module.scss'
 

@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 
-import { Header } from '@/components/ui/Header'
 import { Page } from '@/components/ui/Page'
 import { LoginArgs, SingInForm, useLoginMutation } from '@/features'
 export const LoginPage = () => {
@@ -17,7 +16,6 @@ export const LoginPage = () => {
 
   return (
     <>
-      <Header authorized={false} />
       <Page>
         <SingInForm onSubmit={handleSignIn} />
       </Page>

@@ -20,11 +20,13 @@ display: flex;
 
 .other{
   display: flex;
+  align-items: center;
 
 }
 
 .name{
-  border-bottom: 1px #FFF dashed;
+  margin-right: 10px;
+  border-bottom: 2px var(--color-light-100) dashed;
 }
 
 .avatar{

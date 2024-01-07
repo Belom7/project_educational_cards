@@ -1,11 +1,11 @@
 import { ComponentPropsWithoutRef, ElementRef, ReactNode, forwardRef } from 'react'
 
 import { TypographyOption } from '@/common/enums'
-import { Typography } from '@/components/ui/Typography'
 import * as Tabs from '@radix-ui/react-tabs'
 import { clsx } from 'clsx'
 
 import s from './TabSwitcher.module.scss'
+import {Typography} from "@/components";
 
 const TabsList = forwardRef<
   ElementRef<typeof Tabs.List>,
