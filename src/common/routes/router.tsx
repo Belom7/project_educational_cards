@@ -7,11 +7,8 @@ import {
 } from 'react-router-dom'
 
 import { Routes } from '@/common/enums'
-import { DeckPage } from '@/common/pages/DeckPage'
-import { ForgotPasswordPage } from '@/common/pages/forgotPasswordPage'
-import { LoginPage } from '@/common/pages/loginPage'
-import { SignUpPage } from '@/common/pages/singUpPage'
-import { Header } from '@/components/ui/Header'
+import { ForgotPasswordPage, LoginPage, PackListsPage, SignUpPage } from '@/common/pages'
+import { Header, Preloader } from '@/components'
 import { useMeQuery } from '@/features'
 
 const publicRoutes: RouteObject[] = [
@@ -31,7 +28,7 @@ const publicRoutes: RouteObject[] = [
 
 const privateRoutes: RouteObject[] = [
   {
-    element: <DeckPage />,
+    element: <PackListsPage />,
     path: Routes.Main,
   },
 ]
@@ -39,12 +36,9 @@ const privateRoutes: RouteObject[] = [
 const AppСomponent = () => {
   const { isError, isLoading } = useMeQuery()
 
-  if (isLoading) {
-    return <div>...Loading</div>
-  }
-
   return (
     <>
+      {isLoading && <Preloader />}
       <Header authorized={!isError} />
       <Outlet />
     </>
@@ -66,11 +60,8 @@ const router = createBrowserRouter([
 ])
 
 function PrivateRoutes() {
-  const { isError, isLoading } = useMeQuery()
+  const { isError } = useMeQuery()
 
-  if (isLoading) {
-    return <div>...Loading</div>
-  }
   const isAuthenticated = !isError
 
   return isAuthenticated ? <Outlet /> : <Navigate to={'/login'} />

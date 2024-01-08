@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 
 import { ButtonOption } from '@/common/enums'
+import { Table, TableBody, TableCell, TableHeader, TableRow } from '@/components'
 import { ButtonPlay, EditTablePencil, Trash } from '@/components/assets'
 import { Button } from '@/components/ui/Button'
-import { Table, TableBody, TableCell, TableHeader, TableRow } from '@/components/ui/Table/Table'
+import { useGetDecksQuery } from '@/features'
 
 import s from './packTable.module.scss'
 export type Sort = {
@@ -32,7 +33,9 @@ const columns = [
 ]
 
 export const PackTable: React.FC<{}> = () => {
-  const data: any = []
+  const { data } = useGetDecksQuery()
+
+  console.log(data)
   const [sort, setSort] = useState<Sort>(null)
 
   const onSort = (sort: Sort) => {
@@ -49,14 +52,14 @@ export const PackTable: React.FC<{}> = () => {
           sort={sort}
         ></TableHeader>
         <TableBody>
-          {data?.map((el: any) => {
+          {data?.items?.map((el: any) => {
             return (
-              <TableRow className={s.tableRow} key={el.title}>
-                <TableCell>{el.title}</TableCell>
+              <TableRow className={s.tableRow} key={el.id}>
+                <TableCell>{el.name}</TableCell>
                 <TableCell>{el.cardsCount}</TableCell>
                 <TableCell>{el.updated}</TableCell>
                 <TableCell className={s.tableCreatedBy}>
-                  <span>{el.createdBy}</span>
+                  <span>{el.author.name}</span>
                   <span>
                     <Button variant={ButtonOption.Icon}>
                       <ButtonPlay />

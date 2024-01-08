@@ -47,10 +47,18 @@
   width: 20%;
 }
 
-.tableCreatedBy{
+.tableCreatedBy {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+
 }
+
+.tableCreatedBy span{
+  width: 100%;
+}
+
+
+
 
 .tableRow{
   border: 1px solid var(--color-dark-500);

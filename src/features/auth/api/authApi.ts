@@ -1,4 +1,4 @@
-import { baseApi } from '@/common/api'
+import { baseApi } from '@/common'
 import { BaseResponseType, LoginArgs, RecoverPasswordParamsType } from '@/features'
 
 export const authService = baseApi.injectEndpoints({
