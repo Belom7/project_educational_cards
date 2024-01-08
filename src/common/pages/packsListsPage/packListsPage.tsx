@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import { ButtonOption, TypographyOption } from '@/common/enums'
+import { Pagination, SelectItemArgs } from '@/components'
 import { Trash } from '@/components/assets'
 import { Button } from '@/components/ui/Button'
 import { Slider } from '@/components/ui/Slider'
@@ -10,40 +11,22 @@ import { Typography } from '@/components/ui/Typography'
 import { PackTable } from '@/features'
 
 import s from './packListsPage.module.scss'
-// const data = [
-//   {
-//     cardsCount: 10,
-//     createdBy: 'John Doe',
-//     title: 'Project A',
-//     updated: '2023-07-07',
-//   },
-//   {
-//     cardsCount: 5,
-//     createdBy: 'Jane Smith',
-//     title: 'Project B',
-//     updated: '2023-07-06',
-//   },
-//   {
-//     cardsCount: 8,
-//     createdBy: 'Alice Johnson',
-//     title: 'Project C',
-//     updated: '2023-07-05',
-//   },
-//   {
-//     cardsCount: 3,
-//     createdBy: 'Bob Anderson',
-//     title: 'Project D',
-//     updated: '2023-07-07',
-//   },
-//   {
-//     cardsCount: 12,
-//     createdBy: 'Emma Davis',
-//     title: 'Project E',
-//     updated: '2023-07-04',
-//   },
-// ]
+
+const paginationSelectItems: SelectItemArgs[] = [
+  { child: '5', value: '5' },
+  { child: '10', value: '10' },
+  { child: '20', value: '20' },
+  { child: '50', value: '50' },
+]
 
 export const PackListsPage = () => {
+  const [itemsPerPage, setItemsPerPage] = useState(Number(paginationSelectItems[1].value))
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const onChangeItemsPerPage = (value: string) => {
+    setCurrentPage(1)
+    setItemsPerPage(Number(value))
+  }
   const [value, setValue] = useState([0, 10])
 
   const handleOnValueChange = (value: number[]) => {
@@ -72,6 +55,16 @@ export const PackListsPage = () => {
             </Button>
           </div>
           <PackTable />
+          <Pagination
+            currentPage={currentPage}
+            itemsCount={111}
+            itemsPerPage={itemsPerPage}
+            onValueChange={onChangeItemsPerPage}
+            placeholder={paginationSelectItems[1].child}
+            selectItems={paginationSelectItems}
+            setCurrentPage={setCurrentPage}
+            variant={'pagination'}
+          />
         </div>
       </div>
     </>
