@@ -36,8 +36,6 @@ export const SingInForm = ({ onSubmit }: { onSubmit: (data: FormValues) => void 
     resolver: zodResolver(loginSchema),
   })
 
-  console.log(s.SingInCard)
-
   return (
     <Card className={s.singInCard}>
       <Typography variant={TypographyOption.H1}>Sign In</Typography>

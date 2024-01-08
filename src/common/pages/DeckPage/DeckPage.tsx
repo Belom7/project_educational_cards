@@ -1,11 +1,10 @@
 import { TypographyOption } from '@/common/enums'
 import { LeftArrow } from '@/components/assets'
 import { Button } from '@/components/ui/Button'
-import { Header } from '@/components/ui/Header'
-import { TableComponent } from '@/components/ui/Table/TableComponent'
 import { Typography } from '@/components/ui/Typography'
+import { DeckTable } from '@/features'
 
-import s from './PackListPage.module.scss'
+import s from './DeckPage.module.scss'
 const data = [
   {
     answer: 'This is how "This" works in JavaScript',
@@ -38,34 +37,14 @@ const data = [
     updated: '18.03.2021',
   },
 ]
-const columns = [
-  {
-    key: 'Question',
-    title: 'Question',
-  },
-  {
-    key: 'Answer',
-    title: 'Answer',
-  },
-  {
-    key: 'Last Updated',
-    sortable: true,
-    title: 'Last Updated',
-  },
-  {
-    key: 'Grade',
-    title: 'Grade',
-  },
-]
 
-export const PackListPage = () => {
+export const DeckPage = () => {
   const user = true
 
   //const datas = false
 
   return (
     <>
-      <Header authorized></Header>
       <div className={s.main}>
         <div className={s.wrapper}>
           <div className={s.backContent}>
@@ -85,7 +64,7 @@ export const PackListPage = () => {
                   </Typography>
                 </Button>
               </div>
-              <TableComponent data={data} me={user} packList={false} tableHeaderData={columns} />
+              <DeckTable />
             </div>
           ) : (
             <div>

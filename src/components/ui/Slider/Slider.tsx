@@ -1,11 +1,11 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
 import { TypographyOption } from '@/common/enums'
-import { Typography } from '@/components/ui/Typography'
 import * as SliderRadix from '@radix-ui/react-slider'
 import { clsx } from 'clsx'
 
 import s from './Slider.module.scss'
+import {Typography} from "@/components";
 
 export type SliderProps = {
   title: string

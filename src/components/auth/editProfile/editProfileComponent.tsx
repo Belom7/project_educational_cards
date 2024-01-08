@@ -1,6 +1,5 @@
 import { ButtonOption, TypographyOption } from '@/common/enums'
-import { EditPencil } from '@/components/assets'
-import { LogOut } from '@/components/assets/icons/LogOut'
+import { EditPencil, LogOut } from '@/components/assets'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Cards'
 import { Typography } from '@/components/ui/Typography'

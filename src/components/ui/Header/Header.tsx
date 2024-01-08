@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom'
 
 import { Routes, TypographyOption } from '@/common/enums'
+import { Button, DropDownMenu, Typography } from '@/components'
 import { Logo } from '@/components/assets'
-import { Button } from '@/components/ui/Button'
-import { DropDownMenu } from '@/components/ui/Drop-down-menu'
-import { Typography } from '@/components/ui/Typography'
 
 import s from './Header.module.scss'
 type HeaderProps = {

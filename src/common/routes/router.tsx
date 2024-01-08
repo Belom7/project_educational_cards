@@ -6,51 +6,74 @@ import {
   createBrowserRouter,
 } from 'react-router-dom'
 
+import { Routes } from '@/common/enums'
+import { DeckPage } from '@/common/pages/DeckPage'
 import { ForgotPasswordPage } from '@/common/pages/forgotPasswordPage'
 import { LoginPage } from '@/common/pages/loginPage'
-import { PackListsPage } from '@/common/pages/packsListsPage'
 import { SignUpPage } from '@/common/pages/singUpPage'
-import {PackListPage} from "@/common/pages/PacksListPage";
+import { Header } from '@/components/ui/Header'
+import { useMeQuery } from '@/features'
 
 const publicRoutes: RouteObject[] = [
   {
     element: <LoginPage />,
-    path: '/login',
+    path: Routes.Login,
   },
   {
     element: <SignUpPage />,
-    path: '/sign-up',
+    path: Routes.SignUp,
   },
   {
     element: <ForgotPasswordPage />,
-    path: '/forgot-password',
+    path: Routes.ForgotPassword,
   },
 ]
 
 const privateRoutes: RouteObject[] = [
   {
-    element: <PackListsPage />,
-    path: '/my-pack-list',
-  },
-  {
-    element: <PackListPage />,
-    path: '/',
+    element: <DeckPage />,
+    path: Routes.Main,
   },
 ]
 
+const AppСomponent = () => {
+  const { isError, isLoading } = useMeQuery()
+
+  if (isLoading) {
+    return <div>...Loading</div>
+  }
+
+  return (
+    <>
+      <Header authorized={!isError} />
+      <Outlet />
+    </>
+  )
+}
+
 const router = createBrowserRouter([
-  ...publicRoutes,
   {
-    children: privateRoutes,
-    element: <PrivateRoutes />,
+    children: [
+      {
+        children: privateRoutes,
+        element: <PrivateRoutes />,
+      },
+      ...publicRoutes,
+    ],
+    element: <AppСomponent />,
+    errorElement: <Navigate to={Routes.NotFound} />,
   },
 ])
 
-export const Router = () => {
-  return <RouterProvider router={router} />
-}
 function PrivateRoutes() {
-  const isAuthenticated = true
+  const { isError, isLoading } = useMeQuery()
+
+  if (isLoading) {
+    return <div>...Loading</div>
+  }
+  const isAuthenticated = !isError
 
   return isAuthenticated ? <Outlet /> : <Navigate to={'/login'} />
 }
+
+export const Router = () => <RouterProvider router={router} />
