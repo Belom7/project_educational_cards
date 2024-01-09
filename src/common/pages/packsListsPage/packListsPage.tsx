@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import { ButtonOption, TypographyOption } from '@/common/enums'
 import { Pagination, SelectItemArgs } from '@/components'
 import { Trash } from '@/components/assets'
@@ -7,7 +8,7 @@ import { Slider } from '@/components/ui/Slider'
 import { TabSwitcher } from '@/components/ui/Tab-Switcher'
 import { TextField } from '@/components/ui/Text-field'
 import { Typography } from '@/components/ui/Typography'
-import { PackTable, useGetDecksQuery } from '@/features'
+import { PackTable, useGetDecksQuery, usePackOptions } from '@/features'
 
 import s from './packListsPage.module.scss'
 
@@ -18,14 +19,15 @@ const paginationSelectItems: SelectItemArgs[] = [
 ]
 
 export const PackListsPage = () => {
-  const { data } = useGetDecksQuery({})
+  const { currentPage, onChangeCurrentPageCallback } = usePackOptions()
+  const { currentData, data } = useGetDecksQuery({
+    currentPage,
+  })
 
-  console.log(data)
+  console.log(currentData)
   const [itemsPerPage, setItemsPerPage] = useState(Number(paginationSelectItems[1].value))
-  const [currentPage, setCurrentPage] = useState(1)
-  // const onChangeCurrentPage = () => {}
   const onChangeItemsPerPage = (value: string) => {
-    setCurrentPage(1)
+    //setCurrentPage(1)
     setItemsPerPage(Number(value))
   }
   const [value, setValue] = useState([0, 10])
@@ -63,7 +65,7 @@ export const PackListsPage = () => {
             onValueChange={onChangeItemsPerPage}
             placeholder={paginationSelectItems[1].child}
             selectItems={paginationSelectItems}
-            setCurrentPage={setCurrentPage}
+            setCurrentPage={onChangeCurrentPageCallback}
             variant={'pagination'}
           />
         </div>
