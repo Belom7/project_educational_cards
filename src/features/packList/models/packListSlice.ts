@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 const initialState = {
   currentPage: 1,
-  pageSize: 10,
+  pageSize: '10',
 }
 
 export const packListSlice = createSlice({
@@ -11,7 +11,7 @@ export const packListSlice = createSlice({
     setCurrentPage: (state, action: PayloadAction<{ currentPage: number }>) => {
       state.currentPage = action.payload.currentPage
     },
-    setPageSize: (state, action: PayloadAction<{ pageSize: number }>) => {
+    setPageSize: (state, action: PayloadAction<{ pageSize: string }>) => {
       state.pageSize = action.payload.pageSize
     },
   },

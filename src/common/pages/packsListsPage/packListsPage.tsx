@@ -19,17 +19,16 @@ const paginationSelectItems: SelectItemArgs[] = [
 ]
 
 export const PackListsPage = () => {
-  const { currentPage, onChangeCurrentPageCallback } = usePackOptions()
+  const { currentPage, onChangeCurrentPageCallback, onChangePageSizeCallback, pageSize } =
+    usePackOptions()
+
   const { currentData, data } = useGetDecksQuery({
     currentPage,
+    itemsPerPage: pageSize,
   })
 
   console.log(currentData)
-  const [itemsPerPage, setItemsPerPage] = useState(Number(paginationSelectItems[1].value))
-  const onChangeItemsPerPage = (value: string) => {
-    //setCurrentPage(1)
-    setItemsPerPage(Number(value))
-  }
+
   const [value, setValue] = useState([0, 10])
 
   const handleOnValueChange = (value: number[]) => {
@@ -61,8 +60,8 @@ export const PackListsPage = () => {
           <Pagination
             currentPage={currentPage}
             itemsCount={data?.pagination?.totalPages}
-            itemsPerPage={itemsPerPage}
-            onValueChange={onChangeItemsPerPage}
+            itemsPerPage={Number(pageSize)}
+            onValueChange={onChangePageSizeCallback}
             placeholder={paginationSelectItems[1].child}
             selectItems={paginationSelectItems}
             setCurrentPage={onChangeCurrentPageCallback}
