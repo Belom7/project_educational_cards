@@ -25,3 +25,12 @@ export type ResponseTypePagination = {
   totalItems: number
   totalPages: number
 }
+export type GetDecksParamsType = {
+  authorId?: string
+  currentPage?: number
+  itemsPerPage?: number
+  maxCardsCount?: number
+  minCardsCount?: number
+  name?: string
+  orderBy?: string
+}

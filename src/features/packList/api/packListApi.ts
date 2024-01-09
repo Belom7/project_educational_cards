@@ -1,11 +1,14 @@
 import { baseApi } from '@/common'
-import { BaseDeckResponseType } from '@/features'
+import { BaseDeckResponseType, GetDecksParamsType } from '@/features'
 
 export const packListService = baseApi.injectEndpoints({
   endpoints: builder => ({
-    getDecks: builder.query<BaseDeckResponseType | null, void>({
+    getDecks: builder.query<BaseDeckResponseType | null, GetDecksParamsType | void>({
       providesTags: ['Decks'],
-      query: () => 'decks',
+      query: params => ({
+        params: params ?? {},
+        url: 'decks',
+      }),
     }),
   }),
 })

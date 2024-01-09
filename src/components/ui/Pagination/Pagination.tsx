@@ -8,7 +8,7 @@ import s from './Pagination.module.scss'
 
 export type PaginationProps = {
   currentPage: number
-  itemsCount: number
+  itemsCount: number | undefined
   itemsPerPage: number
   maxLength?: 5 | 7 | 9
   setCurrentPage: (pageNumber: number) => void
@@ -27,7 +27,7 @@ export const Pagination: FC<PaginationProps> = ({
   setCurrentPage,
   variant = 'pagination',
 }): JSX.Element => {
-  const pagesCount = Math.ceil(itemsCount / itemsPerPage)
+  const pagesCount = Math.ceil(itemsCount || 1 / itemsPerPage)
   const pageArr = usePagination(currentPage, pagesCount, maxLength)
 
   return (
