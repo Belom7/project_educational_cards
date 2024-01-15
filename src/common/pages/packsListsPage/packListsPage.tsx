@@ -19,15 +19,22 @@ const paginationSelectItems: SelectItemArgs[] = [
 ]
 
 export const PackListsPage = () => {
-  const { currentPage, onChangeCurrentPageCallback, onChangePageSizeCallback, pageSize } =
-    usePackOptions()
+  const {
+    authorId,
+    currentPage,
+    onChangeCurrentPageCallback,
+    onChangePageSizeCallback,
+    onChangeSwitcherCardsCallback,
+    pageSize,
+  } = usePackOptions()
 
-  const { currentData, data } = useGetDecksQuery({
+  const { data } = useGetDecksQuery({
+    authorId,
     currentPage,
     itemsPerPage: pageSize,
   })
 
-  console.log(currentData)
+  console.log(data)
 
   const [value, setValue] = useState([0, 10])
 
@@ -47,7 +54,7 @@ export const PackListsPage = () => {
           </div>
           <div className={s.underCap}>
             <TextField className={s.searchTextField}></TextField>
-            <TabSwitcher />
+            <TabSwitcher onChangeSwitcherCardsCallback={onChangeSwitcherCardsCallback} />
             <Slider onValueChange={handleOnValueChange} title={'Number of cards'} value={value} />
             <Button variant={ButtonOption.Secondary}>
               <>

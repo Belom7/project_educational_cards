@@ -1,11 +1,11 @@
 import { ComponentPropsWithoutRef, ElementRef, ReactNode, forwardRef } from 'react'
 
 import { TypographyOption } from '@/common/enums'
+import { Typography } from '@/components'
 import * as Tabs from '@radix-ui/react-tabs'
 import { clsx } from 'clsx'
 
 import s from './TabSwitcher.module.scss'
-import {Typography} from "@/components";
 
 const TabsList = forwardRef<
   ElementRef<typeof Tabs.List>,
@@ -27,28 +27,28 @@ const TabsTrigger = forwardRef<ElementRef<typeof Tabs.Trigger>, TabsTriggerProps
   }
 )
 
-// const TabsContent = forwardRef<
-//   ElementRef<typeof Tabs.Content>,
-//   ComponentPropsWithoutRef<typeof Tabs.Content>
-// >(({ className, ...props }, ref) => {
-//   return <Tabs.Content className={clsx(s.content, className)} ref={ref} {...props}></Tabs.Content>
-// })
+type Props = {
+  onChangeSwitcherCardsCallback: (mySwitch: string) => void
+}
 
-export const TabSwitcher = () => {
+export const TabSwitcher = ({ onChangeSwitcherCardsCallback }: Props) => {
+  const handleSwitched = (mySwitch: string) => {
+    onChangeSwitcherCardsCallback(mySwitch)
+  }
+
   return (
     <div>
       <Typography variant={TypographyOption.Body2}>Show packs cards</Typography>
       <Tabs.Root defaultValue={'tab1'} orientation={'vertical'}>
         <TabsList>
-          <TabsTrigger value={'tab1'}>
-            <Typography variant={TypographyOption.Body1}>My cards</Typography>
-          </TabsTrigger>
-          <TabsTrigger value={'tab2'}>
+          <TabsTrigger onClick={() => handleSwitched('notMy')} value={'tab1'}>
             <Typography variant={TypographyOption.Body1}>All Cards</Typography>
+          </TabsTrigger>
+          <TabsTrigger onClick={() => handleSwitched('my')} value={'tab2'}>
+            <Typography variant={TypographyOption.Body1}>My cards</Typography>
           </TabsTrigger>
         </TabsList>
       </Tabs.Root>
-
     </div>
   )
 }
