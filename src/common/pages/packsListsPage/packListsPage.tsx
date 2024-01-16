@@ -1,52 +1,46 @@
 import { useState } from 'react'
 
 import { ButtonOption, TypographyOption } from '@/common/enums'
+import { Pagination, SelectItemArgs } from '@/components'
 import { Trash } from '@/components/assets'
 import { Button } from '@/components/ui/Button'
 import { Slider } from '@/components/ui/Slider'
 import { TabSwitcher } from '@/components/ui/Tab-Switcher'
 import { TextField } from '@/components/ui/Text-field'
 import { Typography } from '@/components/ui/Typography'
-import { PackTable } from '@/features'
+import { PackTable, useGetDecksQuery, usePackOptions } from '@/features'
 
 import s from './packListsPage.module.scss'
-// const data = [
-//   {
-//     cardsCount: 10,
-//     createdBy: 'John Doe',
-//     title: 'Project A',
-//     updated: '2023-07-07',
-//   },
-//   {
-//     cardsCount: 5,
-//     createdBy: 'Jane Smith',
-//     title: 'Project B',
-//     updated: '2023-07-06',
-//   },
-//   {
-//     cardsCount: 8,
-//     createdBy: 'Alice Johnson',
-//     title: 'Project C',
-//     updated: '2023-07-05',
-//   },
-//   {
-//     cardsCount: 3,
-//     createdBy: 'Bob Anderson',
-//     title: 'Project D',
-//     updated: '2023-07-07',
-//   },
-//   {
-//     cardsCount: 12,
-//     createdBy: 'Emma Davis',
-//     title: 'Project E',
-//     updated: '2023-07-04',
-//   },
-// ]
+
+const paginationSelectItems: SelectItemArgs[] = [
+  { child: '5', value: '5' },
+  { child: '10', value: '10' },
+  { child: '20', value: '20' },
+]
 
 export const PackListsPage = () => {
-  const [value, setValue] = useState([0, 10])
+  const {
+    authorId,
+    cardsCount,
+    currentPage,
+    onChangeCurrentPageCallback,
+    onChangePageSizeCallback,
+    onChangeSliderValueCallback,
+    onChangeSwitcherCardsCallback,
+    pageSize,
+  } = usePackOptions()
 
-  const handleOnValueChange = (value: number[]) => {
+  const { data } = useGetDecksQuery({
+    authorId,
+    currentPage,
+    itemsPerPage: pageSize,
+    maxCardsCount: cardsCount.maxCardsCount,
+    minCardsCount: cardsCount.minCardsCount,
+  })
+  console.log(data.maxCardsCount)
+  const [value, setValue] = useState([0, data?.maxCardsCount])
+
+  const handleSliderOnValueChange = (value: number[]) => {
     setValue(value)
   }
 
@@ -62,8 +56,12 @@ export const PackListsPage = () => {
           </div>
           <div className={s.underCap}>
             <TextField className={s.searchTextField}></TextField>
-            <TabSwitcher />
-            <Slider onValueChange={handleOnValueChange} title={'Number of cards'} value={value} />
+            <TabSwitcher onChangeSwitcherCardsCallback={onChangeSwitcherCardsCallback} />
+            <Slider
+              onValueChange={handleSliderOnValueChange}
+              title={'Number of cards'}
+              value={value}
+            />
             <Button variant={ButtonOption.Secondary}>
               <>
                 <Trash />
@@ -71,7 +69,17 @@ export const PackListsPage = () => {
               </>
             </Button>
           </div>
-          <PackTable />
+          <PackTable data={data || null} />
+          <Pagination
+            currentPage={currentPage}
+            itemsCount={data?.pagination?.totalPages}
+            itemsPerPage={Number(pageSize)}
+            onValueChange={onChangePageSizeCallback}
+            placeholder={paginationSelectItems[1].child}
+            selectItems={paginationSelectItems}
+            setCurrentPage={onChangeCurrentPageCallback}
+            variant={'pagination'}
+          />
         </div>
       </div>
     </>
