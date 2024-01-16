@@ -1,11 +1,11 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
 import { TypographyOption } from '@/common/enums'
+import { Typography } from '@/components'
 import * as SliderRadix from '@radix-ui/react-slider'
 import { clsx } from 'clsx'
 
 import s from './Slider.module.scss'
-import {Typography} from "@/components";
 
 export type SliderProps = {
   title: string
@@ -14,6 +14,8 @@ export type SliderProps = {
 export const Slider = forwardRef<ElementRef<typeof SliderRadix.Root>, SliderProps>(
   ({ className, title, ...restProps }, ref): JSX.Element => {
     const classNames = clsx(s.root, className)
+
+    console.log(restProps.max)
 
     return (
       <div className={s.slider}>
@@ -25,7 +27,7 @@ export const Slider = forwardRef<ElementRef<typeof SliderRadix.Root>, SliderProp
           <Typography className={s.optionValue} component={'div'} variant={TypographyOption.Body2}>
             {restProps?.value?.[0]}
           </Typography>
-          <SliderRadix.Root className={classNames} ref={ref} {...restProps}>
+          <SliderRadix.Root className={classNames} ref={ref} {...restProps} step={1}>
             <SliderRadix.Track className={s.track}>
               <SliderRadix.Range className={s.range} />
             </SliderRadix.Track>

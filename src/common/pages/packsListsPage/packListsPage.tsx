@@ -21,9 +21,11 @@ const paginationSelectItems: SelectItemArgs[] = [
 export const PackListsPage = () => {
   const {
     authorId,
+    cardsCount,
     currentPage,
     onChangeCurrentPageCallback,
     onChangePageSizeCallback,
+    onChangeSliderValueCallback,
     onChangeSwitcherCardsCallback,
     pageSize,
   } = usePackOptions()
@@ -32,13 +34,13 @@ export const PackListsPage = () => {
     authorId,
     currentPage,
     itemsPerPage: pageSize,
+    maxCardsCount: cardsCount.maxCardsCount,
+    minCardsCount: cardsCount.minCardsCount,
   })
+  console.log(data.maxCardsCount)
+  const [value, setValue] = useState([0, data?.maxCardsCount])
 
-  console.log(data)
-
-  const [value, setValue] = useState([0, 10])
-
-  const handleOnValueChange = (value: number[]) => {
+  const handleSliderOnValueChange = (value: number[]) => {
     setValue(value)
   }
 
@@ -55,7 +57,11 @@ export const PackListsPage = () => {
           <div className={s.underCap}>
             <TextField className={s.searchTextField}></TextField>
             <TabSwitcher onChangeSwitcherCardsCallback={onChangeSwitcherCardsCallback} />
-            <Slider onValueChange={handleOnValueChange} title={'Number of cards'} value={value} />
+            <Slider
+              onValueChange={handleSliderOnValueChange}
+              title={'Number of cards'}
+              value={value}
+            />
             <Button variant={ButtonOption.Secondary}>
               <>
                 <Trash />
