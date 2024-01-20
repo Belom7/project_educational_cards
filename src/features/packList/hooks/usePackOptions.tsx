@@ -18,6 +18,7 @@ export const usePackOptions = () => {
   const searchDeckName = useAppSelector(selectSearchDeckName)
   const dispatch = useAppDispatch()
   const {
+    clearFilter,
     resetCurrentPage,
     setAuthorId,
     setCardsCount,
@@ -50,10 +51,19 @@ export const usePackOptions = () => {
     dispatch(setDeckSearchByName({ searchDeckName: name }))
     dispatch(resetCurrentPage())
   }
+  const clearFilterCallback = () => {
+    dispatch(clearFilter())
+    dispatch(
+      setCardsCount({
+        cardsCount: { maxCardsCount: 0, minCardsCount: 0 },
+      })
+    )
+  }
 
   return {
     authorId,
     cardsCount,
+    clearFilterCallback,
     currentPage,
     onChangeCurrentPageCallback,
     onChangePageSizeCallback,

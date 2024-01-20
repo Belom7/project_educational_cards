@@ -23,6 +23,7 @@ export const PackListsPage = () => {
   const {
     authorId,
     cardsCount,
+    clearFilterCallback,
     currentPage,
     onChangeCurrentPageCallback,
     onChangePageSizeCallback,
@@ -73,7 +74,7 @@ export const PackListsPage = () => {
               title={'Number of cards'}
               value={value}
             />
-            <Button variant={ButtonOption.Secondary}>
+            <Button onClick={clearFilterCallback} variant={ButtonOption.Secondary}>
               <>
                 <Trash />
                 <Typography variant={TypographyOption.Subtitle2}>Clear Filter</Typography>

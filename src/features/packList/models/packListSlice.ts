@@ -19,6 +19,10 @@ export const packListSlice = createSlice({
   initialState,
   name: 'pack',
   reducers: {
+    clearFilter: state => {
+      state.searchDeckName = ''
+      state.authorId = undefined
+    },
     resetCurrentPage: state => {
       state.currentPage = 1
     },
