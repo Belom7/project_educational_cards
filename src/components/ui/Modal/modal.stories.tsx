@@ -1,16 +1,27 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropDownMenu } from '@/components/ui/Drop-down-menu/DropDownMenu'
+import { TypographyOption } from '@/common'
+import { Button, Modal, Typography } from '@/components'
 
 const meta = {
-  component: DropDownMenu,
+  component: Modal,
   tags: ['autoocs'],
   title: 'Components/Modal',
-} satisfies Meta<typeof DropDownMenu>
+} satisfies Meta<typeof Modal>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: {},
+  args: {
+    open: true,
+    title: 'AddSomething',
+    trigger: (
+      <Button>
+        <Typography as={'span'} variant={TypographyOption.Subtitle2}>
+          Add new Deck
+        </Typography>
+      </Button>
+    ),
+  },
 }

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
-import { Pagination } from '@/components/ui/Pagination/Pagination'
-import { SelectItemArgs } from '@/components/ui/Select'
+import { Pagination, SelectItemArgs } from '@/components'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Pagination> = {

@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import {Rating} from "@/components/ui/Rating/Rating";
 
-
+import { Rating } from '@/components'
 
 const meta = {
   component: Rating,
