@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { useDebounce } from '@/common'
 import { ButtonOption, TypographyOption } from '@/common/enums'
 import { Pagination, SelectItemArgs } from '@/components'
 import { Trash } from '@/components/assets'
@@ -27,21 +28,25 @@ export const PackListsPage = () => {
     onChangePageSizeCallback,
     onChangeSliderValueCallback,
     onChangeSwitcherCardsCallback,
+    onSearchCallback,
     pageSize,
+    searchDeckName,
   } = usePackOptions()
-
+  const searchName = useDebounce(searchDeckName)
   const { data } = useGetDecksQuery({
     authorId,
     currentPage,
     itemsPerPage: pageSize,
     maxCardsCount: cardsCount.maxCardsCount,
     minCardsCount: cardsCount.minCardsCount,
+    name: searchName,
   })
-  console.log(data.maxCardsCount)
-  const [value, setValue] = useState([0, data?.maxCardsCount])
+  const [value, setValue] = useState([0, 61])
 
+  console.log(value)
   const handleSliderOnValueChange = (value: number[]) => {
     setValue(value)
+    onChangeSliderValueCallback(value)
   }
 
   return (
@@ -55,9 +60,15 @@ export const PackListsPage = () => {
             </Button>
           </div>
           <div className={s.underCap}>
-            <TextField className={s.searchTextField}></TextField>
+            <TextField
+              className={s.searchTextField}
+              onValueChange={onSearchCallback}
+              placeholder={'Input search'}
+              value={searchDeckName}
+            ></TextField>
             <TabSwitcher onChangeSwitcherCardsCallback={onChangeSwitcherCardsCallback} />
             <Slider
+              max={data?.maxCardsCount}
               onValueChange={handleSliderOnValueChange}
               title={'Number of cards'}
               value={value}
