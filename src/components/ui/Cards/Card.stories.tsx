@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { TypographyOption } from '@/common/enums'
-import { Typography } from '@/components/ui/Typography/Typography'
+import { TypographyOption } from '@/common'
+import { Typography } from '@/components'
 
 import { Card } from './Card'
 

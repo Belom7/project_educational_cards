@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { ButtonOption } from '@/common/enums'
+import { ButtonOption } from '@/common'
 import { EditPencil, LogOut } from '@/components/assets'
 
 import { Button } from './Button'

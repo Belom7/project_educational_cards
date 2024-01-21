@@ -11,14 +11,21 @@ const initialState = {
     minCardsCount: 0,
   } as CardsCountType,
   currentPage: 1,
-
   pageSize: '10',
+  searchDeckName: '',
 }
 
 export const packListSlice = createSlice({
   initialState,
   name: 'pack',
   reducers: {
+    clearFilter: state => {
+      state.searchDeckName = ''
+      state.authorId = undefined
+    },
+    resetCurrentPage: state => {
+      state.currentPage = 1
+    },
     setAuthorId: (state, action: PayloadAction<{ authorId: authorIdType }>) => {
       state.authorId = action.payload.authorId
     },
@@ -27,6 +34,9 @@ export const packListSlice = createSlice({
     },
     setCurrentPage: (state, action: PayloadAction<{ currentPage: number }>) => {
       state.currentPage = action.payload.currentPage
+    },
+    setDeckSearchByName: (state, action: PayloadAction<{ searchDeckName: string }>) => {
+      state.searchDeckName = action.payload.searchDeckName
     },
     setPageSize: (state, action: PayloadAction<{ pageSize: string }>) => {
       state.pageSize = action.payload.pageSize

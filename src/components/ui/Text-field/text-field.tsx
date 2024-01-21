@@ -1,11 +1,11 @@
 import { ComponentProps, ComponentPropsWithoutRef, forwardRef, useState } from 'react'
 
 import { TypographyOption } from '@/common/enums'
+import { Typography } from '@/components'
 import { Eye, EyeOutline } from '@/components/assets'
 import { clsx } from 'clsx'
 
 import s from './text-field.module.scss'
-import {Typography} from "@/components";
 
 export type TextFieldProps = {
   containerProps?: ComponentProps<'div'>

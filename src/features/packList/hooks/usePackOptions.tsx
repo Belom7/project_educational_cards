@@ -5,6 +5,7 @@ import {
   selectCardsCount,
   selectCurrentPage,
   selectPageSize,
+  selectSearchDeckName,
   useMeQuery,
 } from '@/features'
 
@@ -14,9 +15,17 @@ export const usePackOptions = () => {
   const pageSize = Number(useAppSelector(selectPageSize))
   const authorId = useAppSelector(selectAuthorId)
   const cardsCount = useAppSelector(selectCardsCount)
-
+  const searchDeckName = useAppSelector(selectSearchDeckName)
   const dispatch = useAppDispatch()
-  const { setAuthorId, setCardsCount, setCurrentPage, setPageSize } = packListAtion
+  const {
+    clearFilter,
+    resetCurrentPage,
+    setAuthorId,
+    setCardsCount,
+    setCurrentPage,
+    setDeckSearchByName,
+    setPageSize,
+  } = packListAtion
   const onChangeCurrentPageCallback = (currentPage: number) => {
     dispatch(setCurrentPage({ currentPage }))
   }
@@ -38,15 +47,30 @@ export const usePackOptions = () => {
       })
     )
   }
+  const onSearchCallback = (name: string) => {
+    dispatch(setDeckSearchByName({ searchDeckName: name }))
+    dispatch(resetCurrentPage())
+  }
+  const clearFilterCallback = () => {
+    dispatch(clearFilter())
+    dispatch(
+      setCardsCount({
+        cardsCount: { maxCardsCount: 0, minCardsCount: 0 },
+      })
+    )
+  }
 
   return {
     authorId,
     cardsCount,
+    clearFilterCallback,
     currentPage,
     onChangeCurrentPageCallback,
     onChangePageSizeCallback,
     onChangeSliderValueCallback,
     onChangeSwitcherCardsCallback,
+    onSearchCallback,
     pageSize,
+    searchDeckName,
   }
 }

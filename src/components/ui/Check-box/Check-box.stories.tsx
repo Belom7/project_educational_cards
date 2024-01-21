@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Checkbox } from '@/components/ui/Check-box/CheckBox'
+import { Checkbox } from '@/components'
 import { Meta } from '@storybook/react'
 
 export default {
