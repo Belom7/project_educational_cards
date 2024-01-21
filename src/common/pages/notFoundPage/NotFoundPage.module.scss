@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  .text {
+    margin-top: 2.8rem;
+  }
+
+  .button {
+    margin-top: 1.4rem;
+  }
+}
