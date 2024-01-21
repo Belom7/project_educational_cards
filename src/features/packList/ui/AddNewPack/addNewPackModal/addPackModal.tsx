@@ -14,7 +14,7 @@
 //   }
 // }
 //
-// export const AddDeckModal = ({ buttonTitle, trigger, values }: AddDeckModalProps): JSX.Element => {
+// export const AddPackModal = ({ buttonTitle, trigger, values }: AddDeckModalProps): JSX.Element => {
 //   const [open, setOpen] = useState(false)
 //   const [createDeck, { error }] = useCreateDeckMutation()
 //   const { setCurrentPage } = decksActions
