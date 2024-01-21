@@ -1,9 +1,14 @@
-import { ReactNode } from 'react'
+import { ComponentPropsWithoutRef, forwardRef } from 'react'
+
+import { clsx } from 'clsx'
 
 import s from './page.module.scss'
-type pagePropsType = {
-  children: ReactNode
-}
-export const Page = ({ children }: pagePropsType) => {
-  return <div className={s.page}>{children}</div>
-}
+
+export type PageProps = ComponentPropsWithoutRef<'div'>
+
+export const Page = forwardRef<HTMLDivElement, PageProps>((props, ref) => {
+  const { className, ...restProps } = props
+  const classNames = clsx(s.root, className)
+
+  return <div className={classNames} ref={ref} {...restProps} />
+})
