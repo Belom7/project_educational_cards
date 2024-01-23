@@ -11,11 +11,12 @@ import s from './modal.module.scss'
 
 type Props = {
   open: boolean
+  setOpen: (open: boolean) => void
   title: string
   trigger: ReactNode
 } & ComponentPropsWithoutRef<'div'>
 export const Modal = forwardRef<ElementRef<'div'>, Props>(
-  ({ children, className, open, title, trigger, ...restProps }, ref) => {
+  ({ children, className, open, setOpen, title, trigger, ...restProps }, ref) => {
     const classNames = {
       header: s.header,
       overlay: s.overlay,
@@ -23,7 +24,7 @@ export const Modal = forwardRef<ElementRef<'div'>, Props>(
     }
 
     return (
-      <ModalPrimitive.Root>
+      <ModalPrimitive.Root onOpenChange={setOpen} >
         <ModalPrimitive.Trigger asChild>{trigger}</ModalPrimitive.Trigger>
         <AnimatePresence>
           {open && (

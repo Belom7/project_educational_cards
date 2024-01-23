@@ -10,6 +10,7 @@ import { TabSwitcher } from '@/components/ui/Tab-Switcher'
 import { TextField } from '@/components/ui/Text-field'
 import { Typography } from '@/components/ui/Typography'
 import { PackTable, useGetDecksQuery, usePackOptions } from '@/features'
+import { AddPackModal } from '@/features/packList/ui/AddNewPack/addNewPackModal'
 
 import s from './packListsPage.module.scss'
 
@@ -56,9 +57,14 @@ export const PackListsPage = () => {
         <div className={s.wrapper}>
           <div className={s.packsList}>
             <Typography variant={TypographyOption.H1}>Decks list</Typography>
-            <Button>
-              <Typography variant={TypographyOption.Subtitle2}>Add New Pack</Typography>
-            </Button>
+            <AddPackModal
+              buttonTitle={'Hellow'}
+              trigger={
+                <Button>
+                  <Typography variant={TypographyOption.Subtitle2}>Add New Pack</Typography>
+                </Button>
+              }
+            />
           </div>
           <div className={s.underCap}>
             <TextField

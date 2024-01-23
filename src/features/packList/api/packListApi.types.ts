@@ -34,3 +34,22 @@ export type GetDecksParamsType = {
   name?: string
   orderBy?: string
 }
+type Author = {
+  id: string
+  name: string
+}
+export type PackType = {
+  author: Author
+  cardsCount: number
+  cover: null | string
+  created: string
+  id: string
+  isBlocked?: boolean | null
+  isDeleted?: boolean | null
+  isPrivate: boolean
+  name: string
+  rating: number
+  shots: number
+  updated: string
+  userId: string
+}

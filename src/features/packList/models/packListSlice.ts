@@ -1,3 +1,4 @@
+import { Sort } from '@/features'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 export type CardsCountType = {
   maxCardsCount: number | undefined
@@ -13,6 +14,7 @@ const initialState = {
   currentPage: 1,
   pageSize: '10',
   searchDeckName: '',
+  sortOptions: undefined as Sort | undefined,
 }
 
 export const packListSlice = createSlice({
