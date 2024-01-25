@@ -1,6 +1,7 @@
 import { ReactNode, useState } from 'react'
 
 import { Modal } from '@/components'
+import { useCreatePackMutation } from '@/features'
 import { PackForm } from '@/features/packList/ui/AddNewPack/addNewPackModal/PackForm'
 
 export type AddDeckModalProps = {
@@ -9,8 +10,15 @@ export type AddDeckModalProps = {
 
 export const AddPackModal = ({ trigger }: AddDeckModalProps): JSX.Element => {
   const [open, setOpen] = useState(false)
-  const createDeckCallback = (data: any) => {
-    console.log(data)
+  const [createPack, { error }] = useCreatePackMutation()
+
+  console.log(error)
+  const closeModal = () => {
+    setOpen(false)
+  }
+  const createPackCallback = (data: any) => {
+    createPack(data)
+    closeModal()
   }
 
   return (
@@ -19,7 +27,7 @@ export const AddPackModal = ({ trigger }: AddDeckModalProps): JSX.Element => {
         // buttonTitle={buttonTitle}
         // error={error}
         // onClose={closeModal}
-        onSubmit={createDeckCallback}
+        onSubmit={createPackCallback}
         // values={values}
       />
     </Modal>

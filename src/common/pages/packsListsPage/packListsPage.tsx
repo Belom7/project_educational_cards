@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { useDebounce } from '@/common'
+import { formatSortedString, useDebounce } from '@/common'
 import { ButtonOption, TypographyOption } from '@/common/enums'
 import { Pagination, SelectItemArgs } from '@/components'
 import { Trash } from '@/components/assets'
@@ -29,12 +29,15 @@ export const PackListsPage = () => {
     onChangeCurrentPageCallback,
     onChangePageSizeCallback,
     onChangeSliderValueCallback,
+    onChangeSortCallback,
     onChangeSwitcherCardsCallback,
     onSearchCallback,
     pageSize,
     searchDeckName,
+    sortOptions,
   } = usePackOptions()
   const searchName = useDebounce(searchDeckName)
+  const sortedString = formatSortedString(sortOptions)
   const { data } = useGetDecksQuery({
     authorId,
     currentPage,
@@ -42,6 +45,7 @@ export const PackListsPage = () => {
     maxCardsCount: cardsCount.maxCardsCount,
     minCardsCount: cardsCount.minCardsCount,
     name: searchName,
+    orderBy: sortedString,
   })
   const [value, setValue] = useState([0, 61])
 
@@ -58,7 +62,6 @@ export const PackListsPage = () => {
           <div className={s.packsList}>
             <Typography variant={TypographyOption.H1}>Decks list</Typography>
             <AddPackModal
-              buttonTitle={'Hellow'}
               trigger={
                 <Button>
                   <Typography variant={TypographyOption.Subtitle2}>Add New Pack</Typography>
@@ -87,7 +90,7 @@ export const PackListsPage = () => {
               </>
             </Button>
           </div>
-          <PackTable data={data || null} />
+          <PackTable data={data || null} onSort={onChangeSortCallback} sort={sortOptions} />
           <Pagination
             currentPage={currentPage}
             itemsCount={data?.pagination?.totalPages}

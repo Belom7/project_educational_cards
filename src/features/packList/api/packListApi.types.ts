@@ -10,7 +10,7 @@ export type ResponseTypeItemsAuthor = {
 export type ResponseTypeItems = {
   author: ResponseTypeItemsAuthor
   cardsCount: number
-  cover: string
+  cover: string | null
   created: string
   id: string
   isPrivate: boolean

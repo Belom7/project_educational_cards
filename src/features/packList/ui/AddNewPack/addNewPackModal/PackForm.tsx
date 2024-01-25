@@ -36,15 +36,12 @@ export const PackForm = ({ onSubmit }: Props) => {
     resolver: zodResolver(packSchema),
   })
   const [cover, setCover] = useState<File | null>(null)
-  //const [coverError, setCoverError] = useState<null | string>(null)
-  // const imageUrl = cover ? URL.createObjectURL(cover) : null
+  const imageUrl = cover ? URL.createObjectURL(cover) : null
 
-  console.log(cover)
   const onLoadCover = (data: File) => {
     setCover(data)
   }
   const onSubmitHandler = (data: FormValues) => {
-    console.log(data)
     const formData = new FormData()
 
     formData.append('name', data.namePack ? data.namePack : '')
@@ -60,20 +57,25 @@ export const PackForm = ({ onSubmit }: Props) => {
 
   return (
     <form className={s.form} onSubmit={handleSubmit(onSubmitHandler)}>
+      {imageUrl && (
+        <div className={s.imageBlock}>
+          <img alt={'Pack cover'} src={imageUrl} />
+        </div>
+      )}
+      <Uploader className={s.uploader} onLoadCover={onLoadCover} onLoadError={onLoadCoverError}>
+        <div className={s.uploaderContent}>
+          <ImageIcon />
+          <Typography as={'span'} variant={TypographyOption.Subtitle2}>
+            Upload Image
+          </Typography>
+        </div>
+      </Uploader>
       <ControlledTextField
         className={s.input}
         control={control}
         label={'Pack name'}
         name={'namePack'}
       />
-      <Uploader className={s.uploader} onLoadCover={onLoadCover} onLoadError={onLoadCoverError}>
-        <Button variant={ButtonOption.Secondary}>
-          <ImageIcon />
-          <Typography as={'span'} variant={TypographyOption.Subtitle2}>
-            Upload Image
-          </Typography>
-        </Button>
-      </Uploader>
       <ControlledCheckbox
         className={s.checkbox}
         control={control}

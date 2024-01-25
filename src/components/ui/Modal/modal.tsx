@@ -24,7 +24,7 @@ export const Modal = forwardRef<ElementRef<'div'>, Props>(
     }
 
     return (
-      <ModalPrimitive.Root onOpenChange={setOpen} >
+      <ModalPrimitive.Root onOpenChange={setOpen}>
         <ModalPrimitive.Trigger asChild>{trigger}</ModalPrimitive.Trigger>
         <AnimatePresence>
           {open && (

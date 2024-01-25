@@ -31,4 +31,4 @@ export const packListService = baseApi.injectEndpoints({
     }),
   }),
 })
-export const { useGetDecksQuery } = packListService
+export const { useCreatePackMutation, useGetDecksQuery } = packListService

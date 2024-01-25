@@ -43,6 +43,9 @@ export const packListSlice = createSlice({
     setPageSize: (state, action: PayloadAction<{ pageSize: string }>) => {
       state.pageSize = action.payload.pageSize
     },
+    setSortOptions: (state, action: PayloadAction<{ sortOptions: Sort | undefined }>) => {
+      state.sortOptions = action.payload.sortOptions
+    },
   },
 })
 export const packListAtion = packListSlice.actions
