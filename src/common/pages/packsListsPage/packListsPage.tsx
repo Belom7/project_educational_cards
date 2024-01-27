@@ -35,6 +35,7 @@ export const PackListsPage = () => {
     pageSize,
     searchDeckName,
     sortOptions,
+    userId,
   } = usePackOptions()
   const searchName = useDebounce(searchDeckName)
   const sortedString = formatSortedString(sortOptions)
@@ -47,6 +48,7 @@ export const PackListsPage = () => {
     name: searchName,
     orderBy: sortedString,
   })
+
   const [value, setValue] = useState([0, 61])
 
   console.log(value)
@@ -90,7 +92,12 @@ export const PackListsPage = () => {
               </>
             </Button>
           </div>
-          <PackTable data={data || null} onSort={onChangeSortCallback} sort={sortOptions} />
+          <PackTable
+            data={data || null}
+            onSort={onChangeSortCallback}
+            sort={sortOptions}
+            userId={userId || undefined}
+          />
           <Pagination
             currentPage={currentPage}
             itemsCount={data?.pagination?.totalPages}

@@ -36,6 +36,8 @@ const privateRoutes: RouteObject[] = [
 const AppСomponent = () => {
   const { isError, isLoading } = useMeQuery()
 
+
+
   return (
     <>
       {isLoading && <Preloader />}

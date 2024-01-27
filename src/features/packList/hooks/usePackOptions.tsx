@@ -64,7 +64,6 @@ export const usePackOptions = () => {
     )
   }
   const onChangeSortCallback = (orderBy: Sort) => {
-    console.log(orderBy, 'reee')
     dispatch(setSortOptions({ sortOptions: orderBy }))
   }
 
@@ -82,5 +81,6 @@ export const usePackOptions = () => {
     pageSize,
     searchDeckName,
     sortOptions,
+    userId: user?.id,
   }
 }

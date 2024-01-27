@@ -4,11 +4,11 @@ import { Modal } from '@/components'
 import { useCreatePackMutation } from '@/features'
 import { PackForm } from '@/features/packList/ui/AddNewPack/addNewPackModal/PackForm'
 
-export type AddDeckModalProps = {
+export type AddPackModalProps = {
   trigger: ReactNode
 }
 
-export const AddPackModal = ({ trigger }: AddDeckModalProps): JSX.Element => {
+export const AddPackModal = ({ trigger }: AddPackModalProps): JSX.Element => {
   const [open, setOpen] = useState(false)
   const [createPack, { error }] = useCreatePackMutation()
 
@@ -23,13 +23,7 @@ export const AddPackModal = ({ trigger }: AddDeckModalProps): JSX.Element => {
 
   return (
     <Modal open={open} setOpen={setOpen} title={'Add New Deck'} trigger={trigger}>
-      <PackForm
-        // buttonTitle={buttonTitle}
-        // error={error}
-        // onClose={closeModal}
-        onSubmit={createPackCallback}
-        // values={values}
-      />
+      <PackForm buttonTitle={'Add New Pack'} onSubmit={createPackCallback} />
     </Modal>
   )
 }

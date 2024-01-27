@@ -1,0 +1,13 @@
+.root{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.4rem 3.4rem 3.6rem 2.4rem;
+}
+
+.buttonsContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+}

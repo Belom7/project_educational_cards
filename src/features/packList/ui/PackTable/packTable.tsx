@@ -4,7 +4,8 @@ import { ButtonOption, TypographyOption } from '@/common/enums'
 import { Table, TableBody, TableCell, TableHeader, TableRow, Typography } from '@/components'
 import { ButtonPlay, EditTablePencil, Trash } from '@/components/assets'
 import { Button } from '@/components/ui/Button'
-import { BaseDeckResponseType, columns } from '@/features'
+import { BaseDeckResponseType, DeletePackModal, columns } from '@/features'
+import { EditPackModal } from '@/features/packList/ui'
 
 import s from './packTable.module.scss'
 
@@ -16,9 +17,10 @@ type Props = {
   data: BaseDeckResponseType | null
   onSort: (sort: Sort) => void
   sort: Sort | undefined
+  userId: string | undefined
 }
 
-export const PackTable: React.FC<Props> = ({ data, onSort, sort }) => {
+export const PackTable: React.FC<Props> = ({ data, onSort, sort, userId }) => {
   return (
     <>
       <div className={s.cardWrapper}>
@@ -26,6 +28,14 @@ export const PackTable: React.FC<Props> = ({ data, onSort, sort }) => {
           <TableHeader className={s.tableHeader} columns={columns} onSort={onSort} sort={sort} />
           <TableBody>
             {data?.items?.map((el: any) => {
+              const isMyDeck = el?.author.id === userId
+
+              const values = {
+                cover: el.cover,
+                isPrivate: el.isPrivate,
+                name: el.name,
+              }
+
               return (
                 <TableRow className={s.tableRow} key={el.id}>
                   <TableCell className={s.cellName}>
@@ -44,12 +54,27 @@ export const PackTable: React.FC<Props> = ({ data, onSort, sort }) => {
                       <Button variant={ButtonOption.Icon}>
                         <ButtonPlay />
                       </Button>
-                      <Button variant={ButtonOption.Icon}>
-                        <EditTablePencil />
-                      </Button>
-                      <Button variant={ButtonOption.Icon}>
-                        <Trash />
-                      </Button>
+                      {isMyDeck && (
+                        <>
+                          <EditPackModal
+                            trigger={
+                              <Button variant={ButtonOption.Icon}>
+                                <EditTablePencil />
+                              </Button>
+                            }
+                            values={values}
+                          />
+                          <DeletePackModal
+                            id={el.id}
+                            packName={el.name}
+                            trigger={
+                              <Button variant={ButtonOption.Icon}>
+                                <Trash />
+                              </Button>
+                            }
+                          />
+                        </>
+                      )}
                     </span>
                   </TableCell>
                 </TableRow>

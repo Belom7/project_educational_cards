@@ -20,23 +20,29 @@ const packSchema = z
 
 type FormValues = z.infer<typeof packSchema>
 type Props = {
+  buttonTitle: string
   onSubmit: (data: FormData) => void
+  values?: {
+    cover?: null | string
+    isPrivate?: boolean
+    name: string
+  }
 }
-export const PackForm = ({ onSubmit }: Props) => {
+export const PackForm = ({ buttonTitle, onSubmit, values }: Props) => {
   const {
     control,
     formState: {},
     handleSubmit,
   } = useForm<FormValues>({
     defaultValues: {
-      isPrivate: false,
-      namePack: '',
+      isPrivate: values?.isPrivate || false,
+      namePack: values?.name || '',
     },
     mode: 'onSubmit',
     resolver: zodResolver(packSchema),
   })
   const [cover, setCover] = useState<File | null>(null)
-  const imageUrl = cover ? URL.createObjectURL(cover) : null
+  const imageUrl = cover ? URL.createObjectURL(cover) : values?.cover
 
   const onLoadCover = (data: File) => {
     setCover(data)
@@ -54,6 +60,8 @@ export const PackForm = ({ onSubmit }: Props) => {
   const onLoadCoverError = () => {
     // setCoverError(error)
   }
+
+  console.log(values)
 
   return (
     <form className={s.form} onSubmit={handleSubmit(onSubmitHandler)}>
@@ -87,7 +95,7 @@ export const PackForm = ({ onSubmit }: Props) => {
           <Typography variant={TypographyOption.Subtitle2}>Cancel</Typography>
         </Button>
         <Button className={s.formButton} type={'submit'}>
-          <Typography variant={TypographyOption.Subtitle2}>Add New Pack</Typography>
+          <Typography variant={TypographyOption.Subtitle2}>{buttonTitle}</Typography>
         </Button>
       </div>
     </form>
