@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 
 import { Routes } from '@/common/enums'
-import { ForgotPasswordPage, LoginPage, PackListsPage, SignUpPage } from '@/common/pages'
+import { DeckPage, ForgotPasswordPage, LoginPage, PackListsPage, SignUpPage } from '@/common/pages'
 import { Header, Preloader } from '@/components'
 import { useMeQuery } from '@/features'
 
@@ -31,12 +31,14 @@ const privateRoutes: RouteObject[] = [
     element: <PackListsPage />,
     path: Routes.Main,
   },
+  {
+    element: <DeckPage />,
+    path: `${Routes.Decks}/:id/cards`,
+  },
 ]
 
 const AppСomponent = () => {
   const { isError, isLoading } = useMeQuery()
-
-
 
   return (
     <>

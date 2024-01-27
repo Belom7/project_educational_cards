@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+import { Routes, formatDate } from '@/common'
 import { ButtonOption, TypographyOption } from '@/common/enums'
 import { Table, TableBody, TableCell, TableHeader, TableRow, Typography } from '@/components'
 import { ButtonPlay, EditTablePencil, Trash } from '@/components/assets'
@@ -39,15 +40,15 @@ export const PackTable: React.FC<Props> = ({ data, onSort, sort, userId }) => {
               return (
                 <TableRow className={s.tableRow} key={el.id}>
                   <TableCell className={s.cellName}>
-                    <Link className={s.deckLinkText} to={`/`}>
+                    <Link className={s.deckLinkText} to={`${Routes.Decks}/${el.id}/cards`}>
                       <div className={s.cellImage}>
                         {el.cover && <img alt={'deck-cover'} className={s.image} src={el.cover} />}
-                        <Typography variant={TypographyOption.Body2}>{el.name}</Typography>
+                        <Typography variant={TypographyOption.Body2} >{el.name}</Typography>
                       </div>
                     </Link>
                   </TableCell>
                   <TableCell>{el.cardsCount}</TableCell>
-                  <TableCell>{el.updated}</TableCell>
+                  <TableCell>{formatDate(el.updated)}</TableCell>
                   <TableCell>{el.author.name}</TableCell>
                   <TableCell>
                     <span>
