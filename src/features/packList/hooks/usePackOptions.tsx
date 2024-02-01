@@ -1,11 +1,13 @@
 import { useAppDispatch, useAppSelector } from '@/common'
 import {
+  Sort,
   packListAtion,
   selectAuthorId,
   selectCardsCount,
   selectCurrentPage,
   selectPageSize,
   selectSearchDeckName,
+  selectSortOptions,
   useMeQuery,
 } from '@/features'
 
@@ -16,6 +18,7 @@ export const usePackOptions = () => {
   const authorId = useAppSelector(selectAuthorId)
   const cardsCount = useAppSelector(selectCardsCount)
   const searchDeckName = useAppSelector(selectSearchDeckName)
+  const sortOptions = useAppSelector(selectSortOptions)
   const dispatch = useAppDispatch()
   const {
     clearFilter,
@@ -25,6 +28,7 @@ export const usePackOptions = () => {
     setCurrentPage,
     setDeckSearchByName,
     setPageSize,
+    setSortOptions,
   } = packListAtion
   const onChangeCurrentPageCallback = (currentPage: number) => {
     dispatch(setCurrentPage({ currentPage }))
@@ -59,6 +63,9 @@ export const usePackOptions = () => {
       })
     )
   }
+  const onChangeSortCallback = (orderBy: Sort) => {
+    dispatch(setSortOptions({ sortOptions: orderBy }))
+  }
 
   return {
     authorId,
@@ -68,9 +75,12 @@ export const usePackOptions = () => {
     onChangeCurrentPageCallback,
     onChangePageSizeCallback,
     onChangeSliderValueCallback,
+    onChangeSortCallback,
     onChangeSwitcherCardsCallback,
     onSearchCallback,
     pageSize,
     searchDeckName,
+    sortOptions,
+    userId: user?.id,
   }
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { useDebounce } from '@/common'
+import { formatSortedString, useDebounce } from '@/common'
 import { ButtonOption, TypographyOption } from '@/common/enums'
 import { Pagination, SelectItemArgs } from '@/components'
 import { Trash } from '@/components/assets'
@@ -10,6 +10,7 @@ import { TabSwitcher } from '@/components/ui/Tab-Switcher'
 import { TextField } from '@/components/ui/Text-field'
 import { Typography } from '@/components/ui/Typography'
 import { PackTable, useGetDecksQuery, usePackOptions } from '@/features'
+import { AddPackModal } from '@/features/packList/ui/AddNewPack/addNewPackModal'
 
 import s from './packListsPage.module.scss'
 
@@ -28,12 +29,16 @@ export const PackListsPage = () => {
     onChangeCurrentPageCallback,
     onChangePageSizeCallback,
     onChangeSliderValueCallback,
+    onChangeSortCallback,
     onChangeSwitcherCardsCallback,
     onSearchCallback,
     pageSize,
     searchDeckName,
+    sortOptions,
+    userId,
   } = usePackOptions()
   const searchName = useDebounce(searchDeckName)
+  const sortedString = formatSortedString(sortOptions)
   const { data } = useGetDecksQuery({
     authorId,
     currentPage,
@@ -41,7 +46,9 @@ export const PackListsPage = () => {
     maxCardsCount: cardsCount.maxCardsCount,
     minCardsCount: cardsCount.minCardsCount,
     name: searchName,
+    orderBy: sortedString,
   })
+
   const [value, setValue] = useState([0, 61])
 
   console.log(value)
@@ -56,9 +63,13 @@ export const PackListsPage = () => {
         <div className={s.wrapper}>
           <div className={s.packsList}>
             <Typography variant={TypographyOption.H1}>Decks list</Typography>
-            <Button>
-              <Typography variant={TypographyOption.Subtitle2}>Add New Pack</Typography>
-            </Button>
+            <AddPackModal
+              trigger={
+                <Button>
+                  <Typography variant={TypographyOption.Subtitle2}>Add New Pack</Typography>
+                </Button>
+              }
+            />
           </div>
           <div className={s.underCap}>
             <TextField
@@ -81,7 +92,12 @@ export const PackListsPage = () => {
               </>
             </Button>
           </div>
-          <PackTable data={data || null} />
+          <PackTable
+            data={data || null}
+            onSort={onChangeSortCallback}
+            sort={sortOptions}
+            userId={userId || undefined}
+          />
           <Pagination
             currentPage={currentPage}
             itemsCount={data?.pagination?.totalPages}

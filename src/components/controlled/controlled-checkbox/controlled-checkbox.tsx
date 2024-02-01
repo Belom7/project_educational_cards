@@ -29,7 +29,7 @@ export const ControlledCheckbox = <T extends FieldValues>({
       {...rest}
       checked={value}
       disabled={disabled}
-      label={'Remember me'}
+      label={rest.label}
       onValueChange={onChange}
       {...field}
     />

@@ -6,6 +6,7 @@ export const columns = [
   },
   {
     key: 'cardsCount',
+    sortable: true,
     title: 'Cards',
   },
   {
@@ -14,7 +15,12 @@ export const columns = [
     title: 'Last Updated',
   },
   {
-    key: 'createdBy',
+    key: 'author.name',
+    sortable: true,
     title: 'Created by',
+  },
+  {
+    key: 'panel',
+    title: '',
   },
 ]

@@ -10,7 +10,7 @@ export type ResponseTypeItemsAuthor = {
 export type ResponseTypeItems = {
   author: ResponseTypeItemsAuthor
   cardsCount: number
-  cover: string
+  cover: null | string
   created: string
   id: string
   isPrivate: boolean
@@ -34,3 +34,28 @@ export type GetDecksParamsType = {
   name?: string
   orderBy?: string
 }
+type Author = {
+  id: string
+  name: string
+}
+export type PackType = {
+  author: Author
+  cardsCount: number
+  cover: null | string
+  created: string
+  id: string
+  isBlocked?: boolean | null
+  isDeleted?: boolean | null
+  isPrivate: boolean
+  name: string
+  rating: number
+  shots: number
+  updated: string
+  userId: string
+}
+export type UpdatePackParamsType = {
+  body: FormData
+  id: string
+}
+export type DeletePackResponseType = Omit<PackType, 'author'>
+export type DeletePackParamsType = Pick<PackType, 'id'>

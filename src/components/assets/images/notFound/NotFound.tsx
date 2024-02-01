@@ -1,6 +1,4 @@
-import * as React from 'react'
-
-const SvgComponent = props => (
+const SvgComponent = (props: any) => (
   <svg fill={'none'} height={192} width={451} xmlns={'http://www.w3.org/2000/svg'} {...props}>
     <path d={'M296.1 16v16.2H193.4V2.1h-73.5v173.4h73.5l181.5 1.1V16h-78.8Z'} fill={'url(#a)'} />
     <path
