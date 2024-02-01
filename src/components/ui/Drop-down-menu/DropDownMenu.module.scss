@@ -135,6 +135,12 @@ margin: 10px 0;
 
 .typographyItem{
   margin-left: 10px;
+  color: var(--color-light-100);
+  text-decoration: none;
+}
+
+.LinkText{
+  text-decoration: none;
 }
 
 .IconButton:focus {

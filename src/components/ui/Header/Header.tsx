@@ -8,9 +8,10 @@ import s from './Header.module.scss'
 type HeaderProps = {
   authorized: boolean
   avatar?: any
+  email?: string
   name?: string
 }
-export const Header = ({ authorized = false, avatar, name = 'Ivan' }: HeaderProps) => {
+export const Header = ({ authorized = false, avatar, email, name }: HeaderProps) => {
   return (
     <header className={s.header}>
       <div className={s.wrapper}>
@@ -26,8 +27,12 @@ export const Header = ({ authorized = false, avatar, name = 'Ivan' }: HeaderProp
             <Typography className={s.name} variant={TypographyOption.Subtitle1}>
               {name}
             </Typography>
-            <DropDownMenu>
-              <img alt={''} className={s.avatar} src={avatar ? avatar : ''} />
+            <DropDownMenu email={email} name={name}>
+              {avatar ? (
+                <img alt={''} className={s.avatar} src={avatar ? avatar : ''} />
+              ) : (
+                <div className={s.avatar}>{name?.substring(0, 1)}</div>
+              )}
             </DropDownMenu>
           </div>
         )}

@@ -10,6 +10,7 @@ import { Routes } from '@/common/enums'
 import { DeckPage, ForgotPasswordPage, LoginPage, PackListsPage, SignUpPage } from '@/common/pages'
 import { Header, Preloader } from '@/components'
 import { useMeQuery } from '@/features'
+import { EditProfile } from '@/features/profile/ui'
 
 const publicRoutes: RouteObject[] = [
   {
@@ -35,15 +36,19 @@ const privateRoutes: RouteObject[] = [
     element: <DeckPage />,
     path: `${Routes.Decks}/:id/cards`,
   },
+  {
+    element: <EditProfile />,
+    path: Routes.Profile,
+  },
 ]
 
 const AppСomponent = () => {
-  const { isError, isLoading } = useMeQuery()
+  const { data, isError, isLoading } = useMeQuery()
 
   return (
     <>
       {isLoading && <Preloader />}
-      <Header authorized={!isError} />
+      <Header authorized={!isError} avatar={data?.avatar} email={data?.email} name={data?.name} />
       <Outlet />
     </>
   )
