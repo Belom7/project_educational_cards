@@ -1,6 +1,4 @@
 export { IconWrapper } from './IconWrapper'
-export { default as Logo } from './LogoItIncubator'
-export { default as Profile } from './Profile'
 export { default as ArrowDownIcon } from './components/ArrowDownIcon'
 export { default as ArrowUpIconIcon } from './components/ArrowUpIcon'
 export { default as ButtonPlayIcon } from './components/ButtonPlayIcon'
