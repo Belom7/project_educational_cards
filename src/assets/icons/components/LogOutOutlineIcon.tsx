@@ -1,5 +1,5 @@
 import { SVGProps } from 'react'
-export const LogOutOutline = (props: SVGProps<SVGSVGElement>) => (
+export const LogOutOutlineIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} fill={'none'} height={16} width={16} xmlns={'http://www.w3.org/2000/svg'}>
     <path
       d={

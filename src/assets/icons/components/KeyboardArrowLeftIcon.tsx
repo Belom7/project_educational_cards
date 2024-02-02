@@ -1,6 +1,6 @@
 import { IconProps, IconWrapper } from '../IconWrapper'
 
-const KeyboardArrowLeft = (allProps: IconProps) => {
+const KeyboardArrowLeftIcon = (allProps: IconProps) => {
   const { svgProps: props, ...restProps } = allProps
 
   return (
@@ -32,4 +32,4 @@ const KeyboardArrowLeft = (allProps: IconProps) => {
   )
 }
 
-export default KeyboardArrowLeft
+export default KeyboardArrowLeftIcon

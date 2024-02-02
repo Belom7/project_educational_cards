@@ -1,6 +1,6 @@
 import { IconProps, IconWrapper } from '../IconWrapper'
 
-const KeyboardArrowUp = (allProps: IconProps) => {
+const KeyboardArrowDownIcon = (allProps: IconProps) => {
   const { svgProps: props, ...restProps } = allProps
 
   return (
@@ -14,14 +14,14 @@ const KeyboardArrowUp = (allProps: IconProps) => {
           xmlns={'http://www.w3.org/2000/svg'}
           {...props}
         >
-          <g clipPath={'url(#prefix__clip0_124_21506)'}>
+          <g clipPath={'url(#prefix__clip0_124_21507)'}>
             <path
-              d={'M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41z'}
+              d={'M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z'}
               fill={'currentColor'}
             />
           </g>
           <defs>
-            <clipPath id={'prefix__clip0_124_21506'}>
+            <clipPath id={'prefix__clip0_124_21507'}>
               <path d={'M0 0h24v24H0z'} fill={'#fff'} />
             </clipPath>
           </defs>
@@ -32,4 +32,4 @@ const KeyboardArrowUp = (allProps: IconProps) => {
   )
 }
 
-export default KeyboardArrowUp
+export default KeyboardArrowDownIcon

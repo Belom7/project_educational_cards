@@ -1,5 +1,5 @@
 import { SVGProps } from 'react'
-export const PersonOutline = (props: SVGProps<SVGSVGElement>) => (
+export const PersonOutlineIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} fill={'currentColor'} height={16} width={16} xmlns={'http://www.w3.org/2000/svg'}>
     <path
       d={

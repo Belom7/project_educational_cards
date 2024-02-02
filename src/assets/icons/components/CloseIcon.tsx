@@ -1,6 +1,6 @@
 import { JSX, Ref, forwardRef } from 'react'
 
-import { IconProps, IconWrapper } from '@/components/assets/icons/IconWrapper'
+import { IconProps, IconWrapper } from '@/assets/icons/IconWrapper'
 
 export const CloseIcon = forwardRef((allProps: IconProps, ref: Ref<SVGSVGElement>): JSX.Element => {
   const { svgProps: props, ...restProps } = allProps
