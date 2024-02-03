@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 
 import { TypographyOption } from '@/common/enums'
-import { ControlledTextField } from '@/components/controlled/controlled-text-field/controlled-text-field'
+import { ControlledTextField } from '@/components/controlled/controlled-text-field/ControlledTextField'
 import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Cards'
 import { Typography } from '@/components/ui/Typography'

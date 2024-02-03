@@ -1,1 +1,1 @@
-export * from './controlled-radio-group'
+export * from './ControlledRadioGroup'
