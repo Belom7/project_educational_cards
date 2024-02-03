@@ -1,7 +1,7 @@
 import { TypographyOption } from '@/common/enums'
 import { LeftArrow } from '@/components/assets'
-import { Button } from '@/components/ui/Button'
-import { Typography } from '@/components/ui/Typography'
+import { Button } from '../../components/ui/button'
+import { Typography } from '../../components/ui/typography'
 import { DeckTable } from '@/features'
 
 import s from './DeckPage.module.scss'

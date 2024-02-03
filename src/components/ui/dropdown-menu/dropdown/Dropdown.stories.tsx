@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Dayn } from '@/components/ui/Drop-down-menu/dropDayn/dayn'
+import { Dropdown } from '@/components/ui/Drop-down-menu/dropdown/Dropdown'
 
 const meta = {
-  component: Dayn,
+  component: Dropdown,
   tags: ['autoocs'],
-  title: 'Components/Dayn',
-} satisfies Meta<typeof Dayn>
+  title: 'Components/Dropdown',
+} satisfies Meta<typeof Dropdown>
 
 export default meta
 type Story = StoryObj<typeof meta>

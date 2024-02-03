@@ -7,7 +7,7 @@ export const columns = [
   {
     key: 'cardsCount',
     sortable: true,
-    title: 'Cards',
+    title: 'cards',
   },
   {
     key: 'updated',

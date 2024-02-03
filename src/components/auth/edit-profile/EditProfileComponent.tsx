@@ -1,8 +1,8 @@
 import { ButtonOption, TypographyOption } from '@/common/enums'
 import { EditPencil, LogOut } from '@/components/assets'
-import { Button } from '@/components/ui/Button'
-import { Card } from '@/components/ui/Cards'
-import { Typography } from '@/components/ui/Typography'
+import { Button } from '../../ui/button'
+import { Card } from '../../ui/cards'
+import { Typography } from '../../ui/typography'
 
 import s from './EditProfileComponent.module.scss'
 

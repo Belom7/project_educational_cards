@@ -36,7 +36,7 @@ export const DefaultControlled = {
 export const Default = {
   args: {
     disabled: true,
-    label: 'Check-box',
+    label: 'checkbox',
   },
   render: (args: any) => {
     const [checked, setChecked] = useState(false)
@@ -47,7 +47,7 @@ export const Default = {
 export const DefaultTrue = {
   args: {
     disabled: true,
-    label: 'Check-box',
+    label: 'checkbox',
   },
   render: (args: any) => {
     const [setChecked] = useState(false)
@@ -58,7 +58,7 @@ export const DefaultTrue = {
 export const DefaultFalse = {
   args: {
     disabled: true,
-    label: 'Check-box',
+    label: 'checkbox',
   },
   render: (args: any) => {
     const [setChecked] = useState(false)
@@ -69,7 +69,7 @@ export const DefaultFalse = {
 export const DefaultFalseDizabledTrue = {
   args: {
     disabled: true,
-    label: 'Check-box',
+    label: 'checkbox',
   },
   render: (args: any) => {
     const [setChecked] = useState(false)
@@ -81,7 +81,7 @@ export const DefaultFalseDizabledTrue = {
 export const DefaultFalseDizabledFalse = {
   args: {
     disabled: true,
-    label: 'Check-box',
+    label: 'checkbox',
   },
   render: (args: any) => {
     const [setChecked] = useState(false)

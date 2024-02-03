@@ -5,7 +5,7 @@ import { Header } from '@/components'
 const meta = {
   component: Header,
   tags: ['autoocs'],
-  title: 'Components/Header',
+  title: 'Components/header',
 } satisfies Meta<typeof Header>
 
 export default meta

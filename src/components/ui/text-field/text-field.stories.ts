@@ -20,7 +20,7 @@ export const DefaultTextField: Story = {
 
 export const WithPassword: Story = {
   args: {
-    label: 'Text-field with type password',
+    label: 'text-field with type password',
     placeholder: '*****',
     type: 'password',
   },
@@ -29,7 +29,7 @@ export const WithPassword: Story = {
 export const WithErrors: Story = {
   args: {
     errorMessage: 'Error message',
-    label: 'Text-field error',
+    label: 'text-field error',
     value: 'No valid text',
   },
 }

@@ -8,7 +8,7 @@ import { clsx } from 'clsx'
 
 import s from './Select.module.scss'
 
-import { SelectItem } from './SelectItem'
+import { SelectItem } from './select-item'
 
 export type SelectVariant = 'default' | 'pagination'
 export type SelectOption = TypographyOption.Body1 | TypographyOption.Body2

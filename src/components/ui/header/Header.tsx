@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import { Routes, TypographyOption } from '@/common/enums'
-import { Button, DropDownMenu, Typography } from '@/components'
+import { Button, DropdownMenu, Typography } from '@/components'
 import { Logo } from '@/components/assets'
 
 import s from './Header.module.scss'
@@ -27,13 +27,13 @@ export const Header = ({ authorized = false, avatar, email, name }: HeaderProps)
             <Typography className={s.name} variant={TypographyOption.Subtitle1}>
               {name}
             </Typography>
-            <DropDownMenu email={email} name={name}>
+            <DropdownMenu email={email} name={name}>
               {avatar ? (
                 <img alt={''} className={s.avatar} src={avatar ? avatar : ''} />
               ) : (
                 <div className={s.avatar}>{name?.substring(0, 1)}</div>
               )}
-            </DropDownMenu>
+            </DropdownMenu>
           </div>
         )}
       </div>

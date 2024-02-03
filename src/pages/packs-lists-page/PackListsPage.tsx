@@ -4,15 +4,16 @@ import { formatSortedString, useDebounce } from '@/common'
 import { ButtonOption, TypographyOption } from '@/common/enums'
 import { Pagination, SelectItemArgs } from '@/components'
 import { Trash } from '@/components/assets'
-import { Button } from '@/components/ui/Button'
-import { Slider } from '@/components/ui/Slider'
-import { TabSwitcher } from '@/components/ui/Tab-Switcher'
-import { TextField } from '@/components/ui/Text-field'
-import { Typography } from '@/components/ui/Typography'
 import { PackTable, useGetDecksQuery, usePackOptions } from '@/features'
 import { AddPackModal } from '@/features/packList/ui/AddNewPack/addNewPackModal'
 
 import s from './PackListsPage.module.scss'
+
+import { Button } from '../../components/ui/button'
+import { Slider } from '../../components/ui/slider'
+import { TabSwitcher } from '../../components/ui/tab-switcher'
+import { TextField } from '../../components/ui/text-field'
+import { Typography } from '../../components/ui/typography'
 
 const paginationSelectItems: SelectItemArgs[] = [
   { child: '5', value: '5' },

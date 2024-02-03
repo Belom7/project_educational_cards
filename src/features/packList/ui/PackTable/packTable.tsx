@@ -4,7 +4,7 @@ import { Routes, formatDate } from '@/common'
 import { ButtonOption, TypographyOption } from '@/common/enums'
 import { Table, TableBody, TableCell, TableHeader, TableRow, Typography } from '@/components'
 import { ButtonPlay, EditTablePencil, Trash } from '@/components/assets'
-import { Button } from '@/components/ui/Button'
+import { Button } from '../../../../components/ui/button'
 import { BaseDeckResponseType, DeletePackModal, columns } from '@/features'
 import { EditPackModal } from '@/features/packList/ui'
 
@@ -43,7 +43,7 @@ export const PackTable: React.FC<Props> = ({ data, onSort, sort, userId }) => {
                     <Link className={s.deckLinkText} to={`${Routes.Decks}/${el.id}/cards`}>
                       <div className={s.cellImage}>
                         {el.cover && <img alt={'deck-cover'} className={s.image} src={el.cover} />}
-                        <Typography variant={TypographyOption.Body2} >{el.name}</Typography>
+                        <Typography variant={TypographyOption.Body2}>{el.name}</Typography>
                       </div>
                     </Link>
                   </TableCell>

@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropDownMenu } from '@/components'
+import { DropdownMenu } from '@/components'
 
 const meta = {
-  component: DropDownMenu,
+  component: DropdownMenu,
   tags: ['autoocs'],
-  title: 'Components/DropDownMenu',
-} satisfies Meta<typeof DropDownMenu>
+  title: 'Components/DropdownMenu',
+} satisfies Meta<typeof DropdownMenu>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -15,7 +15,7 @@ export const Default: Story = {
   args: {
     children: (
       <img alt={''} />
-      // <DropDownMenu />
+      // <DropdownMenu />
     ),
   },
 }

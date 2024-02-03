@@ -1,3 +1,3 @@
 export * from './Pagination'
-export * from './PageItem'
+export * from './page-item'
 export * from './usePagination'

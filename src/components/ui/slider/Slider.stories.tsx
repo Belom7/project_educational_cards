@@ -7,7 +7,7 @@ import { Slider, SliderProps } from './Slider'
 const meta: Meta<typeof Slider> = {
   component: Slider,
   tags: ['autodocs'],
-  title: 'Components/Slider',
+  title: 'Components/slider',
 } satisfies Meta<typeof Slider>
 
 export default meta

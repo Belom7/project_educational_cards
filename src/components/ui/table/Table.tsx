@@ -2,7 +2,7 @@ import { ComponentProps, ComponentPropsWithoutRef, ElementRef, FC, forwardRef } 
 
 import { TypographyOption } from '@/common/enums'
 import { ArrowUp } from '@/components/assets'
-import { Typography } from '@/components/ui/Typography'
+import { Typography } from '../typography'
 import { clsx } from 'clsx'
 
 import s from './Table.module.scss'
@@ -68,7 +68,7 @@ export const TableHeader = forwardRef<ElementRef<typeof TableHead>, Props>(
                 {title}
                 {sort && sort.key === key && (
                   <>
-                    {sort.direction === 'asc' && <ArrowUp/>}
+                    {sort.direction === 'asc' && <ArrowUp />}
                     {sort.direction !== 'asc' && <ArrowUp className={s.sortIcon} />}
                   </>
                 )}

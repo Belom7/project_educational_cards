@@ -2,7 +2,7 @@ import { ComponentPropsWithoutRef, ElementRef, JSX, forwardRef } from 'react'
 
 import { TypographyOption } from '@/common/enums'
 import { SelectOption, SelectVariant } from '@/components/ui/Select'
-import { Typography } from '@/components/ui/Typography'
+import { Typography } from '../../typography'
 import * as SelectRadix from '@radix-ui/react-select'
 import { clsx } from 'clsx'
 

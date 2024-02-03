@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 
-import { Page } from '@/components/ui/Page'
 import { LoginArgs, SingInForm, useLoginMutation } from '@/features'
+
+import { Page } from '../../components/ui/page'
 export const LoginPage = () => {
   const [signIn] = useLoginMutation()
   const navigate = useNavigate()

@@ -6,7 +6,7 @@ import { Button, Modal, Typography } from '@/components'
 const meta = {
   component: Modal,
   tags: ['autoocs'],
-  title: 'Components/Modal',
+  title: 'Components/modal',
 } satisfies Meta<typeof Modal>
 
 export default meta
