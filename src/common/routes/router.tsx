@@ -8,9 +8,9 @@ import {
 
 import { Routes } from '@/common/enums'
 import { DeckPage, ForgotPasswordPage, LoginPage, PackListsPage, SignUpPage } from '@/common/pages'
+import { ProfilePage } from '@/common/pages/progilePage/ProfilePage'
 import { Header, Preloader } from '@/components'
 import { useMeQuery } from '@/features'
-import { EditProfile } from '@/features/profile/ui'
 
 const publicRoutes: RouteObject[] = [
   {
@@ -37,7 +37,7 @@ const privateRoutes: RouteObject[] = [
     path: `${Routes.Decks}/:id/cards`,
   },
   {
-    element: <EditProfile />,
+    element: <ProfilePage />,
     path: Routes.Profile,
   },
 ]

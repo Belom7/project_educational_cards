@@ -1,20 +1,46 @@
-.main{
+
+.cardProfileContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 420px;
+  height: 348px;
+  padding: 33px 36px ;
+}
+
+.avatar{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+
+  width: 96px;
+  height: 96px;
+
+  object-fit: cover;
+  background-color: var(--color-info-500);
+  border-radius: 50% ;
 }
 
-.wrapper{
-  display: flex;
-  flex-direction: column;
-  width: 1000px;
-  height: 90vh;
-}
+.iconEditWrapper{
+  position: relative;
+  top: -23px;
+  left: 74%;
 
-.linkMain{
   display: flex;
   align-items: center;
-  margin-top: 20px;
-  text-decoration: none;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  background-color: var(--color-dark-300);
+  border-radius: 5px;
 }
+
+
+
+
+
+

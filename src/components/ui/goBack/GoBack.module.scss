@@ -1,0 +1,20 @@
+.root {
+  display: flex;
+  align-items: center;
+  color: var(--color-light-100);
+
+  .arrow {
+    fill: var(--color-light-100);
+   
+  }
+
+  &:hover{
+    color: var(--color-accent-500);
+    transition: all 0.3s ;
+
+    .arrow {
+      fill: var(--color-accent-500);
+      transition: fill 0.2s;
+    }
+  }
+}

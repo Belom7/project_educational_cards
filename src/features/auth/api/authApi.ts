@@ -1,4 +1,4 @@
-import { baseApi } from '@/common'
+import { baseApi, getTextFromFormData } from '@/common'
 import { BaseResponseType, LoginArgs, RecoverPasswordParamsType } from '@/features'
 
 export const authService = baseApi.injectEndpoints({
@@ -9,6 +9,23 @@ export const authService = baseApi.injectEndpoints({
         body,
         method: 'POST',
         url: 'auth/login',
+      }),
+    }),
+    logout: builder.mutation<void, void>({
+      invalidatesTags: ['Me'],
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        const patchResult = dispatch(authService.util.updateQueryData('me', undefined, () => null))
+
+        try {
+          await queryFulfilled
+        } catch {
+          patchResult.undo()
+        }
+      },
+
+      query: () => ({
+        method: 'POST',
+        url: 'auth/logout',
       }),
     }),
     me: builder.query<BaseResponseType | null, void>({
@@ -26,7 +43,44 @@ export const authService = baseApi.injectEndpoints({
         url: 'auth/recover-password',
       }),
     }),
+    updateProfile: builder.mutation<BaseResponseType, FormData>({
+      async onQueryStarted(body, { dispatch, queryFulfilled }) {
+        let avatar = ''
+
+        const patchResult = dispatch(
+          authService.util.updateQueryData('me', undefined, draft => {
+            const name = getTextFromFormData(body.get('name'))
+            const avatarBlob = body.get('avatar')
+
+            if (avatarBlob instanceof Blob) {
+              avatar = URL.createObjectURL(avatarBlob)
+            }
+
+            if (draft && avatar) {
+              draft.avatar = avatar
+            }
+
+            if (draft && name) {
+              draft.name = name
+            }
+          })
+        )
+
+        try {
+          await queryFulfilled
+        } catch {
+          patchResult.undo()
+        } finally {
+          URL.revokeObjectURL(avatar)
+        }
+      },
+      query: body => ({
+        body,
+        method: 'PATCH',
+        url: 'auth/me',
+      }),
+    }),
   }),
 })
 
-export const { useLoginMutation, useMeQuery, useRecoverPasswordMutation } = authService
+export const { useLoginMutation, useMeQuery, useRecoverPasswordMutation, useLogoutMutation, useUpdateProfileMutation } = authService

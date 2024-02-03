@@ -37,6 +37,7 @@ display: flex;
   width: 36px;
   height: 36px;
 
+  object-fit: cover;
   background-color: var(--color-info-500);
   border-radius: 50% ;
 }
