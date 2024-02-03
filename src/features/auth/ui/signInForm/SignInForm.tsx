@@ -10,7 +10,7 @@ import { Typography } from '@/components/ui/Typography'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
-import s from './singInForm.module.scss'
+import s from './SingInForm.module.scss'
 
 const loginSchema = z
   .object({

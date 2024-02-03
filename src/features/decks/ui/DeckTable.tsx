@@ -5,7 +5,7 @@ import { Button, Rating, Table, TableBody, TableCell, TableHeader, TableRow } fr
 import { ButtonPlay, EditTablePencil, Trash } from '@/components/assets'
 import { Sort } from '@/features'
 
-import s from './deckTable.module.scss'
+import s from './DeckTable.module.scss'
 const columns = [
   {
     key: 'Question',

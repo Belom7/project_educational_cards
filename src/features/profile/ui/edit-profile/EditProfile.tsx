@@ -4,7 +4,7 @@ import { Routes } from '@/common'
 import { Typography } from '@/components'
 import { LeftArrow } from '@/components/assets'
 
-import s from './editProfile.module.scss'
+import s from './EditProfile.module.scss'
 export const EditProfile = () => {
   return (
     <div className={s.main}>
