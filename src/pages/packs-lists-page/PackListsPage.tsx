@@ -12,7 +12,7 @@ import { Typography } from '@/components/ui/Typography'
 import { PackTable, useGetDecksQuery, usePackOptions } from '@/features'
 import { AddPackModal } from '@/features/packList/ui/AddNewPack/addNewPackModal'
 
-import s from './packListsPage.module.scss'
+import s from './PackListsPage.module.scss'
 
 const paginationSelectItems: SelectItemArgs[] = [
   { child: '5', value: '5' },
