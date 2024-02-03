@@ -7,10 +7,11 @@ import {
 } from 'react-router-dom'
 
 import { Routes } from '@/common/enums'
-import { DeckPage, ForgotPasswordPage, LoginPage, PackListsPage, SignUpPage } from '@/common/pages'
 import { Header, Preloader } from '@/components'
 import { useMeQuery } from '@/features'
 import { EditProfile } from '@/features/profile/ui'
+
+import { DeckPage, ForgotPasswordPage, LoginPage, PackListsPage, SignUpPage } from '../../pages'
 
 const publicRoutes: RouteObject[] = [
   {
