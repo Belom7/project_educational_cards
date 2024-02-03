@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Cards'
 import { Typography } from '@/components/ui/Typography'
 
-import s from './editProfileComponent.module.scss'
+import s from './EditProfileComponent.module.scss'
 
 type EditProfileFormProps = {
   avatar: any

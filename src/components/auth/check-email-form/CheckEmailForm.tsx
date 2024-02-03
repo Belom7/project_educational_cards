@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Cards'
 import { Typography } from '@/components/ui/Typography'
 
-import s from './checkEmailForm.module.scss'
+import s from './CheckEmailForm.module.scss'
 type CheckEmailFormProps = {
   email: string
 }

@@ -8,7 +8,7 @@ import { Typography } from '@/components/ui/Typography'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { string, z } from 'zod'
 
-import s from './editProfileForm.module.scss'
+import s from './EditProfileForm.module.scss'
 
 const editSchema = z
   .object({
