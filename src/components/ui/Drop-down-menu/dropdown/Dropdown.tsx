@@ -1,11 +1,11 @@
 import { TypographyOption } from '@/common/enums'
 import { ButtonPlay, EditTablePencil, Trash } from '@/components/assets'
-import { Typography } from '@/components/ui/Typography'
+import { Typography } from '../../typography'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
-import s from './dayn.module.scss'
+import s from './Dropdown.module.scss'
 
-export const Dayn = () => {
+export const Dropdown = () => {
   return (
     <div className={s.main}>
       <DropdownMenu.Root>
