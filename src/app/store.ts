@@ -1,4 +1,4 @@
-import { baseApi } from '@/common/api/baseApi'
+import { baseApi } from '@/common/api/base-api'
 import { packListSlice } from '@/features'
 import { configureStore } from '@reduxjs/toolkit'
 
