@@ -1,0 +1,37 @@
+.avatar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 96px;
+  height: 96px;
+
+  object-fit: cover;
+  background-color: var(--color-info-500);
+  border-radius: 50% ;
+}
+
+.buttonEditProfile{
+  position: relative;
+  top: -20px;
+  left: 65%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+padding:0;
+
+  background-color: var(--color-dark-300);
+  border:none;
+  border-radius: 5px;
+  box-shadow: none;
+
+  &:hover{
+    background-color: var(--color-dark-300);
+    border:none;
+    box-shadow: none;
+  }
+}

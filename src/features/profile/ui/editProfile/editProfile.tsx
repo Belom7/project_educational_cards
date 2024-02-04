@@ -2,9 +2,9 @@ import { useState } from 'react'
 
 import { TypographyOption } from '@/common'
 import { Card, Typography } from '@/components'
-import { EditTablePencil } from '@/components/assets'
 import { BaseResponseType } from '@/features'
-import {EditProfileInfo, EditProfileValues, ProfileInfo} from '@/features/profile/ui'
+import { EditProfileInfo, EditProfileValues, ProfileInfo } from '@/features/profile/ui'
+import { AvatarUploader } from '@/features/profile/ui/editProfile/avatarUploader/AvatarUploader'
 
 import s from './editProfile.module.scss'
 
@@ -28,21 +28,7 @@ export const EditProfile = ({ data, update }: editProfileProps) => {
     <Card className={s.cardProfileContainer}>
       <Typography variant={TypographyOption.H1}>Personal Information</Typography>
       <div>
-        {avatar ? (
-          <div>
-            <img alt={'avatar'} className={s.avatar} src={avatar} />
-            <div className={s.iconEditWrapper}>
-              <EditTablePencil />
-            </div>
-          </div>
-        ) : (
-          <div>
-            <div className={s.avatar}>{name.substring(0, 1)}</div>
-            <div className={s.iconEditWrapper}>
-              <EditTablePencil />
-            </div>
-          </div>
-        )}
+        <AvatarUploader avatar={avatar} name={name} />
       </div>
       {editMode ? (
         <EditProfileInfo initialValues={{ name }} onSubmit={onSubmit} />
