@@ -1,4 +1,4 @@
-import { baseQueryWithReauth } from '@/common/api/base-query-api-with-reauth'
+import { baseQueryWithReauth } from '@/common'
 import { createApi } from '@reduxjs/toolkit/query/react'
 
 export const baseApi = createApi({

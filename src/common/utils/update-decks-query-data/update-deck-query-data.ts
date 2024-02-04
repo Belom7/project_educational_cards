@@ -1,4 +1,5 @@
-import { RootState, formatSortedString } from '@/common'
+import { RootState } from '@/app'
+import { formatSortedString } from '@/common'
 
 export const updateDecksQueryData = (state: RootState) => {
   const { authorId, cardsCount, currentPage, pageSize, searchDeckName, sortOptions } = state.pack
