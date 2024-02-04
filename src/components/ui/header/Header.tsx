@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-import { Routes, TypographyOption } from '@/common/enums'
+import { LogoIcon } from '@/assets'
+import { Routes, TypographyOption } from '@/common'
 import { Button, DropdownMenu, Typography } from '@/components'
-import { Logo } from '@/components/assets'
 
 import s from './Header.module.scss'
 type HeaderProps = {
@@ -16,7 +16,7 @@ export const Header = ({ authorized = false, avatar, email, name }: HeaderProps)
     <header className={s.header}>
       <div className={s.wrapper}>
         <div className={s.logo}>
-          <Logo />
+          <LogoIcon />
         </div>
         {!authorized ? (
           <Button as={Link} className={s.other} to={Routes.Login}>

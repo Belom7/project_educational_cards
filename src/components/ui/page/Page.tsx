@@ -2,7 +2,7 @@ import { ComponentPropsWithoutRef, forwardRef } from 'react'
 
 import { clsx } from 'clsx'
 
-import s from './page.module.scss'
+import s from './Page.module.scss'
 
 export type PageProps = ComponentPropsWithoutRef<'div'>
 

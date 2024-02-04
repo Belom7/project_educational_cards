@@ -1,6 +1,6 @@
-import { TypographyOption } from '@/common/enums'
-import { ButtonPlay, EditTablePencil, Trash } from '@/components/assets'
-import { Typography } from '../../typography'
+import { ButtonPlayIcon, EditTablePencilIcon, TrashIcon } from '@/assets'
+import { TypographyOption } from '@/common'
+import { Typography } from '@/components'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
 import s from './Dropdown.module.scss'
@@ -16,21 +16,21 @@ export const Dropdown = () => {
         <DropdownMenu.Portal>
           <DropdownMenu.Content className={s.DropdownMenuContent} sideOffset={5}>
             <DropdownMenu.Item className={s.DropdownMenuItem}>
-              <ButtonPlay />
+              <ButtonPlayIcon />
               <Typography className={s.typographyItem} variant={TypographyOption.Subtitle2}>
                 Learn
               </Typography>
             </DropdownMenu.Item>
             <DropdownMenu.Separator className={s.DropdownMenuSeparator} />
             <DropdownMenu.Item className={s.DropdownMenuItem}>
-              <EditTablePencil />
+              <EditTablePencilIcon />
               <Typography className={s.typographyItem} variant={TypographyOption.Subtitle2}>
                 Edit
               </Typography>
             </DropdownMenu.Item>
             <DropdownMenu.Separator className={s.DropdownMenuSeparator} />
             <DropdownMenu.Item className={s.DropdownMenuItem}>
-              <Trash />
+              <TrashIcon />
               <Typography className={s.typographyItem} variant={TypographyOption.Subtitle2}>
                 Delete
               </Typography>

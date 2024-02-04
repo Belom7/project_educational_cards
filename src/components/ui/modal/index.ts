@@ -1,2 +1,2 @@
-export * from './modal'
-export * from './modalWindowAnimations'
+export * from './Modal'
+export * from './modal-window-animations'

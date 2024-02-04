@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
-import { TypographyOption } from '@/common/enums'
+import { TypographyOption } from '@/common'
 import { clsx } from 'clsx'
 
 import s from './Typography.module.scss'

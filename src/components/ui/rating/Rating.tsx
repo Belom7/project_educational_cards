@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
-import { FilledStar, UnfilledStar } from '@/components/assets'
+import { FilledStarIcon, UnfilledStarIcon } from '@/assets'
 import { clsx } from 'clsx'
 
 import s from './Rating.module.scss'
@@ -14,12 +14,10 @@ export const Rating = forwardRef<ElementRef<'div'>, Props>(
     const classNames = clsx(s.root, className)
     const ratingArr = Array.from({ length: 5 }).map((el, ind) => (rating - 1 >= ind ? 1 : el))
 
-
-
     return (
       <div className={classNames} ref={ref} {...restProps}>
         {ratingArr.map(el => {
-          return el ? <FilledStar /> : <UnfilledStar />
+          return el ? <FilledStarIcon /> : <UnfilledStarIcon />
         })}
       </div>
     )

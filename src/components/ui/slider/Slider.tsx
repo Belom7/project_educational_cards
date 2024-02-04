@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 
-import { TypographyOption } from '@/common/enums'
+import { TypographyOption } from '@/common'
 import { Typography } from '@/components'
 import * as SliderRadix from '@radix-ui/react-slider'
 import { clsx } from 'clsx'

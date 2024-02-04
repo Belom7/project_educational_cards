@@ -1,9 +1,9 @@
 import { ComponentPropsWithoutRef, ElementRef, ReactNode, forwardRef } from 'react'
 import { Link } from 'react-router-dom'
 
-import { Routes, TypographyOption } from '@/common/enums'
+import { LogOutIcon, PersonOutlineIcon } from '@/assets'
+import { Routes, TypographyOption } from '@/common'
 import { Typography } from '@/components'
-import { LogOut, ProfileIcon } from '@/components/assets'
 import * as DropdownMenuRadix from '@radix-ui/react-dropdown-menu'
 
 import s from './DropdownMenu.module.scss'
@@ -40,7 +40,7 @@ export const DropdownMenu = forwardRef<
             </DropdownMenuRadix.Item>
             <DropdownMenuRadix.Separator className={s.DropdownMenuSeparator} />
             <DropdownMenuRadix.Item className={s.DropdownMenuItem}>
-              <ProfileIcon />
+              <PersonOutlineIcon />
               <Link className={s.LinkText} to={Routes.Profile}>
                 <Typography className={s.typographyItem} variant={TypographyOption.Subtitle2}>
                   My Profile
@@ -49,7 +49,7 @@ export const DropdownMenu = forwardRef<
             </DropdownMenuRadix.Item>
             <DropdownMenuRadix.Separator className={s.DropdownMenuSeparator} />
             <DropdownMenuRadix.Item className={s.DropdownMenuItem}>
-              <LogOut />
+              <LogOutIcon />
               <Typography className={s.typographyItem} variant={TypographyOption.Subtitle2}>
                 Sign Out
               </Typography>

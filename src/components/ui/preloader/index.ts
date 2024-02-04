@@ -1,1 +1,1 @@
-export * from './preloader'
+export * from './Preloader'

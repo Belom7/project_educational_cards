@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, ElementType, ReactNode, forwardRef } from 'react'
 
-import { ButtonOption } from '@/common/enums'
+import { ButtonOption } from '@/common'
 import { clsx } from 'clsx'
 
 import s from './Button.module.scss'

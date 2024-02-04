@@ -1,13 +1,13 @@
 import { ComponentPropsWithoutRef, ElementRef, ReactNode, forwardRef } from 'react'
 
+import { CloseIcon } from '@/assets'
 import { ButtonOption, TypographyOption } from '@/common'
 import { Button, Card, Typography, modalAnimations } from '@/components'
-import { CloseIcon } from '@/components/assets'
 import * as ModalPrimitive from '@radix-ui/react-dialog'
 import { clsx } from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import s from './modal.module.scss'
+import s from './Modal.module.scss'
 
 type Props = {
   open: boolean

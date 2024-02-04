@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef, ElementRef, JSX, ReactNode, forwardRef } from 'react'
 
-import { KeyboardArrowDownIcon } from '@/assets/icons'
-import { TypographyOption } from '@/common/enums'
+import { KeyboardArrowDownIcon } from '@/assets'
+import { TypographyOption } from '@/common'
 import { Typography } from '@/components'
 import * as SelectRadix from '@radix-ui/react-select'
 import { clsx } from 'clsx'

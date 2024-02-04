@@ -1,13 +1,13 @@
 import { ElementRef, forwardRef } from 'react'
 
-import { TypographyOption } from '@/common/enums'
+import { CheckIcon } from '@/assets'
+import { TypographyOption } from '@/common'
 import { Typography } from '@/components'
-import { Check } from '@/components/assets'
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import * as LabelRadix from '@radix-ui/react-label'
 import { clsx } from 'clsx'
 
-import s from './Check-box.module.scss'
+import s from './CheckBox.module.scss'
 
 export type CheckboxProps = {
   checked?: boolean
@@ -51,7 +51,7 @@ export const Checkbox = forwardRef<ElementRef<typeof CheckboxRadix.Root>, Checkb
               >
                 {checked && (
                   <CheckboxRadix.Indicator className={classNames.indicator} forceMount>
-                    <Check />
+                    <CheckIcon />
                   </CheckboxRadix.Indicator>
                 )}
               </CheckboxRadix.Root>

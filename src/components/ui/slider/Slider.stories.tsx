@@ -1,8 +1,7 @@
 import { useState } from 'react'
 
+import { Slider, SliderProps } from '@/components'
 import { Meta, StoryObj } from '@storybook/react'
-
-import { Slider, SliderProps } from './Slider'
 
 const meta: Meta<typeof Slider> = {
   component: Slider,

@@ -1,11 +1,11 @@
 import { ComponentProps, ComponentPropsWithoutRef, forwardRef, useState } from 'react'
 
-import { TypographyOption } from '@/common/enums'
+import { EyeIcon, EyeOutlineIcon } from '@/assets'
+import { TypographyOption } from '@/common'
 import { Typography } from '@/components'
-import { Eye, EyeOutline } from '@/components/assets'
 import { clsx } from 'clsx'
 
-import s from './text-field.module.scss'
+import s from './TextField.module.scss'
 
 export type TextFieldProps = {
   containerProps?: ComponentProps<'div'>
@@ -72,7 +72,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
               onClick={() => setShowPassword(prev => !prev)}
               type={'button'}
             >
-              {showPassword ? <EyeOutline /> : <Eye />}
+              {showPassword ? <EyeOutlineIcon /> : <EyeIcon />}
             </button>
           )}
         </div>
