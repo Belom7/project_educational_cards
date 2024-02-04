@@ -1,19 +1,17 @@
 import { ButtonOption, TypographyOption } from '@/common/enums'
 import { EditPencil, LogOut } from '@/components/assets'
+
+import s from './EditProfile.module.scss'
+
 import { Button } from '../../ui/button'
 import { Card } from '../../ui/cards'
 import { Typography } from '../../ui/typography'
-
-import s from './EditProfileComponent.module.scss'
 
 type EditProfileFormProps = {
   avatar: any
   profileName: string
 }
-export const EditProfileComponent: React.FC<EditProfileFormProps> = ({
-  avatar,
-  profileName = 'Ivan',
-}) => {
+export const EditProfile: React.FC<EditProfileFormProps> = ({ avatar, profileName = 'Ivan' }) => {
   return (
     <Card className={s.EditProfileCard}>
       <Typography variant={TypographyOption.H1}>Personal Information</Typography>
