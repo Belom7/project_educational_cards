@@ -7,7 +7,7 @@ import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import * as LabelRadix from '@radix-ui/react-label'
 import { clsx } from 'clsx'
 
-import s from './CheckBox.module.scss'
+import s from './Checkbox.module.scss'
 
 export type CheckboxProps = {
   checked?: boolean
@@ -25,7 +25,7 @@ export const Checkbox = forwardRef<ElementRef<typeof CheckboxRadix.Root>, Checkb
     const classNames = {
       buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled, position === 'left' && s.left),
       container: clsx(s.container, className),
-      containerDisabled: clsx(s.containerDizabled, className),
+      containerDisabled: clsx(s.containerDisabled, className),
       indicator: s.indicator,
       label: clsx(s.label, disabled && s.disabled),
       root: s.root,

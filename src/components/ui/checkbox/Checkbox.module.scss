@@ -4,7 +4,7 @@
   color: var(--color-light-100);
 }
 
-.containerDizabled {
+.containerDisabled {
   display: flex;
   align-items: center;
   color: var(--color-dark-100);
@@ -58,12 +58,20 @@
   background-color: rgb(255 255 255 / 0%);
   border-radius: 50%;
 
+  &:focus {
+    width: 36px;
+    height: 36px;
+
+    background-color: var(--color-light-900);
+    border: none;
+    border-radius: 50%;
+  }
+
   &.disabled {
     cursor: initial;
   }
 
   &:focus-within,
-  &:hover:not(.disabled),
   &:hover:not(.disabled) {
     width: 36px;
     height: 36px;
@@ -75,15 +83,6 @@
     width: 36px;
     height: 36px;
     background-color: var(--color-dark-100);
-    border-radius: 50%;
-  }
-
-  &:focus {
-    width: 36px;
-    height: 36px;
-
-    background-color: var(--color-light-900);
-    border: none;
     border-radius: 50%;
   }
 
