@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { EditProfile } from '@/components/auth/edit-profile/EditProfile'
+import { EditProfile } from '@/components'
 
 const meta = {
   component: EditProfile,

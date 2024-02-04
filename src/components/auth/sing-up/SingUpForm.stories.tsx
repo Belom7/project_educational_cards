@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { SingUpForm } from '@/components/auth/sing-up/SingUpForm'
+import { SingUpForm } from '@/components'
 
 const meta = {
   component: SingUpForm,

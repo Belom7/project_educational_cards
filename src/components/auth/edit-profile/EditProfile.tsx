@@ -1,11 +1,10 @@
-import { ButtonOption, TypographyOption } from '@/common/enums'
-import { EditPencil, LogOut } from '@/components/assets'
+import React from 'react'
+
+import { EditPencilIcon, LogOutIcon } from '@/assets'
+import { ButtonOption, TypographyOption } from '@/common'
+import { Button, Card, Typography } from '@/components'
 
 import s from './EditProfile.module.scss'
-
-import { Button } from '../../ui/button'
-import { Card } from '../../ui/cards'
-import { Typography } from '../../ui/typography'
 
 type EditProfileFormProps = {
   avatar: any
@@ -18,17 +17,17 @@ export const EditProfile: React.FC<EditProfileFormProps> = ({ avatar, profileNam
       <div>
         <img alt={''} className={s.avatar} src={avatar ? avatar : ''} />
         <Button className={s.EditFormPencil} variant={ButtonOption.Icon}>
-          <EditPencil />
+          <EditPencilIcon />
         </Button>
       </div>
       <div className={s.EditFormNickNameWrapper}>
         <Typography variant={TypographyOption.H1}>{profileName}</Typography>
         <Button variant={ButtonOption.Icon}>
-          <EditPencil />
+          <EditPencilIcon />
         </Button>
       </div>
       <Button variant={ButtonOption.Secondary}>
-        <LogOut />
+        <LogOutIcon />
         <Typography variant={TypographyOption.Subtitle2}>Logout</Typography>
       </Button>
     </Card>

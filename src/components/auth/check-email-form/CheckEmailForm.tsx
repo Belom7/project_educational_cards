@@ -1,10 +1,11 @@
-import { TypographyOption } from '@/common/enums'
-import { CheckEmailIcon } from '@/components/assets'
-import { Button } from '../../ui/button'
-import { Card } from '../../ui/cards'
-import { Typography } from '../../ui/typography'
+import React from 'react'
+
+import { CheckEmailIcon } from '@/assets'
+import { TypographyOption } from '@/common'
+import { Button, Card, Typography } from '@/components'
 
 import s from './CheckEmailForm.module.scss'
+
 type CheckEmailFormProps = {
   email: string
 }

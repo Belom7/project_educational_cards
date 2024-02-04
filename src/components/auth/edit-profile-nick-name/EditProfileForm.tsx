@@ -1,10 +1,7 @@
 import { useForm } from 'react-hook-form'
 
-import { TypographyOption } from '@/common/enums'
-import { ControlledTextField } from '@/components/controlled/controlled-text-field/ControlledTextField'
-import { Button } from '../../ui/button'
-import { Card } from '../../ui/cards'
-import { Typography } from '../../ui/typography'
+import { TypographyOption } from '@/common'
+import { Button, Card, ControlledTextField, Typography } from '@/components'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { string, z } from 'zod'
 

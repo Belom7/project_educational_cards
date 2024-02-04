@@ -1,11 +1,8 @@
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 
-import { ButtonOption, Routes, TypographyOption } from '@/common/enums'
-import { ControlledTextField } from '@/components/controlled/controlled-text-field/ControlledTextField'
-import { Button } from '../../ui/button'
-import { Card } from '../../ui/cards'
-import { Typography } from '../../ui/typography'
+import { ButtonOption, Routes, TypographyOption } from '@/common'
+import { Button, Card, ControlledTextField, Typography } from '@/components'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 

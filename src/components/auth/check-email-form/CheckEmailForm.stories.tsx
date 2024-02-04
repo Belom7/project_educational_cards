@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { CheckEmailForm } from '@/components/auth/check-email-form/CheckEmailForm'
+import { CheckEmailForm } from '@/components'
 
 const meta = {
   component: CheckEmailForm,
