@@ -1,1 +1,1 @@
-export { SingUpForm } from './SingUpForm'
+export * from './SingUpForm'
