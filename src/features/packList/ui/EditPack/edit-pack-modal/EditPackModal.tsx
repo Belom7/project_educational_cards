@@ -1,8 +1,7 @@
-import { ReactNode, useState } from 'react'
+import { JSX, ReactNode, useState } from 'react'
 
 import { Modal } from '@/components'
-import { useUpdatePackMutation } from '@/features'
-import { PackForm } from '@/features'
+import { PackFormIcon, useUpdatePackMutation } from '@/features'
 
 type EditPackModalProps = {
   packId?: string
@@ -29,7 +28,7 @@ export const EditPackModal = ({ packId, trigger, values }: EditPackModalProps): 
 
   return (
     <Modal open={open} setOpen={setOpen} title={'Edit Deck'} trigger={trigger}>
-      <PackForm
+      <PackFormIcon
         buttonTitle={'Edit Deck'}
         // error={error}
         // onClose={closeModal}

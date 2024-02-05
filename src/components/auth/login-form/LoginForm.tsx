@@ -14,6 +14,7 @@ const loginSchema = z
   .partial() // делает поля не обязательными
 
 type FormValues = z.infer<typeof loginSchema>
+
 export const LoginForm = ({ onSubmit }: { onSubmit: (data: FormValues) => void }) => {
   const {
     control,

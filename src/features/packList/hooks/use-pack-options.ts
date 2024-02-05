@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from '@/common'
 import {
   Sort,
-  packListAtion,
+  packListAction,
   selectAuthorId,
   selectCardsCount,
   selectCurrentPage,
@@ -29,7 +29,7 @@ export const usePackOptions = () => {
     setDeckSearchByName,
     setPageSize,
     setSortOptions,
-  } = packListAtion
+  } = packListAction
   const onChangeCurrentPageCallback = (currentPage: number) => {
     dispatch(setCurrentPage({ currentPage }))
   }

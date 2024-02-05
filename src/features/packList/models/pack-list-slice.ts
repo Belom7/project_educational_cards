@@ -50,4 +50,5 @@ export const packListSlice = createSlice({
     },
   },
 })
-export const packListAtion = packListSlice.actions
+
+export const packListAction = packListSlice.actions

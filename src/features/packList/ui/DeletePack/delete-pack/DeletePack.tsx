@@ -9,6 +9,7 @@ type DeletePackProps = {
   deletePackCallback: () => void
   packName: string
 }
+
 export const DeletePack = ({
   buttonTitle,
   closeModal,

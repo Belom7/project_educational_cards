@@ -19,6 +19,7 @@ type EditProfileFormProps = {
   onSubmit: (data: FormValues) => void
   profileName: string
 }
+
 export const EditProfileForm = ({ avatar, onSubmit }: EditProfileFormProps) => {
   const {
     control,

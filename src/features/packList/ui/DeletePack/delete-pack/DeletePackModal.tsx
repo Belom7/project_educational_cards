@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react'
+import { JSX, ReactNode, useState } from 'react'
 
 import { Modal } from '@/components'
 import { DeletePack, useDeletePackMutation } from '@/features'

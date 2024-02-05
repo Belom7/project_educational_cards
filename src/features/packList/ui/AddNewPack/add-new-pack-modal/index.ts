@@ -1,2 +1,2 @@
-export * from './PackForm'
+export * from './PackFormIcon'
 export * from './PackModal'

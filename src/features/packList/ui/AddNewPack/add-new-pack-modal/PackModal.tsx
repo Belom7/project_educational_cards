@@ -1,7 +1,7 @@
-import { ReactNode, useState } from 'react'
+import { JSX, ReactNode, useState } from 'react'
 
 import { Modal } from '@/components'
-import { PackForm, useCreatePackMutation } from '@/features'
+import { PackFormIcon, useCreatePackMutation } from '@/features'
 
 export type AddPackModalProps = {
   trigger: ReactNode
@@ -22,7 +22,7 @@ export const AddPackModal = ({ trigger }: AddPackModalProps): JSX.Element => {
 
   return (
     <Modal open={open} setOpen={setOpen} title={'Add New Deck'} trigger={trigger}>
-      <PackForm buttonTitle={'Add New Pack'} onSubmit={createPackCallback} />
+      <PackFormIcon buttonTitle={'Add New Pack'} onSubmit={createPackCallback} />
     </Modal>
   )
 }

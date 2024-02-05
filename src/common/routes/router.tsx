@@ -6,7 +6,7 @@ import {
   createBrowserRouter,
 } from 'react-router-dom'
 
-import { Routes } from '@/common/enums'
+import { Routes } from '@/common'
 import { Header, Preloader } from '@/components'
 import { EditProfile, useMeQuery } from '@/features'
 import { DeckPage, ForgotPasswordPage, LoginPage, PackListsPage, SignUpPage } from '@/pages'

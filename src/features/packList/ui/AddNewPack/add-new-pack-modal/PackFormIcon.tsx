@@ -26,7 +26,8 @@ type Props = {
     name: string
   }
 }
-export const PackForm = ({ buttonTitle, onSubmit, values }: Props) => {
+
+export const PackFormIcon = ({ buttonTitle, onSubmit, values }: Props) => {
   const {
     control,
     formState: {},
