@@ -1,1 +1,5 @@
+export * from './avatar-uploader'
+export * from './edit-profile-info'
+export * from './profile-info'
+export * from './useEditProfile'
 export * from './EditProfile'

@@ -1,1 +1,1 @@
-export * from './getTextFromFormData'
+export * from './get-text-from-form-data'
