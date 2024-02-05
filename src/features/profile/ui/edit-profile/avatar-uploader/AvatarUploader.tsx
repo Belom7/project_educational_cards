@@ -1,6 +1,7 @@
-import { Button } from '@/components'
-import { EditTablePencil } from '@/components/assets'
-import { Uploader } from '@/components/ui/uploader'
+import { JSX } from 'react'
+
+import { EditTablePencilIcon } from '@/assets'
+import { Button, Uploader } from '@/components'
 import { useUpdateProfileMutation } from '@/features'
 import cn from 'clsx'
 
@@ -38,7 +39,7 @@ export const AvatarUploader = ({
           <img alt={'avatar'} className={s.avatar} src={avatar} />
           <Uploader className={s.uploader} onLoadCover={onLoadCover} onLoadError={() => {}}>
             <Button className={s.buttonEditProfile}>
-              <EditTablePencil />
+              <EditTablePencilIcon />
             </Button>
           </Uploader>
         </>
@@ -47,7 +48,7 @@ export const AvatarUploader = ({
           <div className={s.avatar}>{name.substring(0, 1)}</div>
           <Uploader className={s.uploader} onLoadCover={onLoadCover} onLoadError={() => {}}>
             <Button className={s.buttonEditProfile}>
-              <EditTablePencil />
+              <EditTablePencilIcon />
             </Button>
           </Uploader>
         </>

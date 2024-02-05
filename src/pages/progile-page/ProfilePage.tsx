@@ -1,9 +1,12 @@
+import { JSX } from 'react'
+
 import { Routes } from '@/common'
 import { GoBack, Page } from '@/components'
-import { BaseResponseType, useMeQuery, useUpdateProfileMutation } from '@/features'
-import { EditProfile, EditProfileValues } from '@/features/profile/ui'
+import { BaseResponseType, EditProfile, useMeQuery, useUpdateProfileMutation } from '@/features'
+import { EditProfileValues } from '@/features/profile/ui/edit-profile/useEditProfile'
 
 import s from './ProfilePage.module.scss'
+
 // EditProfileValues,
 // PersonalInformation,
 // ProfileDataType,

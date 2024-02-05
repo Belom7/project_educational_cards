@@ -1,9 +1,9 @@
 import { ElementRef, forwardRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import { LeftArrowIcon } from '@/assets'
 import { ButtonOption, Routes, TypographyOption } from '@/common'
 import { Button, Typography } from '@/components'
-import { LeftArrow } from '@/components/assets'
 import clx from 'clsx'
 
 import s from './GoBack.module.scss'
@@ -26,7 +26,7 @@ export const GoBack = forwardRef<ElementRef<typeof Button>, Props>(
 
     return (
       <Button className={goBackClassName} onClick={onBack} ref={ref} variant={ButtonOption.Link}>
-        <LeftArrow className={s.arrow} />
+        <LeftArrowIcon className={s.arrow} />
         <Typography variant={TypographyOption.Body2}>{title}</Typography>
       </Button>
     )

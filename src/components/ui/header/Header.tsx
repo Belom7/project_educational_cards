@@ -5,12 +5,14 @@ import { Routes, TypographyOption } from '@/common'
 import { Button, DropdownMenu, Typography } from '@/components'
 
 import s from './Header.module.scss'
+
 type HeaderProps = {
   authorized: boolean
   avatar?: any
   email?: string
   name?: string
 }
+
 export const Header = ({ authorized = false, avatar, email, name }: HeaderProps) => {
   return (
     <header className={s.header}>

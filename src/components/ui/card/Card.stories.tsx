@@ -7,7 +7,7 @@ import { Card } from './Card'
 
 const meta = {
   component: Card,
-  tags: ['autoocs'],
+  tags: ['autodocs'],
   title: 'components/Card',
 } satisfies Meta<typeof Card>
 

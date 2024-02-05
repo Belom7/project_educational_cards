@@ -83,7 +83,7 @@ export const PackListsPage = () => {
             <Slider
               max={data?.maxCardsCount}
               onValueChange={handleSliderOnValueChange}
-              title={'Number of cards'}
+              title={'Number of card'}
               value={value}
             />
             <Button onClick={clearFilterCallback} variant={ButtonOption.Secondary}>

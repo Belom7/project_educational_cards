@@ -2,13 +2,15 @@ import { useState } from 'react'
 
 import { TypographyOption } from '@/common'
 import { Card, Typography } from '@/components'
-import { BaseResponseType } from '@/features'
-import { EditProfileInfo, EditProfileValues, ProfileInfo } from '@/features/profile/ui'
-import { AvatarUploader } from '@/features/profile/ui/editProfile/avatarUploader/AvatarUploader'
-import { LeftArrowIcon } from '@/assets'
-import { Routes } from '@/common'
+import {
+  AvatarUploader,
+  BaseResponseType,
+  EditProfileInfo,
+  EditProfileValues,
+  ProfileInfo,
+} from '@/features'
 
-import s from './editProfile.module.scss'
+import s from './EditProfile.module.scss'
 
 type editProfileProps = {
   data: BaseResponseType

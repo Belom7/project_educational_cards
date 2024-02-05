@@ -1,6 +1,6 @@
+import { EditTablePencilIcon, LogOutIcon } from '@/assets'
 import { ButtonOption, TypographyOption } from '@/common'
 import { Button, Typography } from '@/components'
-import { EditTablePencil, LogOut } from '@/components/assets'
 import { useLogoutMutation } from '@/features'
 
 import s from './profileInfo.module.scss'
@@ -19,13 +19,13 @@ export const ProfileInfo = ({ email, name, onEditProfile }: ProfileInfoProps) =>
   return (
     <>
       <Typography variant={TypographyOption.H2}>
-        {name} <EditTablePencil className={s.iconProfileEdit} onClick={onEditProfile} />
+        {name} <EditTablePencilIcon className={s.iconProfileEdit} onClick={onEditProfile} />
       </Typography>
       <Typography className={s.profileMailColor} variant={TypographyOption.Caption}>
         {email}
       </Typography>
       <Button onClick={onLogout} variant={ButtonOption.Secondary}>
-        <LogOut />
+        <LogOutIcon />
         <Typography variant={TypographyOption.Subtitle2}>Logout</Typography>
       </Button>
     </>

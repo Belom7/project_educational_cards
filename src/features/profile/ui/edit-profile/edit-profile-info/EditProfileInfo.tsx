@@ -2,7 +2,7 @@ import { Button } from '@/components'
 import { ControlledTextField } from '@/components/controlled'
 import { EditProfileValues, useEditProfile } from '@/features/profile/ui'
 
-import s from './editProfile.module.scss'
+import s from './EditProfile.module.scss'
 
 type Props = {
   initialValues?: EditProfileValues
