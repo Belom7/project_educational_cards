@@ -1,11 +1,12 @@
 import { useState } from 'react'
 
-import { ButtonOption } from '@/common/enums'
+import { ButtonPlayIcon, EditTablePencilIcon, TrashIcon } from '@/assets'
+import { ButtonOption } from '@/common'
 import { Button, Rating, Table, TableBody, TableCell, TableHeader, TableRow } from '@/components'
-import { ButtonPlay, EditTablePencil, Trash } from '@/components/assets'
 import { Sort } from '@/features'
 
 import s from './DeckTable.module.scss'
+
 const columns = [
   {
     key: 'Question',
@@ -61,13 +62,13 @@ export const DeckTable = () => {
                   <Rating rating={parseInt(el.shots ? el.shots : '0')} />
                   <span>
                     <Button variant={ButtonOption.Icon}>
-                      <ButtonPlay />
+                      <ButtonPlayIcon />
                     </Button>
                     <Button variant={ButtonOption.Icon}>
-                      <EditTablePencil />
+                      <EditTablePencilIcon />
                     </Button>
                     <Button variant={ButtonOption.Icon}>
-                      <Trash />
+                      <TrashIcon />
                     </Button>
                   </span>
                 </TableCell>

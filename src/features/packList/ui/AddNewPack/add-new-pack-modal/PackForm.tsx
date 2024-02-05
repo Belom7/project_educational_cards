@@ -1,11 +1,9 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
+import { ImageIcon } from '@/assets'
 import { ButtonOption, TypographyOption } from '@/common'
-import { Button, Typography } from '@/components'
-import { ImageIcon } from '@/components/assets'
-import { ControlledCheckbox, ControlledTextField } from '@/components/controlled'
-import { Uploader } from '@/components/ui/uploader/Uploader'
+import { Button, ControlledCheckbox, ControlledTextField, Typography, Uploader } from '@/components'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 

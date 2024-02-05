@@ -1,4 +1,5 @@
-import { RootState, baseApi, updateDecksQueryData } from '@/common'
+import { RootState } from '@/app'
+import { baseApi, updateDecksQueryData } from '@/common'
 import {
   BaseDeckResponseType,
   DeletePackParamsType,

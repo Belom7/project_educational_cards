@@ -1,14 +1,20 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { Routes, formatDate } from '@/common'
-import { ButtonOption, TypographyOption } from '@/common/enums'
-import { Table, TableBody, TableCell, TableHeader, TableRow, Typography } from '@/components'
-import { ButtonPlay, EditTablePencil, Trash } from '@/components/assets'
-import { Button } from '../../../../components/ui/button'
-import { BaseDeckResponseType, DeletePackModal, columns } from '@/features'
-import { EditPackModal } from '@/features/packList/ui'
+import { ButtonPlayIcon, EditTablePencilIcon, TrashIcon } from '@/assets'
+import { ButtonOption, Routes, TypographyOption, formatDate } from '@/common'
+import {
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableRow,
+  Typography,
+} from '@/components'
+import { BaseDeckResponseType, DeletePackModal, EditPackModal, columns } from '@/features'
 
-import s from './packTable.module.scss'
+import s from './PackTable.module.scss'
 
 export type Sort = {
   direction: 'asc' | 'desc'
@@ -53,14 +59,14 @@ export const PackTable: React.FC<Props> = ({ data, onSort, sort, userId }) => {
                   <TableCell>
                     <span>
                       <Button variant={ButtonOption.Icon}>
-                        <ButtonPlay />
+                        <ButtonPlayIcon />
                       </Button>
                       {isMyDeck && (
                         <>
                           <EditPackModal
                             trigger={
                               <Button variant={ButtonOption.Icon}>
-                                <EditTablePencil />
+                                <EditTablePencilIcon />
                               </Button>
                             }
                             values={values}
@@ -70,7 +76,7 @@ export const PackTable: React.FC<Props> = ({ data, onSort, sort, userId }) => {
                             packName={el.name}
                             trigger={
                               <Button variant={ButtonOption.Icon}>
-                                <Trash />
+                                <TrashIcon />
                               </Button>
                             }
                           />

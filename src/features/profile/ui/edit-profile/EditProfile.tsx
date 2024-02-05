@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
+import { LeftArrowIcon } from '@/assets'
 import { Routes } from '@/common'
 import { Typography } from '@/components'
-import { LeftArrow } from '@/components/assets'
 
 import s from './EditProfile.module.scss'
 export const EditProfile = () => {
@@ -10,7 +10,7 @@ export const EditProfile = () => {
     <div className={s.main}>
       <div className={s.wrapper}>
         <Link className={s.linkMain} to={Routes.Main}>
-          <LeftArrow />
+          <LeftArrowIcon />
           <Typography>Back to Decks List</Typography>
         </Link>
       </div>

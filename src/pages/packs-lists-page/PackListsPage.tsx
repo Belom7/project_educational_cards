@@ -5,7 +5,6 @@ import { ButtonOption, TypographyOption } from '@/common/enums'
 import { Pagination, SelectItemArgs } from '@/components'
 import { Trash } from '@/components/assets'
 import { PackTable, useGetDecksQuery, usePackOptions } from '@/features'
-import { AddPackModal } from '@/features/packList/ui/AddNewPack/addNewPackModal'
 
 import s from './PackListsPage.module.scss'
 
@@ -14,6 +13,7 @@ import { Slider } from '../../components/ui/slider'
 import { TabSwitcher } from '../../components/ui/tab-switcher'
 import { TextField } from '../../components/ui/text-field'
 import { Typography } from '../../components/ui/typography'
+import { AddPackModal } from '../../features/packList/ui/AddNewPack/add-new-pack-modal'
 
 const paginationSelectItems: SelectItemArgs[] = [
   { child: '5', value: '5' },

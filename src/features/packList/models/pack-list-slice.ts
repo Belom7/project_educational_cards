@@ -1,10 +1,12 @@
 import { Sort } from '@/features'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+
 export type CardsCountType = {
   maxCardsCount: number | undefined
   minCardsCount: number
 }
 type authorIdType = string | undefined
+
 const initialState = {
   authorId: undefined as authorIdType,
   cardsCount: {

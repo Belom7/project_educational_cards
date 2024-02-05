@@ -1,4 +1,4 @@
-import { RootState } from '@/common'
+import { RootState } from '@/app'
 
 export const selectCurrentPage = (state: RootState) => state.pack.currentPage
 export const selectPageSize = (state: RootState) => state.pack.pageSize

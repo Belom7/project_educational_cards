@@ -1,8 +1,7 @@
 import { ReactNode, useState } from 'react'
 
 import { Modal } from '@/components'
-import { useCreatePackMutation } from '@/features'
-import { PackForm } from '@/features/packList/ui/AddNewPack/addNewPackModal/PackForm'
+import { PackForm, useCreatePackMutation } from '@/features'
 
 export type AddPackModalProps = {
   trigger: ReactNode

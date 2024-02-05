@@ -1,1 +1,1 @@
-export * from './addNewPackModal'
+export * from './add-new-pack-modal'

@@ -2,7 +2,7 @@ import { ReactNode, useState } from 'react'
 
 import { Modal } from '@/components'
 import { useUpdatePackMutation } from '@/features'
-import { PackForm } from '@/features/packList/ui/AddNewPack/addNewPackModal/PackForm'
+import { PackForm } from '@/features'
 
 type EditPackModalProps = {
   packId?: string

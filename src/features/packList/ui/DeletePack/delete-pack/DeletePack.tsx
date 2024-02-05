@@ -1,7 +1,7 @@
 import { ButtonOption, TypographyOption } from '@/common'
 import { Button, Typography } from '@/components'
 
-import s from './deletePack.module.scss'
+import s from './DeletePack.module.scss'
 
 type DeletePackProps = {
   buttonTitle: string

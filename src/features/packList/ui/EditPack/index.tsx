@@ -1,1 +1,1 @@
-export * from './editPackModal'
+export * from './edit-pack-modal'
