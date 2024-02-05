@@ -5,7 +5,7 @@ import { DropdownMenu } from '@/components'
 const meta = {
   component: DropdownMenu,
   tags: ['autoocs'],
-  title: 'Components/DropdownMenu',
+  title: 'components/DropdownMenu',
 } satisfies Meta<typeof DropdownMenu>
 
 export default meta

@@ -5,7 +5,7 @@ import { CheckEmailForm } from '@/components'
 const meta = {
   component: CheckEmailForm,
   tags: ['autodocs'],
-  title: 'Auth/checkEmailForm',
+  title: 'auth/CheckEmailForm',
 } satisfies Meta<typeof CheckEmailForm>
 
 export default meta

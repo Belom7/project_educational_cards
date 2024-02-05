@@ -5,7 +5,7 @@ import { SingUpForm } from '@/components'
 const meta = {
   component: SingUpForm,
   tags: ['autodocs'],
-  title: 'Auth/SingUpForm',
+  title: 'auth/SingUpForm',
 } satisfies Meta<typeof SingUpForm>
 
 export default meta

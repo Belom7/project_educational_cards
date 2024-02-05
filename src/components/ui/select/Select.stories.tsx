@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta: Meta<typeof Select> = {
   component: Select,
   tags: ['autodocs'],
-  title: 'Components/Select',
+  title: 'components/Select',
 } satisfies Meta<typeof Select>
 
 export default meta
@@ -28,7 +28,7 @@ export const Default: Story = {
   },
 }
 
-export const fullWidth: Story = {
+export const FullWidth: Story = {
   args: {
     className: 'default',
     disabled: false,

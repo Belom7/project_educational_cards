@@ -5,7 +5,7 @@ import { EditProfileForm } from '@/components'
 const meta = {
   component: EditProfileForm,
   tags: ['autodocs'],
-  title: 'Auth/EditProfile Form',
+  title: 'auth/EditProfileForm',
 } satisfies Meta<typeof EditProfileForm>
 
 export default meta
