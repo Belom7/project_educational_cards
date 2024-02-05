@@ -9,8 +9,11 @@ import {
 import { Routes } from '@/common/enums'
 import { DeckPage, ForgotPasswordPage, LoginPage, PackListsPage, SignUpPage } from '@/common/pages'
 import { ProfilePage } from '@/common/pages/progilePage/ProfilePage'
+import { Routes } from '@/common'
 import { Header, Preloader } from '@/components'
 import { useMeQuery } from '@/features'
+import { EditProfile, useMeQuery } from '@/features'
+import { DeckPage, ForgotPasswordPage, LoginPage, PackListsPage, SignUpPage } from '@/pages'
 
 const publicRoutes: RouteObject[] = [
   {

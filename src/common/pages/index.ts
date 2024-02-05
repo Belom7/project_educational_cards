@@ -1,6 +1,0 @@
-export * from './DeckPage'
-export * from './forgotPasswordPage'
-export * from './loginPage'
-export * from './packsListsPage'
-export * from './singUpPage'
-export * from './notFoundPage'

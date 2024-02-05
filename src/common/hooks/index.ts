@@ -1,3 +1,3 @@
-export * from './useAppSelector'
-export * from './useAppDispatch'
-export * from './useDebouns'
+export * from './use-app-selector'
+export * from './use-app-dispatch'
+export * from './use-debouns'

@@ -1,2 +1,2 @@
-export * from './packListSlice'
-export * from './packListSelector'
+export * from './pack-list-slice'
+export * from './pack-list-selector'

@@ -1,1 +1,1 @@
-export * from './deletePack'
+export * from './delete-pack'
