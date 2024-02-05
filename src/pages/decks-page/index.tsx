@@ -1,1 +1,1 @@
-export * from './DeckPage'
+export * from './DecksPage'

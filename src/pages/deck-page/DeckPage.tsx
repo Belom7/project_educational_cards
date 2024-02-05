@@ -1,3 +1,5 @@
+import { Page } from '@/components'
+
 export const DeckPage = () => {
-  return <div></div>
+  return <Page></Page>
 }
