@@ -8,4 +8,11 @@
 .buttonBackPosition {
   position: relative;
   left: -430px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:0;
+
 }

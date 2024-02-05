@@ -27,7 +27,9 @@ export const GoBack = forwardRef<ElementRef<typeof Button>, Props>(
     return (
       <Button className={goBackClassName} onClick={onBack} ref={ref} variant={ButtonOption.Link}>
         <LeftArrowIcon className={s.arrow} />
-        <Typography variant={TypographyOption.Body2}>{title}</Typography>
+        <Typography className={s.textBackColor} variant={TypographyOption.Body2}>
+          {title}
+        </Typography>
       </Button>
     )
   }

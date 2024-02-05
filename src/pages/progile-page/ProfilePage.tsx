@@ -7,11 +7,7 @@ import { EditProfileValues } from '@/features/profile/ui/edit-profile/useEditPro
 
 import s from './ProfilePage.module.scss'
 
-// EditProfileValues,
-// PersonalInformation,
-// ProfileDataType,
-// useMeQuery,
-// useUpdateProfileMutation,
+
 
 export const ProfilePage = (): JSX.Element => {
   const { data } = useMeQuery()
