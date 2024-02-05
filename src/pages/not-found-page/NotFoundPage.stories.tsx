@@ -1,4 +1,4 @@
-import { NotFoundPage } from '@/common'
+import { NotFoundPage } from '@/pages'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof NotFoundPage> = {

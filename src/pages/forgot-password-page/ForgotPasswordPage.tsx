@@ -1,7 +1,5 @@
-import { ForgotPasswordForm } from '@/components/auth/forgot-password/ForgotPasswordForm'
+import { ForgotPasswordForm, Page } from '@/components'
 import { useRecoverPasswordMutation } from '@/features'
-
-import { Page } from '../../components/ui/page'
 
 export const ForgotPasswordPage = () => {
   const [recoverPassword] = useRecoverPasswordMutation()

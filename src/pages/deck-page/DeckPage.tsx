@@ -1,10 +1,10 @@
-import { TypographyOption } from '@/common/enums'
-import { LeftArrow } from '@/components/assets'
-import { Button } from '../../components/ui/button'
-import { Typography } from '../../components/ui/typography'
+import { LeftArrowIcon } from '@/assets'
+import { TypographyOption } from '@/common'
+import { Button, Typography } from '@/components'
 import { DeckTable } from '@/features'
 
 import s from './DeckPage.module.scss'
+
 const data = [
   {
     answer: 'This is how "This" works in JavaScript',
@@ -48,7 +48,7 @@ export const DeckPage = () => {
       <div className={s.main}>
         <div className={s.wrapper}>
           <div className={s.backContent}>
-            <LeftArrow />
+            <LeftArrowIcon />
             <Typography variant={TypographyOption.Body2}>Back to Packs List</Typography>
           </div>
 

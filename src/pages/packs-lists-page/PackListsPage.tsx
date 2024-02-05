@@ -1,19 +1,19 @@
 import { useState } from 'react'
 
-import { formatSortedString, useDebounce } from '@/common'
-import { ButtonOption, TypographyOption } from '@/common/enums'
-import { Pagination, SelectItemArgs } from '@/components'
-import { Trash } from '@/components/assets'
-import { PackTable, useGetDecksQuery, usePackOptions } from '@/features'
+import { TrashIcon } from '@/assets'
+import { ButtonOption, TypographyOption, formatSortedString, useDebounce } from '@/common'
+import {
+  Button,
+  Pagination,
+  SelectItemArgs,
+  Slider,
+  TabSwitcher,
+  TextField,
+  Typography,
+} from '@/components'
+import { AddPackModal, PackTable, useGetDecksQuery, usePackOptions } from '@/features'
 
 import s from './PackListsPage.module.scss'
-
-import { Button } from '../../components/ui/button'
-import { Slider } from '../../components/ui/slider'
-import { TabSwitcher } from '../../components/ui/tab-switcher'
-import { TextField } from '../../components/ui/text-field'
-import { Typography } from '../../components/ui/typography'
-import { AddPackModal } from '../../features/packList/ui/AddNewPack/add-new-pack-modal'
 
 const paginationSelectItems: SelectItemArgs[] = [
   { child: '5', value: '5' },
@@ -88,7 +88,7 @@ export const PackListsPage = () => {
             />
             <Button onClick={clearFilterCallback} variant={ButtonOption.Secondary}>
               <>
-                <Trash />
+                <TrashIcon />
                 <Typography variant={TypographyOption.Subtitle2}>Clear Filter</Typography>
               </>
             </Button>
