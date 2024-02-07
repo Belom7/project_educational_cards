@@ -1,5 +1,7 @@
+import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 
+import { store } from '@/app'
 import { ForgotPasswordPage } from '@/pages'
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -14,9 +16,11 @@ type Story = StoryObj<typeof meta>
 
 const ForgotPasswordPageWithBrowserRouter = () => {
   return (
-    <BrowserRouter>
-      <ForgotPasswordPage />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ForgotPasswordPage />
+      </BrowserRouter>
+    </Provider>
   )
 }
 
