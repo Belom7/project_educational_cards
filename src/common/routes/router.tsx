@@ -9,7 +9,7 @@ import {
 import { Routes } from '@/common'
 import { Header, Preloader } from '@/components'
 import { useMeQuery } from '@/features'
-import { DecksPage, ForgotPasswordPage, LoginPage, PackListsPage, SignUpPage } from '@/pages'
+import { DecksListPage, DecksPage, ForgotPasswordPage, LoginPage, SignUpPage } from '@/pages'
 import { ProfilePage } from '@/pages/profile-page/ProfilePage'
 
 const publicRoutes: RouteObject[] = [
@@ -29,7 +29,7 @@ const publicRoutes: RouteObject[] = [
 
 const privateRoutes: RouteObject[] = [
   {
-    element: <PackListsPage />,
+    element: <DecksListPage />,
     path: Routes.Main,
   },
   {
@@ -42,7 +42,7 @@ const privateRoutes: RouteObject[] = [
   },
 ]
 
-const AppСomponent = () => {
+const AppComponent = () => {
   const { data, isError, isLoading } = useMeQuery()
 
   return (
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
       },
       ...publicRoutes,
     ],
-    element: <AppСomponent />,
+    element: <AppComponent />,
     errorElement: <Navigate to={Routes.NotFound} />,
   },
 ])
