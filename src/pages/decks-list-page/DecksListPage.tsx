@@ -13,7 +13,7 @@ import {
 } from '@/components'
 import { AddPackModal, PackTable, useGetDecksQuery, usePackOptions } from '@/features'
 
-import s from './PackListsPage.module.scss'
+import s from './DecksListPage.module.scss'
 
 const paginationSelectItems: SelectItemArgs[] = [
   { child: '5', value: '5' },
@@ -21,7 +21,7 @@ const paginationSelectItems: SelectItemArgs[] = [
   { child: '20', value: '20' },
 ]
 
-export const PackListsPage = () => {
+export const DecksListPage = () => {
   const {
     authorId,
     cardsCount,
@@ -62,7 +62,7 @@ export const PackListsPage = () => {
     <>
       <div className={s.main}>
         <div className={s.wrapper}>
-          <div className={s.packsList}>
+          <div className={s.decksList}>
             <Typography variant={TypographyOption.H1}>Decks list</Typography>
             <AddPackModal
               trigger={

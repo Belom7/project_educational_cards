@@ -2,11 +2,11 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 
 import { store } from '@/app'
-import { PackListsPage } from '@/pages'
+import { DecksListPage } from '@/pages'
 import { Meta, StoryObj } from '@storybook/react'
 
-const meta: Meta<typeof PackListsPage> = {
-  component: PackListsPage,
+const meta: Meta<typeof DecksListPage> = {
+  component: DecksListPage,
   tags: ['autodocs'],
   title: 'Pages/PackListsPage',
 }
@@ -18,7 +18,7 @@ const DecksListPageWithBrowserRouter = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <PackListsPage />
+        <DecksListPage />
       </BrowserRouter>
     </Provider>
   )

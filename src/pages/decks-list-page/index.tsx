@@ -1,1 +1,1 @@
-export * from './PackListsPage'
+export * from './DecksListPage'
