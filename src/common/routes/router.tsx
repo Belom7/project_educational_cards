@@ -10,7 +10,7 @@ import { Routes } from '@/common'
 import { Header, Preloader } from '@/components'
 import { useMeQuery } from '@/features'
 import { DecksPage, ForgotPasswordPage, LoginPage, PackListsPage, SignUpPage } from '@/pages'
-import { ProfilePage } from '@/pages/progile-page/ProfilePage'
+import { ProfilePage } from '@/pages/profile-page/ProfilePage'
 
 const publicRoutes: RouteObject[] = [
   {

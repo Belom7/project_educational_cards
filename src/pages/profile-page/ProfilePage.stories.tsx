@@ -2,7 +2,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 
 import { store } from '@/app'
-import { ProfilePage } from '@/pages/progile-page/ProfilePage'
+import { ProfilePage } from '@/pages/profile-page/ProfilePage'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof ProfilePage> = {
