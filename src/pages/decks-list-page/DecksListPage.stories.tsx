@@ -8,7 +8,7 @@ import { Meta, StoryObj } from '@storybook/react'
 const meta: Meta<typeof DecksListPage> = {
   component: DecksListPage,
   tags: ['autodocs'],
-  title: 'Pages/PackListsPage',
+  title: 'Pages/DecksListPage',
 }
 
 export default meta
