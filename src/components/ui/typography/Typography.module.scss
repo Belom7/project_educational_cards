@@ -24,7 +24,7 @@
 }
 
 .h1 {
-  @include typography(var(--font-size-xl), var(--line-height-l), var(--font-weight-bold));
+  @include typography(var(--font-size-xxl), var(--line-height-l), var(--font-weight-bold));
 }
 
 .h2 {

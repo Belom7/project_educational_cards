@@ -40,6 +40,10 @@ const privateRoutes: RouteObject[] = [
     element: <ProfilePage />,
     path: Routes.Profile,
   },
+  {
+    element: <DeckPage />,
+    path: Routes.Deck,
+  },
 ]
 
 const AppСomponent = () => {

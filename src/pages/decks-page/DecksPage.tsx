@@ -3,7 +3,7 @@ import { TypographyOption } from '@/common'
 import { Button, Typography } from '@/components'
 import { DeckTable } from '@/features'
 
-import s from './DeckPage.module.scss'
+import s from './DecksPage.module.scss'
 
 const data = [
   {
@@ -38,7 +38,7 @@ const data = [
   },
 ]
 
-export const DeckPage = () => {
+export const DecksPage = () => {
   const user = true
 
   //const datas = false

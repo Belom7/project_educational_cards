@@ -1,8 +1,7 @@
-.pageProfileContainer {
+.deckContainer{
   display: flex;
-  flex-direction: column;
-  justify-content: start;
-  margin-top: 20px;
+flex-direction: column;
+justify-content: start;
 }
 
 .buttonBackPosition {
@@ -13,7 +12,7 @@
   align-items: center;
   justify-content: center;
 
+  margin: 20px 0;
   padding:0;
-  
 
 }

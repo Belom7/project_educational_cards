@@ -1,23 +1,26 @@
 .root {
   display: flex;
-  color: var(--color-light-100);
+
 
   .arrow {
     fill: var(--color-light-100);
    
   }
 
+.textBackColor{
+  color: var(--color-light-100);
+}
+
   &:hover{
-    color: var(--color-light-100);
-    transition: all 0.3s ;
+    .textBackColor{
+      color: var(--color-accent-500);
+      transition: color 0.3s;
+    }
 
     .arrow {
-      fill: var(--color-light-100);
+      fill: var(--color-accent-500);
       transition: fill 0.2s;
     }
   }
 }
 
-.textBackColor{
-  color: var(--color-light-100);
-}

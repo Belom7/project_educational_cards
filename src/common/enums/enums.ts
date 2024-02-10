@@ -23,6 +23,7 @@ export enum ButtonOption {
 }
 export enum Routes {
   CreateNewPassword = '/create-new-password',
+  Deck = '/deck',
   Decks = '/decks',
   ForgotPassword = '/forgot-password',
   Login = '/login',
