@@ -8,6 +8,7 @@ import { clsx } from 'clsx'
 import s from './RadioGroup.module.scss'
 type ItemsProps = {
   title: string
+  value: string
 }
 export type RadioGroupProps = {
   className?: string
@@ -26,7 +27,7 @@ export const RadioGroup = forwardRef<ElementRef<typeof RadixRadioGroup.Root>, Ra
     )
   }
 )
-type RadioItemProps = { className?: string; title: string } & ComponentPropsWithoutRef<
+export type RadioItemProps = { className?: string; title: string } & ComponentPropsWithoutRef<
   typeof RadixRadioGroup.Item
 >
 const RadioItem = forwardRef<ElementRef<typeof RadixRadioGroup.Item>, RadioItemProps>(

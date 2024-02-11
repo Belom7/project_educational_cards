@@ -42,7 +42,7 @@ const privateRoutes: RouteObject[] = [
   },
   {
     element: <DeckPage />,
-    path: Routes.Deck,
+    path: `${Routes.Decks}/:id/learn`,
   },
 ]
 

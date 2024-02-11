@@ -29,8 +29,8 @@ type Props = {
 
 export const PackTable: React.FC<Props> = ({ data, onSort, sort, userId }) => {
   const navigate = useNavigate()
-  const learnCallback = () => {
-    navigate(Routes.Deck)
+  const learnCallback = (id: string) => {
+    navigate(`${Routes.Decks}/:${id}/learn`)
   }
 
   return (
@@ -63,7 +63,7 @@ export const PackTable: React.FC<Props> = ({ data, onSort, sort, userId }) => {
                   <TableCell>{el.author.name}</TableCell>
                   <TableCell>
                     <span>
-                      <Button onClick={learnCallback} variant={ButtonOption.Icon}>
+                      <Button onClick={() => learnCallback(el.id)} variant={ButtonOption.Icon}>
                         <ButtonPlayIcon />
                       </Button>
                       {isMyDeck && (

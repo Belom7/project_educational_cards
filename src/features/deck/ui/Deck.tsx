@@ -1,54 +1,65 @@
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 import { ButtonOption, TypographyOption } from '@/common'
 import { Button, Card, Typography } from '@/components'
+import { useGetRandomDeckQuery } from '@/features/deck/api'
+import { RateLernCard } from '@/features/deck/ui/rateLearnCard'
 
 import s from './Deck.module.scss'
 
 export const Deck = () => {
-  const [isDisplayAnswer, setIsDisplayAnswer] = useState(true)
-  const card = {
-    answer: 'это ответ',
-    answerImg: '',
-    name: 'sad',
-    question: 'asdsad',
-    questionImg: null,
-    shots: 5,
+  const [isDisplayAnswer, setIsDisplayAnswer] = useState(false)
+
+  const params = useParams()
+  const id = params?.id?.substring(1) as string
+
+  const { data } = useGetRandomDeckQuery({ id })
+
+  const onSubmit = () => {
+    // rateCard({ deckId: id, cardId: card!.id, grade: Number(data.grade) }),
   }
 
   return (
     <Card className={s.root}>
       <Typography className={s.title} variant={TypographyOption.H1}>
-        Learn {card?.name}
+        Learn {data?.name}
       </Typography>
       <Typography className={s.question} variant={TypographyOption.Subtitle1}>
-        Question: {card?.question}
+        Question: {data?.question}
       </Typography>
-      {card?.questionImg && (
+      {data?.questionImg && (
         <div className={s.imgWrapper}>
-          <img alt={'question'} src={card.questionImg} />
+          <img alt={'question'} src={data.questionImg} />
         </div>
       )}
       <Typography className={s.attemptsText} variant={TypographyOption.Subtitle2}>
-        Number of attempts: {card?.shots}
+        Number of attempts: {data?.shots}
       </Typography>
       {isDisplayAnswer ? (
         <>
           <Typography className={s.question} variant={TypographyOption.Subtitle1}>
-            <b>Answer:</b> {card?.answer}
+            Answer: {data?.answer}
           </Typography>
-          {card?.answerImg && (
+          {data?.answerImg && (
             <div className={s.imgWrapper}>
-              <img alt={'answer'} src={card.answerImg} />
+              <img alt={'answer'} src={data.answerImg} />
             </div>
           )}
+          <Typography className={s.rate} variant={TypographyOption.Subtitle1}>
+            Rate yourself:
+          </Typography>
+          <RateLernCard onSubmit={onSubmit} />
         </>
       ) : (
-        <div></div>
+        <Button
+          className={s.showButton}
+          onClick={setIsDisplayAnswer}
+          variant={ButtonOption.Primary}
+        >
+          <Typography variant={TypographyOption.Subtitle2}>Show Answer</Typography>
+        </Button>
       )}
-      <Button className={s.showButton} variant={ButtonOption.Primary}>
-        <Typography variant={TypographyOption.Subtitle2}>Show Answer</Typography>
-      </Button>
     </Card>
   )
 }
