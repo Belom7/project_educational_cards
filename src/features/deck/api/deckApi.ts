@@ -1,5 +1,6 @@
 import { baseApi } from '@/common'
 import {
+  DeckRateRequest,
   DeckResponse,
   GetDeckResponseType,
   RandomDeckRequest,
@@ -23,6 +24,23 @@ export const deckApi = baseApi.injectEndpoints({
         return { data: { ...DeckData, name: deckData.name } }
       },
     }),
+    rateDeck: builder.mutation<DeckResponse, DeckRateRequest>({
+      async onQueryStarted({ deckId }, { dispatch, queryFulfilled }) {
+        const { data: newCard } = await queryFulfilled
+
+        dispatch(
+          deckApi.util.updateQueryData('getRandomDeck', { id: deckId }, () => {
+            return newCard
+          })
+        )
+      },
+
+      query: ({ deckId, ...rest }) => ({
+        body: rest,
+        method: 'POST',
+        url: `decks/${deckId}/learn`,
+      }),
+    }),
   }),
 })
-export const { useGetRandomDeckQuery } = deckApi
+export const { useGetRandomDeckQuery, useRateDeckMutation } = deckApi

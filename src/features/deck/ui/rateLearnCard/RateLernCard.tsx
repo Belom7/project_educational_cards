@@ -8,7 +8,7 @@ export type RateLearnCardValues = {
   grade: string
 }
 type RateLernCardProps = {
-  onSubmit: () => void
+  onSubmit: (data: any) => void
 }
 export const RateLernCard = ({ onSubmit }: RateLernCardProps) => {
   const { control, handleSubmit } = useForm<RateLearnCardValues>({

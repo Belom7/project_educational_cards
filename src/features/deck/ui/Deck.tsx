@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import { ButtonOption, TypographyOption } from '@/common'
 import { Button, Card, Typography } from '@/components'
-import { useGetRandomDeckQuery } from '@/features/deck/api'
+import { useGetRandomDeckQuery, useRateDeckMutation } from '@/features/deck/api'
 import { RateLernCard } from '@/features/deck/ui/rateLearnCard'
 
 import s from './Deck.module.scss'
@@ -13,11 +13,13 @@ export const Deck = () => {
 
   const params = useParams()
   const id = params?.id?.substring(1) as string
-
+  const [rateDeck] = useRateDeckMutation()
   const { data } = useGetRandomDeckQuery({ id })
 
-  const onSubmit = () => {
-    // rateCard({ deckId: id, cardId: card!.id, grade: Number(data.grade) }),
+  console.log(data?.id, id)
+  const onSubmit = (dat: any) => {
+    rateDeck({ cardId: data!.id, deckId: id, grade: Number(dat.grade) })
+    setIsDisplayAnswer(false)
   }
 
   return (

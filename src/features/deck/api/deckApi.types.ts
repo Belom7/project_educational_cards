@@ -38,3 +38,8 @@ export type RandomDeckRequest = {
   previousCardId?: string
 }
 export type GetDeckResponseType = Omit<DeckType, 'author'>
+export type DeckRateRequest = {
+  cardId: string
+  deckId: string
+  grade: number
+}
