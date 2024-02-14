@@ -5,8 +5,10 @@ export const cardsService = baseApi.injectEndpoints({
     getCards: builder.query({
       providesTags: ['Cards'],
       query: ({ id }) => ({
-        url: `cards/${id}`,
+        url: `decks/${id}/cards`,
       }),
     }),
   }),
 })
+
+export const { useGetCardsQuery } = cardsService
