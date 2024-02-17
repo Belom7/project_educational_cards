@@ -1,11 +1,11 @@
 // getCards
 export type GetCardsParams = {
-  answer: string
-  currentPage: number
+  answer?: string
+  currentPage?: number
   id: string
-  itemsPerPage: number
-  orderBy: string
-  question: string
+  itemsPerPage?: number
+  orderBy?: string
+  question?: string
 }
 export type PaginationCards = {
   currentPage: number
