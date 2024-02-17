@@ -1,4 +1,4 @@
-import { ComponentProps, ComponentPropsWithoutRef, ElementRef, FC, forwardRef } from 'react'
+import { ComponentProps, ComponentPropsWithoutRef, ElementRef, FC, JSX, forwardRef } from 'react'
 
 import { ArrowUpIcon } from '@/assets'
 import { TypographyOption } from '@/common'

@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, ElementRef, JSX, forwardRef } from 'react'
 
 import { TypographyOption } from '@/common'
 import { Typography } from '@/components'
