@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FC, useState } from 'react'
 
 import { ButtonPlayIcon, EditTablePencilIcon, TrashIcon } from '@/assets'
 import { ButtonOption } from '@/common'
@@ -6,6 +6,11 @@ import { Button, Rating, Table, TableBody, TableCell, TableHeader, TableRow } fr
 import { Sort } from '@/features'
 
 import s from './DeckTable.module.scss'
+
+type Props = {
+  cards: any
+  sort?: Sort
+}
 
 const columns = [
   {
@@ -27,16 +32,8 @@ const columns = [
   },
 ]
 
-export const DeckTable = () => {
-  const data: any = [
-    {
-      answer: 'HELLOW',
-      question: 'asdasd',
-      shots: '4',
-      updated: 'asdasdsad',
-    },
-  ]
-  const [sort, setSort] = useState<Sort>(null)
+export const DeckTable: FC<Props> = ({ cards, sort }) => {
+  const [sorted, setSort] = useState<Sort>(null)
 
   const onSort = (sort: Sort) => {
     setSort(sort)
@@ -49,10 +46,10 @@ export const DeckTable = () => {
           className={s.tableHeader}
           columns={columns}
           onSort={onSort}
-          sort={sort}
+          sort={sorted}
         ></TableHeader>
         <TableBody>
-          {data?.map((el: any, index: number) => {
+          {cards?.map((el: any, index: number) => {
             return (
               <TableRow className={s.tableRow} key={index}>
                 <TableCell>{el.question}</TableCell>

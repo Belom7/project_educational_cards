@@ -1,7 +1,9 @@
+import { useParams } from 'react-router-dom'
+
 import { LeftArrowIcon } from '@/assets'
 import { TypographyOption } from '@/common'
 import { Button, Typography } from '@/components'
-import { DeckTable } from '@/features'
+import { DeckTable, useGetCardsQuery } from '@/features'
 
 import s from './DecksPage.module.scss'
 
@@ -39,6 +41,10 @@ const data = [
 ]
 
 export const DecksPage = () => {
+  const { id = '' } = useParams<{ id: string }>()
+
+  const { data: deckData } = useGetCardsQuery({ id })
+
   const user = true
 
   //const datas = false
@@ -64,7 +70,7 @@ export const DecksPage = () => {
                   </Typography>
                 </Button>
               </div>
-              <DeckTable />
+              <DeckTable cards={deckData?.items || []} />
             </div>
           ) : (
             <div>
