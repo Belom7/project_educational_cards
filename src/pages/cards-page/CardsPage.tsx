@@ -17,7 +17,7 @@ export const CardsPage = () => {
     <>
       <div className={s.main}>
         <div className={s.wrapper}>
-          <BackToDecksLink title={'Back to Decks List'} />
+          <BackToDecksLink className={s.backToDecksList} title={'Back to Decks List'} />
 
           {deckData ? (
             <div>

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { LeftArrowIcon } from '@/assets'
 import { ButtonOption, Routes, TypographyOption } from '@/common'
 import { Button, Typography } from '@/components'
-import clx from 'clsx'
+import clsx from 'clsx'
 
 import s from './BackToDecksLink.module.scss'
 
@@ -22,7 +22,7 @@ export const BackToDecksLink = forwardRef<ElementRef<typeof Button>, Props>(
       to ? navigate(to) : navigate(-1)
     }
 
-    const goBackClassName = clx(s.root, className)
+    const goBackClassName = clsx(s.root, className)
 
     return (
       <Button className={goBackClassName} onClick={onGoBack} ref={ref} variant={ButtonOption.Link}>
