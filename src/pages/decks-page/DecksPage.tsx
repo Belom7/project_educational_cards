@@ -1,8 +1,7 @@
 import { useParams } from 'react-router-dom'
 
-import { LeftArrowIcon } from '@/assets'
 import { TypographyOption } from '@/common'
-import { Button, Typography } from '@/components'
+import { BackToDecksLink, Button, Typography } from '@/components'
 import { DeckTable, useGetCardsQuery } from '@/features'
 
 import s from './DecksPage.module.scss'
@@ -53,10 +52,7 @@ export const DecksPage = () => {
     <>
       <div className={s.main}>
         <div className={s.wrapper}>
-          <div className={s.backToDecksList}>
-            <LeftArrowIcon />
-            <Typography variant={TypographyOption.Body2}>Back to Decks List</Typography>
-          </div>
+          <BackToDecksLink title={'Back to Decks List'} />
 
           {data ? (
             <div>
