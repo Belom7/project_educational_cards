@@ -58,10 +58,10 @@ export const CardsTable: FC<Props> = ({ cards, sort }) => {
                 <TableCell className={s.tableCreatedBy}>
                   <Rating rating={parseInt(el.shots ? el.shots : '0')} />
                   <span>
-                    <Button variant={ButtonOption.Icon}>
+                    <Button className={s.icon} variant={ButtonOption.Icon}>
                       <EditTablePencilIcon />
                     </Button>
-                    <Button variant={ButtonOption.Icon}>
+                    <Button className={s.icon} variant={ButtonOption.Icon}>
                       <TrashIcon />
                     </Button>
                   </span>
