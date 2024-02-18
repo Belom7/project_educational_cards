@@ -1,15 +1,21 @@
 .root {
+  cursor: pointer;
+
   display: flex;
+  align-items: center;
+
+  width: 143px;
+  margin: 20px 0;
+
   color: var(--color-light-100);
 
   .arrow {
     fill: var(--color-light-100);
-   
   }
 
-  &:hover{
+  &:hover {
     color: var(--color-light-100);
-    transition: all 0.3s ;
+    transition: all 0.3s;
 
     .arrow {
       fill: var(--color-light-100);
@@ -18,6 +24,6 @@
   }
 }
 
-.textBackColor{
+.textBackColor {
   color: var(--color-light-100);
 }
