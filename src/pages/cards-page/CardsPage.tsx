@@ -23,11 +23,11 @@ export const CardsPage = () => {
             <div>
               <div className={s.nameDecks}>
                 <Typography variant={TypographyOption.H1}>
-                  {user ? 'My Pack' : 'Friends Pack'}
+                  {user ? 'My Deck' : 'Friends Deck'}
                 </Typography>
                 <Button>
                   <Typography variant={TypographyOption.Subtitle2}>
-                    {user ? 'Add New Card' : 'Learn to Pack'}
+                    {user ? 'Add New Card' : 'Learn to Deck'}
                   </Typography>
                 </Button>
               </div>
@@ -36,11 +36,11 @@ export const CardsPage = () => {
           ) : (
             <div>
               <div className={s.nameDecks}>
-                <Typography variant={TypographyOption.H1}>Name Pack</Typography>
+                <Typography variant={TypographyOption.H1}>Name Deck</Typography>
               </div>
               <div className={s.addingCardContentInfo}>
                 <Typography className={s.addingCardContentInfo} variant={TypographyOption.Body1}>
-                  This pack is empty. Click add new card to fill this pack
+                  This deck is empty. Click add new card to fill this deck
                 </Typography>
                 <Button>
                   <Typography variant={TypographyOption.Subtitle2}>Add New Card</Typography>
