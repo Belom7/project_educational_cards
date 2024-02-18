@@ -1,7 +1,7 @@
 import { JSX } from 'react'
 
 import { Routes } from '@/common'
-import { GoBack, Page } from '@/components'
+import { BackToDecksLink, Page } from '@/components'
 import { BaseResponseType, EditProfile, useMeQuery, useUpdateProfileMutation } from '@/features'
 import { EditProfileValues } from '@/features/profile/ui/edit-profile/useEditProfile'
 
@@ -22,7 +22,11 @@ export const ProfilePage = (): JSX.Element => {
 
   return (
     <Page className={s.pageProfileContainer}>
-      <GoBack className={s.buttonBackPosition} title={'Back to Decks List'} to={Routes.Main} />
+      <BackToDecksLink
+        className={s.buttonBackPosition}
+        title={'Back to Decks List'}
+        to={Routes.Main}
+      />
 
       <EditProfile data={data as BaseResponseType} update={onUpdate} />
     </Page>

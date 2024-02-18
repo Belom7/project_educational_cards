@@ -1,4 +1,4 @@
-export * from './go-back'
+export * from './back-to-decks-link'
 export * from './typography'
 export * from './text-field'
 export * from './table'
