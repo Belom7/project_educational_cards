@@ -9,7 +9,7 @@ import {
 import { Routes } from '@/common'
 import { Header, Preloader } from '@/components'
 import { useMeQuery } from '@/features'
-import { DecksListPage, DecksPage, ForgotPasswordPage, LoginPage, SignUpPage } from '@/pages'
+import { CardsPage, DecksListPage, ForgotPasswordPage, LoginPage, SignUpPage } from '@/pages'
 import { ProfilePage } from '@/pages/profile-page/ProfilePage'
 
 const publicRoutes: RouteObject[] = [
@@ -33,7 +33,7 @@ const privateRoutes: RouteObject[] = [
     path: Routes.Main,
   },
   {
-    element: <DecksPage />,
+    element: <CardsPage />,
     path: `${Routes.Decks}/:id/cards`,
   },
   {

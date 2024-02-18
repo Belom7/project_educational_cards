@@ -2,11 +2,11 @@ import { useParams } from 'react-router-dom'
 
 import { TypographyOption } from '@/common'
 import { BackToDecksLink, Button, Typography } from '@/components'
-import { DeckTable, useGetCardsQuery } from '@/features'
+import { CardsTable, useGetCardsQuery } from '@/features'
 
-import s from './DecksPage.module.scss'
+import s from './CardsPage.module.scss'
 
-export const DecksPage = () => {
+export const CardsPage = () => {
   const { id = '' } = useParams<{ id: string }>()
 
   const { data: deckData } = useGetCardsQuery({ id })
@@ -31,7 +31,7 @@ export const DecksPage = () => {
                   </Typography>
                 </Button>
               </div>
-              <DeckTable cards={deckData?.items || []} />
+              <CardsTable cards={deckData?.items || []} />
             </div>
           ) : (
             <div>

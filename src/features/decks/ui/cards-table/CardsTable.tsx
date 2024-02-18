@@ -5,7 +5,7 @@ import { ButtonOption } from '@/common'
 import { Button, Rating, Table, TableBody, TableCell, TableHeader, TableRow } from '@/components'
 import { Sort } from '@/features'
 
-import s from './DeckTable.module.scss'
+import s from './CardsTable.module.scss'
 
 type Props = {
   cards: any
@@ -32,7 +32,7 @@ const columns = [
   },
 ]
 
-export const DeckTable: FC<Props> = ({ cards, sort }) => {
+export const CardsTable: FC<Props> = ({ cards, sort }) => {
   const [sorted, setSort] = useState<Sort>(null)
 
   const onSort = (sort: Sort) => {

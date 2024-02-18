@@ -1,11 +1,11 @@
-import { DeckTable } from '@/features'
+import { CardsTable } from '@/features'
 import { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  component: DeckTable,
+  component: CardsTable,
   tags: ['autodocs'],
   title: 'components/Table',
-} satisfies Meta<typeof DeckTable>
+} satisfies Meta<typeof CardsTable>
 
 export default meta
 type Story = StoryObj<typeof meta>

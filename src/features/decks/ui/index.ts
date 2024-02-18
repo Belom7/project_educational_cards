@@ -1,1 +1,1 @@
-export * from './deck-table'
+export * from './cards-table'

@@ -2,28 +2,28 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 
 import { store } from '@/app'
-import { DecksPage } from '@/pages'
+import { CardsPage } from '@/pages'
 import { Meta, StoryObj } from '@storybook/react'
 
-const meta: Meta<typeof DecksPage> = {
-  component: DecksPage,
+const meta: Meta<typeof CardsPage> = {
+  component: CardsPage,
   tags: ['autodocs'],
-  title: 'Pages/DeckCardsTablePage',
+  title: 'Pages/CardsPage',
 }
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-const DecksPageWithBrowserRouter = () => {
+const CardsPageWithBrowserRouter = () => {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <DecksPage />
+        <CardsPage />
       </BrowserRouter>
     </Provider>
   )
 }
 
 export const Default: Story = {
-  render: () => <DecksPageWithBrowserRouter />,
+  render: () => <CardsPageWithBrowserRouter />,
 }
