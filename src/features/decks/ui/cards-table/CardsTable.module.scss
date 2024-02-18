@@ -1,4 +1,4 @@
-.cardWrapper{
+.cardWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,56 +14,38 @@
   width: 100%;
 }
 
-.tableHeader{
+.tableHeader {
   background-color: var(--color-dark-500);
   border: 1px solid var(--color-dark-500);
 }
 
-.tableHeader th{
+.tableHeader th {
   cursor: pointer;
   padding: 6px 0 0 20px;
-
 }
 
-.tableHeaderTypography span{
-  padding:100px ;
-
+.tableHeaderTypography span {
+  padding: 100px;
 }
 
-.icon{
+.icon {
   transform: rotate(180deg);
 }
 
-
-.tableHeader th:nth-child(1) {
-  width: 20%;
-}
-
-.tableHeader th:nth-child(2) {
-  width: 20%;
-}
-
-.tableHeader th:nth-child(3) {
-  width: 20%;
-}
-
-.tableCreatedBy {
+.tableCreatedBy > span {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 
-  width: 100%;
+  > span {
+    margin-right: 15px;
+  }
 }
 
-.tableCreatedBy span{
-  margin-left: 110px;
-}
-
-.tableRow{
+.tableRow {
   border: 1px solid var(--color-dark-500);
 }
 
-.tableCell{
+.tableCell {
   padding: 6px 0 0 20px;
 }
