@@ -1,9 +1,10 @@
-import { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, ElementRef, JSX, forwardRef } from 'react'
 
 import { FilledStarIcon, UnfilledStarIcon } from '@/assets'
 import { clsx } from 'clsx'
 
 import s from './Rating.module.scss'
+
 type Props = {
   className?: string
   rating: number

@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 
-import { ButtonPlayIcon, EditTablePencilIcon, TrashIcon } from '@/assets'
+import { EditTablePencilIcon, TrashIcon } from '@/assets'
 import { ButtonOption, formatDate } from '@/common'
 import { Button, Rating, Table, TableBody, TableCell, TableHeader, TableRow } from '@/components'
 import { Sort } from '@/features'
@@ -58,9 +58,6 @@ export const CardsTable: FC<Props> = ({ cards, sort }) => {
                 <TableCell className={s.tableCreatedBy}>
                   <Rating rating={parseInt(el.shots ? el.shots : '0')} />
                   <span>
-                    <Button variant={ButtonOption.Icon}>
-                      <ButtonPlayIcon />
-                    </Button>
                     <Button variant={ButtonOption.Icon}>
                       <EditTablePencilIcon />
                     </Button>
