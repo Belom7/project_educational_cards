@@ -6,39 +6,6 @@ import { DeckTable, useGetCardsQuery } from '@/features'
 
 import s from './DecksPage.module.scss'
 
-const data = [
-  {
-    answer: 'This is how "This" works in JavaScript',
-    question: 'How "This" works in JavaScript?',
-    shots: '3',
-    updated: '18.03.2021',
-  },
-  {
-    answer: 'This is how "This" works in JavaScript',
-    question: 'How "This" works in JavaScript?',
-    shots: '2',
-    updated: '18.03.2021',
-  },
-  {
-    answer: 'This is how "This" works in JavaScript',
-    question: 'How "This" works in JavaScript?',
-    shots: '1',
-    updated: '18.03.2021',
-  },
-  {
-    answer: 'This is how "This" works in JavaScript',
-    question: 'How "This" works in JavaScript?',
-    shots: '4',
-    updated: '18.03.2021',
-  },
-  {
-    answer: 'This is how "This" works in JavaScript',
-    question: 'How "This" works in JavaScript?',
-    shots: '6',
-    updated: '18.03.2021',
-  },
-]
-
 export const DecksPage = () => {
   const { id = '' } = useParams<{ id: string }>()
 
@@ -46,15 +13,13 @@ export const DecksPage = () => {
 
   const user = true
 
-  //const datas = false
-
   return (
     <>
       <div className={s.main}>
         <div className={s.wrapper}>
           <BackToDecksLink title={'Back to Decks List'} />
 
-          {data ? (
+          {deckData ? (
             <div>
               <div className={s.nameDecks}>
                 <Typography variant={TypographyOption.H1}>
