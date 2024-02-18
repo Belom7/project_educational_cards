@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 
 import { ButtonPlayIcon, EditTablePencilIcon, TrashIcon } from '@/assets'
-import { ButtonOption } from '@/common'
+import { ButtonOption, formatDate } from '@/common'
 import { Button, Rating, Table, TableBody, TableCell, TableHeader, TableRow } from '@/components'
 import { Sort } from '@/features'
 
@@ -54,7 +54,7 @@ export const CardsTable: FC<Props> = ({ cards, sort }) => {
               <TableRow className={s.tableRow} key={index}>
                 <TableCell>{el.question}</TableCell>
                 <TableCell>{el.answer}</TableCell>
-                <TableCell>{el.updated}</TableCell>
+                <TableCell>{formatDate(el.updated)}</TableCell>
                 <TableCell className={s.tableCreatedBy}>
                   <Rating rating={parseInt(el.shots ? el.shots : '0')} />
                   <span>
