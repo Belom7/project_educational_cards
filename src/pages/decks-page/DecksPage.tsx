@@ -53,14 +53,14 @@ export const DecksPage = () => {
     <>
       <div className={s.main}>
         <div className={s.wrapper}>
-          <div className={s.backContent}>
+          <div className={s.backToDecksList}>
             <LeftArrowIcon />
-            <Typography variant={TypographyOption.Body2}>Back to Packs List</Typography>
+            <Typography variant={TypographyOption.Body2}>Back to Decks List</Typography>
           </div>
 
           {data ? (
             <div>
-              <div className={s.namePacks}>
+              <div className={s.nameDecks}>
                 <Typography variant={TypographyOption.H1}>
                   {user ? 'My Pack' : 'Friends Pack'}
                 </Typography>
@@ -74,7 +74,7 @@ export const DecksPage = () => {
             </div>
           ) : (
             <div>
-              <div className={s.namePacks}>
+              <div className={s.nameDecks}>
                 <Typography variant={TypographyOption.H1}>Name Pack</Typography>
               </div>
               <div className={s.addingCardContentInfo}>
