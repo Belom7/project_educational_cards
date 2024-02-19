@@ -1,17 +1,19 @@
 import { useParams } from 'react-router-dom'
 
-import { TypographyOption } from '@/common'
+import { TypographyOption, useAppDispatch, useAppSelector } from '@/common'
 import { BackToDecksLink, Button, Typography } from '@/components'
-import { CardsTable, useGetCardsQuery } from '@/features'
+import { CardsTable, cardsActions, useGetCardsQuery, useGetDeckQuery, useMeQuery } from '@/features'
 
 import s from './CardsPage.module.scss'
 
 export const CardsPage = () => {
   const { id = '' } = useParams<{ id: string }>()
 
+  const { data: user } = useMeQuery()
+  const { data: deck } = useGetDeckQuery(id)
   const { data: deckData } = useGetCardsQuery({ id })
 
-  const user = true
+  const isCurrentUser = user?.id === deck?.userId
 
   return (
     <>
@@ -23,11 +25,11 @@ export const CardsPage = () => {
             <div>
               <div className={s.nameDecks}>
                 <Typography variant={TypographyOption.H1}>
-                  {user ? 'My Deck' : 'Friends Deck'}
+                  {isCurrentUser ? 'My Deck' : 'Friends Deck'}
                 </Typography>
                 <Button>
                   <Typography variant={TypographyOption.Subtitle2}>
-                    {user ? 'Add New Card' : 'Learn to Deck'}
+                    {isCurrentUser ? 'Add New Card' : 'Learn to Deck'}
                   </Typography>
                 </Button>
               </div>
