@@ -4,6 +4,7 @@ import {
   BaseDeckResponseType,
   DeletePackParamsType,
   DeletePackResponseType,
+  GetDeckResponse,
   GetDecksParamsType,
   PackType,
   UpdatePackParamsType,
@@ -53,6 +54,12 @@ export const packListService = baseApi.injectEndpoints({
       },
       query: ({ id }) => ({
         method: 'DELETE',
+        url: `decks/${id}`,
+      }),
+    }),
+    getDeck: builder.query<GetDeckResponse, string>({
+      providesTags: ['Decks'],
+      query: id => ({
         url: `decks/${id}`,
       }),
     }),
@@ -110,6 +117,7 @@ export const packListService = baseApi.injectEndpoints({
 export const {
   useCreatePackMutation,
   useDeletePackMutation,
+  useGetDeckQuery,
   useGetDecksQuery,
   useUpdatePackMutation,
 } = packListService

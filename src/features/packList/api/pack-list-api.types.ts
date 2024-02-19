@@ -19,6 +19,7 @@ export type ResponseTypeItems = {
   updated: string
   userId: string
 }
+export type GetDeckResponse = Omit<ResponseTypeItems, 'shots'>
 export type ResponseTypePagination = {
   currentPage: number
   itemsPerPage: number
