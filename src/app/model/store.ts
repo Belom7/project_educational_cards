@@ -1,11 +1,12 @@
 import { baseApi } from '@/common'
-import { packListSlice } from '@/features'
+import { cardsSlice, packListSlice } from '@/features'
 import { configureStore } from '@reduxjs/toolkit'
 
 export const store = configureStore({
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(baseApi.middleware),
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
+    [cardsSlice.name]: cardsSlice.reducer,
     [packListSlice.name]: packListSlice.reducer,
   },
 })
