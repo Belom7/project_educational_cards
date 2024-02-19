@@ -1,4 +1,4 @@
-import { ComponentProps, ComponentPropsWithoutRef, ElementRef, FC, JSX, forwardRef } from 'react'
+import { ComponentPropsWithoutRef, ElementRef, JSX, forwardRef } from 'react'
 
 import { ArrowUpIcon } from '@/assets'
 import { TypographyOption } from '@/common'
@@ -31,6 +31,11 @@ export type Column = {
   sortable?: boolean
   title: string
 }
+type WithoutTableProps = {
+  mb?: string
+  mt?: string
+  text?: string
+} & ComponentPropsWithoutRef<'div'>
 type Props = Omit<
   ComponentPropsWithoutRef<typeof TableHead> & {
     columns: Column[]
@@ -112,22 +117,27 @@ export const TableCell = forwardRef<ElementRef<'td'>, ComponentPropsWithoutRef<'
     )
   }
 )
-export const TableEmpty: FC<ComponentProps<'div'> & { mb?: string; mt?: string }> = ({
-  className,
-  mb,
-  mt = '89px',
-}) => {
-  const classNames = {
-    empty: clsx(className, s.empty),
-  }
+export const WithoutTable = forwardRef<ElementRef<'div'>, WithoutTableProps>(
+  (
+    { children, className, mb, mt = '89px', text = 'There is no data here yet!', ...restProps },
+    ref
+  ): JSX.Element => {
+    const classNames = {
+      withoutTable: clsx(className, s.withoutTable),
+      withoutTableText: clsx(className, s.withoutTableText),
+    }
 
-  return (
-    <Typography
-      className={classNames.empty}
-      style={{ marginBottom: mb, marginTop: mt }}
-      variant={TypographyOption.H2}
-    >
-      Пока тут еще нет данных!
-    </Typography>
-  )
-}
+    return (
+      <div className={classNames.withoutTable} ref={ref} {...restProps}>
+        <Typography
+          className={classNames.withoutTableText}
+          style={{ marginBottom: mb, marginTop: mt }}
+          variant={TypographyOption.H2}
+        >
+          {text}
+        </Typography>
+        {children}
+      </div>
+    )
+  }
+)
