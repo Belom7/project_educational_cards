@@ -1,4 +1,4 @@
-.cardWrapper{
+.cardWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,26 +14,23 @@
   width: 100%;
 }
 
-.tableHeader{
+.tableHeader {
   background-color: var(--color-dark-500);
   border: 1px solid var(--color-dark-500);
 }
 
-.tableHeader th{
+.tableHeader th {
   cursor: pointer;
   padding: 6px 0 0 20px;
-
 }
 
-.tableHeaderTypography span{
-  padding:100px ;
-
+.tableHeaderTypography span {
+  padding: 100px;
 }
 
-.icon{
+.icon {
   transform: rotate(180deg);
 }
-
 
 .tableHeader th:nth-child(1) {
   width: 20%;
@@ -47,19 +44,30 @@
   width: 20%;
 }
 
-.tableCreatedBy{
+.tableCreatedBy {
   display: flex;
   justify-content: space-between;
 }
 
-.tableRow{
+.tableRow {
   border: 1px solid var(--color-dark-500);
 }
 
-.tableCell{
+.tableCell {
   padding: 3px 0 3px 20px;
 }
 
-.sortIcon{
+.sortIcon {
   transform: rotate(180deg);
+}
+
+.withoutTable {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: center;
+
+  .withoutTableText {
+    color: var(--color-dark-100);
+  }
 }
