@@ -7,20 +7,6 @@ import { clsx } from 'clsx'
 
 import s from './Table.module.scss'
 
-export const Table = forwardRef<HTMLTableElement, ComponentPropsWithoutRef<'table'>>(
-  ({ className, ...rest }, ref) => {
-    const classNames = {
-      table: clsx(className, s.table),
-    }
-
-    return <table className={classNames.table} {...rest} ref={ref} />
-  }
-)
-export const TableHead = forwardRef<ElementRef<'thead'>, ComponentPropsWithoutRef<'thead'>>(
-  ({ ...rest }, ref) => {
-    return <thead {...rest} ref={ref} />
-  }
-)
 export type Sort = {
   direction: 'asc' | 'desc'
   key: string
@@ -44,6 +30,21 @@ type Props = Omit<
   },
   'children'
 >
+
+export const Table = forwardRef<HTMLTableElement, ComponentPropsWithoutRef<'table'>>(
+  ({ className, ...rest }, ref): JSX.Element => {
+    const classNames = {
+      table: clsx(className, s.table),
+    }
+
+    return <table className={classNames.table} {...rest} ref={ref} />
+  }
+)
+export const TableHead = forwardRef<ElementRef<'thead'>, ComponentPropsWithoutRef<'thead'>>(
+  ({ ...rest }, ref): JSX.Element => {
+    return <thead {...rest} ref={ref} />
+  }
+)
 export const TableHeader = forwardRef<ElementRef<typeof TableHead>, Props>(
   ({ columns, onSort, sort, ...restProps }, ref): JSX.Element => {
     console.log(sort)
@@ -86,17 +87,17 @@ export const TableHeader = forwardRef<ElementRef<typeof TableHead>, Props>(
   }
 )
 export const TableBody = forwardRef<ElementRef<'tbody'>, ComponentPropsWithoutRef<'tbody'>>(
-  ({ ...rest }, ref) => {
+  ({ ...rest }, ref): JSX.Element => {
     return <tbody {...rest} ref={ref} />
   }
 )
 export const TableRow = forwardRef<ElementRef<'tr'>, ComponentPropsWithoutRef<'tr'>>(
-  ({ ...rest }, ref) => {
+  ({ ...rest }, ref): JSX.Element => {
     return <tr {...rest} ref={ref} />
   }
 )
 export const TableHeadCell = forwardRef<ElementRef<'th'>, ComponentPropsWithoutRef<'th'>>(
-  ({ className, ...restProps }, ref) => {
+  ({ className, ...restProps }, ref): JSX.Element => {
     const classNames = {
       headCell: clsx(className, s.headCell),
     }
@@ -105,7 +106,7 @@ export const TableHeadCell = forwardRef<ElementRef<'th'>, ComponentPropsWithoutR
   }
 )
 export const TableCell = forwardRef<ElementRef<'td'>, ComponentPropsWithoutRef<'td'>>(
-  ({ className, ...rest }, ref) => {
+  ({ className, ...rest }, ref): JSX.Element => {
     const classNames = {
       cell: clsx(className, s.tableCell),
     }
