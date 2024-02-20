@@ -12,10 +12,11 @@ type Props = {
   className?: string
   title: string
   to?: Routes
+  type?: 'link' | 'primary'
 }
 
 export const BackToDecksLink = forwardRef<ElementRef<typeof Button>, Props>(
-  ({ className, title, to }, ref): JSX.Element => {
+  ({ className, title, to, type = 'link' }, ref): JSX.Element => {
     const navigate = useNavigate()
 
     const onGoBack = () => {
@@ -24,8 +25,15 @@ export const BackToDecksLink = forwardRef<ElementRef<typeof Button>, Props>(
 
     const goBackClassName = clsx(s.root, className)
 
-    return (
+    return type === 'link' ? (
       <Button className={goBackClassName} onClick={onGoBack} ref={ref} variant={ButtonOption.Link}>
+        <LeftArrowIcon className={s.arrow} />
+        <Typography className={s.textBackColor} variant={TypographyOption.Body2}>
+          {title}
+        </Typography>
+      </Button>
+    ) : (
+      <Button onClick={onGoBack} ref={ref} variant={ButtonOption.Primary}>
         <LeftArrowIcon className={s.arrow} />
         <Typography className={s.textBackColor} variant={TypographyOption.Body2}>
           {title}
