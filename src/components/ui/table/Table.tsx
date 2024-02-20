@@ -133,11 +133,11 @@ export const WithoutTable = forwardRef<ElementRef<'div'>, WithoutTableProps>(
         <Typography
           className={classNames.withoutTableText}
           style={{ marginBottom: mb, marginTop: mt }}
-          variant={TypographyOption.H2}
+          variant={TypographyOption.Body1}
         >
           {text}
         </Typography>
-        {children}
+        <div>{children}</div>
       </div>
     )
   }
