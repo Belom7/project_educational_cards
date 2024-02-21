@@ -41,7 +41,7 @@ export const Modal = forwardRef<ElementRef<'div'>, Props>(
                           {title}
                         </Typography>
                         <ModalPrimitive.Close asChild>
-                          <Button aria-label={'Close'} variant={ButtonOption.Tertiary}>
+                          <Button aria-label={'Close'} variant={ButtonOption.Icon}>
                             <CloseIcon />
                           </Button>
                         </ModalPrimitive.Close>
