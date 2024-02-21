@@ -1,0 +1,13 @@
+.root {
+  width: 100%;
+  padding: 1.4rem 1.6rem;
+
+  .text {
+    margin-bottom: 1.6rem;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+}
