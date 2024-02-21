@@ -57,6 +57,7 @@ export const CardsTable: FC<Props> = ({ cards, onSort, sort }) => {
                       <EditTablePencilIcon />
                     </Button>
                     <DeleteCard
+                      cardId={el.id}
                       trigger={
                         <Button className={s.icon} variant={ButtonOption.Icon}>
                           <TrashIcon />

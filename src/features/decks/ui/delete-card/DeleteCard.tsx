@@ -2,18 +2,23 @@ import { FC, ReactNode, useState } from 'react'
 
 import { ButtonOption, TypographyOption } from '@/common'
 import { Button, Modal, Typography } from '@/components'
+import { useDeleteCardMutation } from '@/features'
 
 import s from './DeleteCard.module.scss'
 
 type DeleteCardProps = {
+  cardId: string
   trigger: ReactNode
 }
 
-export const DeleteCard: FC<DeleteCardProps> = ({ trigger }) => {
+export const DeleteCard: FC<DeleteCardProps> = ({ cardId, trigger }) => {
   const [open, setOpen] = useState<boolean>(false)
 
+  const [deleteCard] = useDeleteCardMutation()
+
   const onDeleteCard = () => {
-    console.log('111')
+    deleteCard(cardId)
+    setOpen(!open)
   }
 
   const onSetOpen = () => setOpen(!open)
