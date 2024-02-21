@@ -1,14 +1,15 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
 import { EditTablePencilIcon, TrashIcon } from '@/assets'
 import { ButtonOption, formatDate } from '@/common'
 import { Button, Rating, Table, TableBody, TableCell, TableHeader, TableRow } from '@/components'
-import { Sort } from '@/features'
+import { Card, Sort } from '@/features'
 
 import s from './CardsTable.module.scss'
 
 type Props = {
-  cards: any
+  cards: Card[]
+  onSort: (value: Sort) => void
   sort?: Sort
 }
 
@@ -32,13 +33,7 @@ const columns = [
   },
 ]
 
-export const CardsTable: FC<Props> = ({ cards, sort }) => {
-  const [sorted, setSort] = useState<Sort>(null)
-
-  const onSort = (sort: Sort) => {
-    setSort(sort)
-  }
-
+export const CardsTable: FC<Props> = ({ cards, onSort, sort }) => {
   return (
     <div className={s.cardWrapper}>
       <Table className={s.tableWrapper}>
@@ -46,7 +41,7 @@ export const CardsTable: FC<Props> = ({ cards, sort }) => {
           className={s.tableHeader}
           columns={columns}
           onSort={onSort}
-          sort={sorted}
+          sort={sort}
         ></TableHeader>
         <TableBody>
           {cards?.map((el: any, index: number) => {

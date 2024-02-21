@@ -2,7 +2,14 @@ import { useParams } from 'react-router-dom'
 
 import { TypographyOption, useAppDispatch, useAppSelector } from '@/common'
 import { BackToDecksLink, Button, Typography, WithoutTable } from '@/components'
-import { CardsTable, cardsActions, useGetCardsQuery, useGetDeckQuery, useMeQuery } from '@/features'
+import {
+  AddCard,
+  CardsTable,
+  cardsActions,
+  useGetCardsQuery,
+  useGetDeckQuery,
+  useMeQuery,
+} from '@/features'
 
 import s from './CardsPage.module.scss'
 
@@ -31,9 +38,7 @@ export const CardsPage = () => {
               <div>
                 <div className={s.nameDecks}>
                   <Typography variant={TypographyOption.H1}>{deck?.name}</Typography>
-                  <Button>
-                    <Typography variant={TypographyOption.Subtitle2}>Add New Card</Typography>
-                  </Button>
+                  <AddCard />
                 </div>
                 <CardsTable cards={deckData?.items || []} onSort={onSort} sort={sort} />
               </div>
@@ -44,9 +49,7 @@ export const CardsPage = () => {
                 </div>
                 <div className={s.addingCardContentInfo}>
                   <WithoutTable text={'This deck is empty. Click add new card to fill this deck'}>
-                    <Button>
-                      <Typography variant={TypographyOption.Subtitle2}>Add New Card</Typography>
-                    </Button>
+                    <AddCard />
                   </WithoutTable>
                 </div>
               </div>
