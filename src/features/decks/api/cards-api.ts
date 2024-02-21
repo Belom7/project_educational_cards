@@ -6,7 +6,7 @@ import {
   GetCardsResponse,
 } from '@/features/decks/api/cards-api.types'
 
-export const cardsService = baseApi.injectEndpoints({
+export const cardsApi = baseApi.injectEndpoints({
   endpoints: builder => ({
     createCard: builder.mutation<CreateUpdateCardResponse, CreateUpdateCardParams>({
       invalidatesTags: ['Cards'],
@@ -45,4 +45,4 @@ export const {
   useDeleteCardMutation,
   useGetCardsQuery,
   useUpdateCardMutation,
-} = cardsService
+} = cardsApi

@@ -15,14 +15,14 @@ export const cardsSlice = createSlice({
     setCurrentPage: (state, action: PayloadAction<{ currentPage: number }>) => {
       state.currentPage = action.payload.currentPage
     },
-    setOrderBy: (state, action: PayloadAction<{ sortParams: Sort }>) => {
-      state.sort = action.payload.sortParams
-    },
     setPageSize: (state, action: PayloadAction<{ pageSize: number }>) => {
       state.pageSize = action.payload.pageSize
     },
     setSearchPhrase: (state, action: PayloadAction<{ searchPhrase: string }>) => {
       state.searchPhrase = action.payload.searchPhrase
+    },
+    setSortBy: (state, action: PayloadAction<{ sort: Sort }>) => {
+      state.sort = action.payload.sort
     },
     setStateReset: () => initialState,
   },
