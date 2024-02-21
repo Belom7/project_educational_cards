@@ -13,7 +13,7 @@ export type PaginationCards = {
   totalItems: number
   totalPages: number
 }
-export type ItemCard = {
+export type Card = {
   answer: string
   answerImg: string
   answerVideo: string
@@ -29,7 +29,7 @@ export type ItemCard = {
   userId: string
 }
 export type GetCardsResponse = {
-  items: ItemCard[]
+  items: Card[]
   pagination: PaginationCards
 }
 
