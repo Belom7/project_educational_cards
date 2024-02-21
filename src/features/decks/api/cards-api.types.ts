@@ -42,12 +42,12 @@ export type CardBody = {
   questionImg?: string
   questionVideo?: string
 }
-export type CreateCardParams = {
+export type CreateUpdateCardParams = {
   body: CardBody // FormData???
   id: string
 }
 // type ItemCard without 'grade: number'
-export type CreateCardResponse = {
+export type CreateUpdateCardResponse = {
   answer: string
   answerImg: string
   answerVideo: string
