@@ -1,14 +1,14 @@
 import { baseApi } from '@/common'
 import {
-  CreateCardParams,
-  CreateCardResponse,
+  CreateUpdateCardParams,
+  CreateUpdateCardResponse,
   GetCardsParams,
   GetCardsResponse,
 } from '@/features/decks/api/cards-api.types'
 
 export const cardsService = baseApi.injectEndpoints({
   endpoints: builder => ({
-    createCard: builder.mutation<CreateCardResponse, CreateCardParams>({
+    createCard: builder.mutation<CreateUpdateCardResponse, CreateUpdateCardParams>({
       invalidatesTags: ['Cards'],
       query: ({ body, id }) => ({
         body,
@@ -22,7 +22,20 @@ export const cardsService = baseApi.injectEndpoints({
         url: `decks/${id}/cards`,
       }),
     }),
+    updateCard: builder.mutation<CreateUpdateCardResponse, CreateUpdateCardParams>({
+      invalidatesTags: ['Cards'],
+      query: ({ body, id }) => ({
+        body,
+        method: 'PATCH',
+        url: `/cards/${id}`,
+      }),
+    }),
   }),
 })
 
 export const { useGetCardsQuery } = cardsService
+export const {
+  useCreateCardMutation,
+  useGetCardsQuery,
+  useUpdateCardMutation,
+} = cardsService
