@@ -5,6 +5,7 @@ import { ButtonPlayIcon, EditTablePencilIcon, TrashIcon } from '@/assets'
 import { ButtonOption, Routes, TypographyOption, formatDate } from '@/common'
 import {
   Button,
+  Sort,
   Table,
   TableBody,
   TableCell,
@@ -16,10 +17,6 @@ import { BaseDeckResponseType, DeletePackModal, EditPackModal, columns } from '@
 
 import s from './PackTable.module.scss'
 
-export type Sort = {
-  direction: 'asc' | 'desc'
-  key: string
-} | null
 type Props = {
   data: BaseDeckResponseType | null
   onSort: (sort: Sort) => void
