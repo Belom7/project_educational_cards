@@ -4,7 +4,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 const initialState = {
   currentPage: 1,
   pageSize: 10,
-  phrase: '',
+  searchPhrase: '',
   sort: null as Sort,
 }
 
@@ -21,8 +21,8 @@ export const cardsSlice = createSlice({
     setPageSize: (state, action: PayloadAction<{ pageSize: number }>) => {
       state.pageSize = action.payload.pageSize
     },
-    setSearch: (state, action: PayloadAction<{ phrase: string }>) => {
-      state.phrase = action.payload.phrase
+    setSearchPhrase: (state, action: PayloadAction<{ searchPhrase: string }>) => {
+      state.searchPhrase = action.payload.searchPhrase
     },
     setStateReset: () => initialState,
   },
