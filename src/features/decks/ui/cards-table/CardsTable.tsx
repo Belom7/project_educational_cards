@@ -3,8 +3,7 @@ import { FC } from 'react'
 import { EditTablePencilIcon, TrashIcon } from '@/assets'
 import { ButtonOption, formatDate } from '@/common'
 import { Button, Rating, Table, TableBody, TableCell, TableHeader, TableRow } from '@/components'
-import { Card, Sort } from '@/features'
-import { DeleteCard } from '@/features/decks/ui/delete-card'
+import { Card, DeleteCard, Sort } from '@/features'
 
 import s from './CardsTable.module.scss'
 
