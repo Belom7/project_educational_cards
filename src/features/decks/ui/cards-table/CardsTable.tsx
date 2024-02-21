@@ -4,6 +4,7 @@ import { EditTablePencilIcon, TrashIcon } from '@/assets'
 import { ButtonOption, formatDate } from '@/common'
 import { Button, Rating, Table, TableBody, TableCell, TableHeader, TableRow } from '@/components'
 import { Card, Sort } from '@/features'
+import { DeleteCard } from '@/features/decks/ui/delete-card'
 
 import s from './CardsTable.module.scss'
 
@@ -44,21 +45,25 @@ export const CardsTable: FC<Props> = ({ cards, onSort, sort }) => {
           sort={sort}
         ></TableHeader>
         <TableBody>
-          {cards?.map((el: any, index: number) => {
+          {cards?.map((el: Card, index: number) => {
             return (
               <TableRow className={s.tableRow} key={index}>
                 <TableCell>{el.question}</TableCell>
                 <TableCell>{el.answer}</TableCell>
                 <TableCell>{formatDate(el.updated)}</TableCell>
                 <TableCell className={s.tableCreatedBy}>
-                  <Rating rating={parseInt(el.shots ? el.shots : '0')} />
+                  <Rating rating={el.grade} />
                   <span>
                     <Button className={s.icon} variant={ButtonOption.Icon}>
                       <EditTablePencilIcon />
                     </Button>
-                    <Button className={s.icon} variant={ButtonOption.Icon}>
-                      <TrashIcon />
-                    </Button>
+                    <DeleteCard
+                      trigger={
+                        <Button className={s.icon} variant={ButtonOption.Icon}>
+                          <TrashIcon />
+                        </Button>
+                      }
+                    />
                   </span>
                 </TableCell>
               </TableRow>
