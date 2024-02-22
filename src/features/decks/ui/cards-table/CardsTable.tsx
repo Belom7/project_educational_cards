@@ -2,44 +2,35 @@ import { FC } from 'react'
 
 import { EditTablePencilIcon, TrashIcon } from '@/assets'
 import { ButtonOption, formatDate } from '@/common'
-import { Button, Rating, Table, TableBody, TableCell, TableHeader, TableRow } from '@/components'
-import { Card, DeleteCard, Sort } from '@/features'
+import {
+  Button,
+  Rating,
+  Sort,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableRow,
+} from '@/components'
+import { Card, DeleteCard } from '@/features'
+import { getCardsFieldsHeaders } from '@/features/decks/ui/cards-table/cards-fields-headers'
 
 import s from './CardsTable.module.scss'
 
 type Props = {
   cards: Card[]
+  isCurrentUser: boolean
   onSort: (value: Sort) => void
   sort?: Sort
 }
 
-const columns = [
-  {
-    key: 'Question',
-    title: 'Question',
-  },
-  {
-    key: 'Answer',
-    title: 'Answer',
-  },
-  {
-    key: 'Last Updated',
-    sortable: true,
-    title: 'Last Updated',
-  },
-  {
-    key: 'Grade',
-    title: 'Grade',
-  },
-]
-
-export const CardsTable: FC<Props> = ({ cards, onSort, sort }) => {
+export const CardsTable: FC<Props> = ({ cards, isCurrentUser, onSort, sort }) => {
   return (
     <div className={s.cardWrapper}>
       <Table className={s.tableWrapper}>
         <TableHeader
           className={s.tableHeader}
-          columns={columns}
+          columns={getCardsFieldsHeaders(isCurrentUser)}
           onSort={onSort}
           sort={sort}
         ></TableHeader>
@@ -52,7 +43,9 @@ export const CardsTable: FC<Props> = ({ cards, onSort, sort }) => {
                 <TableCell>{formatDate(el.updated)}</TableCell>
                 <TableCell className={s.tableCreatedBy}>
                   <Rating rating={el.grade} />
-                  <span>
+                </TableCell>
+                {isCurrentUser && (
+                  <TableCell>
                     <Button className={s.icon} variant={ButtonOption.Icon}>
                       <EditTablePencilIcon />
                     </Button>
@@ -64,8 +57,8 @@ export const CardsTable: FC<Props> = ({ cards, onSort, sort }) => {
                         </Button>
                       }
                     />
-                  </span>
-                </TableCell>
+                  </TableCell>
+                )}
               </TableRow>
             )
           })}
