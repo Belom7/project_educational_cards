@@ -1,25 +1,22 @@
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { TypographyOption, useAppDispatch, useAppSelector } from '@/common'
+import { TypographyOption } from '@/common'
 import { BackToDecksLink, Button, Typography, WithoutTable } from '@/components'
-import {
-  AddCard,
-  CardsTable,
-  cardsActions,
-  useGetCardsQuery,
-  useGetDeckQuery,
-  useMeQuery,
-} from '@/features'
+import { AddCard, CardsTable, useGetCardsQuery, useGetDeckQuery, useMeQuery } from '@/features'
+import { useCardsOptions } from '@/features/decks/hooks/use-cards-options'
 
 import s from './CardsPage.module.scss'
 
 export const CardsPage = () => {
-  const dispatch = useAppDispatch()
   const { id = '' } = useParams<{ id: string }>()
-  const sort = useAppSelector(state => state.cards.sort)
-  const onSort = () => {
-    dispatch(cardsActions.setOrderBy({ sortParams: sort }))
-  }
+  const { onChangeSort, onResetState, sort } = useCardsOptions()
+
+  console.log(333, sort)
+
+  useEffect(() => {
+    return () => onResetState()
+  }, [])
 
   const { data: user } = useMeQuery()
   const { data: deck } = useGetDeckQuery(id)
@@ -40,7 +37,12 @@ export const CardsPage = () => {
                   <Typography variant={TypographyOption.H1}>{deck?.name}</Typography>
                   <AddCard />
                 </div>
-                <CardsTable cards={deckData?.items || []} onSort={onSort} sort={sort} />
+                <CardsTable
+                  cards={deckData?.items || []}
+                  isCurrentUser
+                  onSort={onChangeSort}
+                  sort={sort}
+                />
               </div>
             ) : (
               <div>
@@ -63,7 +65,12 @@ export const CardsPage = () => {
                     <Typography variant={TypographyOption.Subtitle2}>Learn to Deck</Typography>
                   </Button>
                 </div>
-                <CardsTable cards={deckData?.items || []} onSort={onSort} sort={sort} />
+                <CardsTable
+                  cards={deckData?.items || []}
+                  isCurrentUser={false}
+                  onSort={onChangeSort}
+                  sort={sort}
+                />
               </div>
             ) : (
               <div>

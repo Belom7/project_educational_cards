@@ -5,7 +5,7 @@ const initialState = {
   currentPage: 1,
   pageSize: 10,
   searchPhrase: '',
-  sort: null as Sort,
+  sort: null as Sort | null,
 }
 
 export const cardsSlice = createSlice({
@@ -21,7 +21,7 @@ export const cardsSlice = createSlice({
     setSearchPhrase: (state, action: PayloadAction<{ searchPhrase: string }>) => {
       state.searchPhrase = action.payload.searchPhrase
     },
-    setSortBy: (state, action: PayloadAction<{ sort: Sort }>) => {
+    setSortBy: (state, action: PayloadAction<{ sort: Sort | null }>) => {
       state.sort = action.payload.sort
     },
     setStateReset: () => initialState,
