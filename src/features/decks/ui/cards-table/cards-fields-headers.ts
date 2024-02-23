@@ -1,21 +1,21 @@
 const columns = [
   {
-    key: 'Question',
+    key: 'question',
     sortable: true,
     title: 'Question',
   },
   {
-    key: 'Answer',
+    key: 'answer',
     sortable: true,
     title: 'Answer',
   },
   {
-    key: 'Last Updated',
+    key: 'updated',
     sortable: true,
     title: 'Last Updated',
   },
   {
-    key: 'Grade',
+    key: 'grade',
     sortable: true,
     title: 'Grade',
   },

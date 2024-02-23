@@ -13,7 +13,15 @@ export const CardsPage = () => {
   const { currentPage, itemsPerPage, onChangeSort, onResetState, orderBy, question, sort } =
     useCardsOptions()
 
-  console.log(333, sort)
+  const queryParams = {
+    id,
+    params: {
+      currentPage,
+      itemsPerPage,
+      orderBy,
+      question: useDebounce(question, 500),
+    },
+  }
 
   useEffect(() => {
     return () => onResetState()
@@ -21,7 +29,7 @@ export const CardsPage = () => {
 
   const { data: user } = useMeQuery()
   const { data: deck } = useGetDeckQuery(id)
-  const { data: deckData } = useGetCardsQuery({ id })
+  const { data: deckData } = useGetCardsQuery(queryParams)
 
   const isCurrentUser = user?.id === deck?.userId
   const isDeckNotEmpty = deckData && deckData.items.length > 0

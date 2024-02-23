@@ -47,7 +47,6 @@ export const TableHead = forwardRef<ElementRef<'thead'>, ComponentPropsWithoutRe
 )
 export const TableHeader = forwardRef<ElementRef<typeof TableHead>, Props>(
   ({ columns, onSort, sort, ...restProps }, ref): JSX.Element => {
-    console.log(sort)
     const handleSort = (key: string, sortable?: boolean) => () => {
       if (!onSort || !sortable) {
         return
