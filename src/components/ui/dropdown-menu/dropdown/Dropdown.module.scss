@@ -3,27 +3,24 @@ button {
   all: unset;
 }
 
-.avatar{
+.avatar {
   width: 50px;
   height: 50px;
   background-color: wheat;
   border-radius: 50%;
 }
 
-.main {
-  margin: 200px;
-}
-
 .DropdownMenuContent,
 .DropdownMenuSubContent {
   will-change: transform, opacity;
-
 
   padding: 5px;
 
   background-color: var(--color-dark-700);
   border-radius: 6px;
-  box-shadow: 0 10px 38px -10px rgb(22 23 24 / 35%), 0 10px 20px -15px rgb(22 23 24 / 20%);
+  box-shadow:
+    0 10px 38px -10px rgb(22 23 24 / 35%),
+    0 10px 20px -15px rgb(22 23 24 / 20%);
 
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
@@ -61,8 +58,6 @@ button {
   align-items: center;
 
   height: 25px;
-  padding: 0 5px;
-
 
   font-size: 13px;
   line-height: 1;
@@ -80,7 +75,6 @@ button {
 .DropdownMenuRadioItem[data-disabled],
 .DropdownMenuSubTrigger[data-disabled] {
   pointer-events: none;
-
 }
 
 .DropdownMenuItem[data-highlighted],
@@ -111,7 +105,7 @@ button {
   align-items: center;
   justify-content: center;
 
-  width: 25px;
+  height: 25px;
 }
 
 .DropdownMenuArrow {
@@ -135,10 +129,9 @@ button {
 }
 
 .IconButton:hover {
-
 }
 
-.typographyItem{
+.typographyItem {
   margin-left: 10px;
 }
 
