@@ -1,4 +1,4 @@
-import { ComponentProps, ComponentPropsWithoutRef, forwardRef, useState } from 'react'
+import React, { ComponentProps, ComponentPropsWithoutRef, JSX, forwardRef, useState } from 'react'
 
 import { EyeIcon, EyeOutlineIcon } from '@/assets'
 import { TypographyOption } from '@/common'
@@ -30,7 +30,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       ...restProps
     },
     ref
-  ) => {
+  ): JSX.Element => {
     const [showPassword, setShowPassword] = useState(false)
 
     const isShowPasswordButtonShown = type === 'password'
