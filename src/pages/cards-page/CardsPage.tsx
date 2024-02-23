@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
-import { TypographyOption, useDebounce } from '@/common'
+import { Routes, TypographyOption, useDebounce } from '@/common'
 import {
   BackToDecksLink,
   Button,
@@ -64,7 +64,7 @@ export const CardsPage = () => {
                 {isCurrentUser ? (
                   <AddCard />
                 ) : (
-                  <Button>
+                  <Button as={Link} to={`${Routes.Decks}/${deck?.id}/learn`}>
                     <Typography variant={TypographyOption.Subtitle2}>Learn to Deck</Typography>
                   </Button>
                 )}
