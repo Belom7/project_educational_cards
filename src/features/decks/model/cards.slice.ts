@@ -1,9 +1,14 @@
-import { Sort } from '@/components'
+import { SelectItemArgs, Sort } from '@/components'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   currentPage: 1,
   itemsPerPage: 10,
+  paginationSelectItems: [
+    { child: '5', value: '5' },
+    { child: '10', value: '10' },
+    { child: '20', value: '20' },
+  ] as SelectItemArgs[],
   question: '',
   sort: null as Sort | null,
 }

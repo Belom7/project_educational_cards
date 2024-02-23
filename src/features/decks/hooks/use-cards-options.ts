@@ -4,6 +4,7 @@ import {
   cardsActions,
   selectCardsCurrentPage,
   selectCardsItemsPerPage,
+  selectCardsPaginationData,
   selectCardsQuestion,
   selectCardsSort,
 } from '@/features'
@@ -13,6 +14,7 @@ export const useCardsOptions = () => {
   const itemsPerPage = useAppSelector(selectCardsItemsPerPage)
   const question = useAppSelector(selectCardsQuestion)
   const sort = useAppSelector(selectCardsSort)
+  const paginationData = useAppSelector(selectCardsPaginationData)
   const orderBy = formatSortedString(sort)
 
   const dispatch = useAppDispatch()
@@ -42,6 +44,7 @@ export const useCardsOptions = () => {
     onChangeSort,
     onResetState,
     orderBy,
+    paginationData,
     question,
     sort,
   }

@@ -2,7 +2,14 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { TypographyOption, useDebounce } from '@/common'
-import { BackToDecksLink, Button, TextField, Typography, WithoutTable } from '@/components'
+import {
+  BackToDecksLink,
+  Button,
+  Pagination,
+  TextField,
+  Typography,
+  WithoutTable,
+} from '@/components'
 import { AddCard, CardsTable, useGetCardsQuery, useGetDeckQuery, useMeQuery } from '@/features'
 import { useCardsOptions } from '@/features/decks/hooks/use-cards-options'
 
@@ -13,10 +20,13 @@ export const CardsPage = () => {
   const {
     currentPage,
     itemsPerPage,
+    onChangeCurrentPage,
+    onChangeItemsPerPage,
     onChangeSearchPhrase,
     onChangeSort,
     onResetState,
     orderBy,
+    paginationData,
     question,
     sort,
   } = useCardsOptions()
@@ -70,6 +80,17 @@ export const CardsPage = () => {
                 onSort={onChangeSort}
                 sort={sort}
               />
+              {deckData?.pagination.totalItems > Number(paginationData[1].child) && (
+                <Pagination
+                  currentPage={currentPage}
+                  itemsCount={deckData?.pagination.totalPages}
+                  itemsPerPage={itemsPerPage}
+                  onValueChange={onChangeItemsPerPage}
+                  placeholder={paginationData[1].child}
+                  selectItems={paginationData}
+                  setCurrentPage={onChangeCurrentPage}
+                />
+              )}
             </div>
           ) : (
             <div>
