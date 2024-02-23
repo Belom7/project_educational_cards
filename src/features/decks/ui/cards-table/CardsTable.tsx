@@ -38,8 +38,18 @@ export const CardsTable: FC<Props> = ({ cards, isCurrentUser, onSort, sort }) =>
           {cards?.map((el: Card, index: number) => {
             return (
               <TableRow className={s.tableRow} key={index}>
-                <TableCell>{el.question}</TableCell>
-                <TableCell>{el.answer}</TableCell>
+                <TableCell>
+                  <div className={s.tableCell}>
+                    {el.questionImg && <img className={s.img} src={el.questionImg} />}
+                    {el.question}
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <div className={s.tableCell}>
+                    {el.answerImg && <img className={s.img} src={el.answerImg} />}
+                    {el.answer}
+                  </div>
+                </TableCell>
                 <TableCell>{formatDate(el.updated)}</TableCell>
                 <TableCell className={s.tableCreatedBy}>
                   <Rating rating={el.grade} />
