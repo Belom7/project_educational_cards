@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { TypographyOption } from '@/common'
+import { TypographyOption, useDebounce } from '@/common'
 import { BackToDecksLink, Button, Typography, WithoutTable } from '@/components'
 import { AddCard, CardsTable, useGetCardsQuery, useGetDeckQuery, useMeQuery } from '@/features'
 import { useCardsOptions } from '@/features/decks/hooks/use-cards-options'
@@ -10,7 +10,8 @@ import s from './CardsPage.module.scss'
 
 export const CardsPage = () => {
   const { id = '' } = useParams<{ id: string }>()
-  const { onChangeSort, onResetState, sort } = useCardsOptions()
+  const { currentPage, itemsPerPage, onChangeSort, onResetState, orderBy, question, sort } =
+    useCardsOptions()
 
   console.log(333, sort)
 

@@ -3,8 +3,8 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   currentPage: 1,
-  pageSize: 10,
-  searchPhrase: '',
+  itemsPerPage: 10,
+  question: '',
   sort: null as Sort | null,
 }
 
@@ -15,11 +15,11 @@ export const cardsSlice = createSlice({
     setCurrentPage: (state, action: PayloadAction<{ currentPage: number }>) => {
       state.currentPage = action.payload.currentPage
     },
-    setPageSize: (state, action: PayloadAction<{ pageSize: number }>) => {
-      state.pageSize = action.payload.pageSize
+    setItemsPerPage: (state, action: PayloadAction<{ itemsPerPage: number }>) => {
+      state.itemsPerPage = action.payload.itemsPerPage
     },
-    setSearchPhrase: (state, action: PayloadAction<{ searchPhrase: string }>) => {
-      state.searchPhrase = action.payload.searchPhrase
+    setQuestion: (state, action: PayloadAction<{ question: string }>) => {
+      state.question = action.payload.question
     },
     setSortBy: (state, action: PayloadAction<{ sort: Sort | null }>) => {
       state.sort = action.payload.sort
