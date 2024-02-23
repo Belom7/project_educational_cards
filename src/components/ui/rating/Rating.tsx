@@ -17,8 +17,8 @@ export const Rating = forwardRef<ElementRef<'div'>, Props>(
 
     return (
       <div className={classNames} ref={ref} {...restProps}>
-        {ratingArr.map(el => {
-          return el ? <FilledStarIcon /> : <UnfilledStarIcon />
+        {ratingArr.map((el, key) => {
+          return el ? <FilledStarIcon key={key} /> : <UnfilledStarIcon key={key} />
         })}
       </div>
     )
