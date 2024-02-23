@@ -17,13 +17,13 @@ type DropdownMenuPropsType = {
 export const DropdownMenu = forwardRef<
   ElementRef<typeof DropdownMenuRadix.Content>,
   DropdownMenuPropsType
->(({ children, email, name }) => {
+>(({ children, email, name }, ref) => {
   return (
     <div>
       <DropdownMenuRadix.Root>
         <DropdownMenuRadix.Trigger asChild>{children}</DropdownMenuRadix.Trigger>
         <DropdownMenuRadix.Portal>
-          <DropdownMenuRadix.Content className={s.DropdownMenuContent} sideOffset={5}>
+          <DropdownMenuRadix.Content className={s.DropdownMenuContent} ref={ref} sideOffset={5}>
             <DropdownMenuRadix.Item className={s.DropdownMenuItem}>
               <div className={s.DropDownMenuMailContent}>
                 {children}
