@@ -73,6 +73,7 @@ export const CardsPage = () => {
                   </Button>
                 )}
               </div>
+              {deck?.cover && <img alt={'cover'} className={s.img} src={deck?.cover} />}
               <TextField
                 onValueChange={onChangeSearchPhrase}
                 placeholder={'Input search'}
