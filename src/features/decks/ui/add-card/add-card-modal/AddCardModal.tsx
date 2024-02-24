@@ -1,19 +1,19 @@
 import { FC, ReactNode, useState } from 'react'
 
 import { Modal } from '@/components'
-import { AddCardForm, useCreateCardMutation } from '@/features'
+import { CardForm, useCreateCardMutation } from '@/features'
 
 type AddCardModalProps = {
-  id: string
+  deckId: string
   trigger: ReactNode
 }
 
-export const AddCardModal: FC<AddCardModalProps> = ({ id, trigger }) => {
+export const AddCardModal: FC<AddCardModalProps> = ({ deckId, trigger }) => {
   const [open, setOpen] = useState<boolean>(false)
   const [createCard] = useCreateCardMutation()
 
   const onSubmitForm = (body: FormData) => {
-    createCard({ body, id })
+    createCard({ body, deckId })
     setOpen(false)
   }
 
@@ -21,7 +21,7 @@ export const AddCardModal: FC<AddCardModalProps> = ({ id, trigger }) => {
 
   return (
     <Modal open={open} setOpen={onSetOpen} title={'Add new card'} trigger={trigger}>
-      <AddCardForm onCloseModal={onSetOpen} onSubmit={onSubmitForm} />
+      <CardForm onCloseModal={onSetOpen} onSubmit={onSubmitForm} />
     </Modal>
   )
 }

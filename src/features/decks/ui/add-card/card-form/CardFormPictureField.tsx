@@ -4,7 +4,7 @@ import { ImageIcon } from '@/assets'
 import { ButtonOption, TypographyOption } from '@/common'
 import { Button, Typography, Uploader } from '@/components'
 
-import s from './AddCardForm.module.scss'
+import s from './CardForm.module.scss'
 
 type CardFormPictureFieldProps = {
   imageUrl: null | string | undefined

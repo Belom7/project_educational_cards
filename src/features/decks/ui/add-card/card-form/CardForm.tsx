@@ -3,16 +3,17 @@ import { useForm, useWatch } from 'react-hook-form'
 
 import { ButtonOption, CardFormSelectItems } from '@/common'
 import { Button, ControlledSelect, ControlledTextField } from '@/components'
-import { CardBody, CardForm } from '@/features'
+import { CardBody, CardFormType } from '@/features'
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 
-import s from './AddCardForm.module.scss'
+import s from './CardForm.module.scss'
 
 import { CardFormPictureField } from './CardFormPictureField'
 
-type AddCardFormProps = {
+type CardFormProps = {
+  buttonTitle?: string
   cardValues?: CardBody
   imageUrl?: null | string | undefined
   onCloseModal: () => void
@@ -24,12 +25,17 @@ const cardSchema = z.object({
   question: z.string().min(3).max(140),
 })
 
-const selectItems = [
+export const selectItems = [
   { child: 'Text', value: CardFormSelectItems.Text },
   { child: 'Picture', value: CardFormSelectItems.Picture },
 ]
 
-export const AddCardForm: FC<AddCardFormProps> = ({ cardValues, onCloseModal, onSubmit }) => {
+export const CardForm: FC<CardFormProps> = ({
+  buttonTitle = 'Add new card',
+  cardValues,
+  onCloseModal,
+  onSubmit,
+}) => {
   const [questionCover, setQuestionCover] = useState<File | null>(null)
   const [answerCover, setAnswerCover] = useState<File | null>(null)
 
@@ -40,7 +46,7 @@ export const AddCardForm: FC<AddCardFormProps> = ({ cardValues, onCloseModal, on
     control,
     formState: { errors },
     handleSubmit,
-  } = useForm<CardForm>({
+  } = useForm<CardFormType>({
     resolver: zodResolver(cardSchema),
   })
 
@@ -89,7 +95,22 @@ export const AddCardForm: FC<AddCardFormProps> = ({ cardValues, onCloseModal, on
           title={'Choose a question format'}
         />
       </div>
-      {type === CardFormSelectItems.Text ? (
+      {type === CardFormSelectItems.Picture ? (
+        <>
+          <CardFormPictureField
+            imageUrl={questionImageUrl}
+            onLoadCover={onLoadQuestionCover}
+            onLoadError={onLoadQuestionCoverError}
+            title={'Question:'}
+          />
+          <CardFormPictureField
+            imageUrl={answerImageUrl}
+            onLoadCover={onLoadAnswerCover}
+            onLoadError={onLoadAnswerCoverError}
+            title={'Answer:'}
+          />
+        </>
+      ) : (
         <>
           <div className={s.row}>
             <ControlledTextField
@@ -108,27 +129,12 @@ export const AddCardForm: FC<AddCardFormProps> = ({ cardValues, onCloseModal, on
             />
           </div>
         </>
-      ) : (
-        <>
-          <CardFormPictureField
-            imageUrl={questionImageUrl}
-            onLoadCover={onLoadQuestionCover}
-            onLoadError={onLoadQuestionCoverError}
-            title={'Question:'}
-          />
-          <CardFormPictureField
-            imageUrl={answerImageUrl}
-            onLoadCover={onLoadAnswerCover}
-            onLoadError={onLoadAnswerCoverError}
-            title={'Answer:'}
-          />
-        </>
       )}
       <div className={s.buttons}>
         <Button onClick={onCloseModal} variant={ButtonOption.Secondary}>
           Cancel
         </Button>
-        <Button type={'submit'}>Add new card</Button>
+        <Button type={'submit'}>{buttonTitle}</Button>
       </div>
     </form>
   )

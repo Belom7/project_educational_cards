@@ -44,10 +44,10 @@ export type CardBody = {
   questionImg?: string
   questionVideo?: string
 }
-export type CardForm = CardBody & { condition: 'picture' | 'text' }
+export type CardFormType = CardBody & { condition: 'picture' | 'text' }
 export type CreateUpdateCardParams = {
   body: FormData
-  cardId: string
+  cardId?: string
   deckId: string
 }
 // type ItemCard without 'grade: number'
