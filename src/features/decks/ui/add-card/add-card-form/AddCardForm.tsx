@@ -54,14 +54,6 @@ export const AddCardForm: FC<AddCardFormProps> = ({ cardValues, onCloseModal, on
   const onSubmitHandler = (data: CardBody) => {
     const formData = new FormData()
 
-    // formData.question = data.question
-    // formData.answer = data.answer
-    // if (questionCover) {
-    //   formData.questionImg = questionCover
-    // }
-    // if (answerCover) {
-    //   formData.answerImg = answerCover
-    // }
     formData.append('question', data.question)
     formData.append('answer', data.answer)
     questionCover && formData.append('questionImg', questionCover)
@@ -122,11 +114,13 @@ export const AddCardForm: FC<AddCardFormProps> = ({ cardValues, onCloseModal, on
             imageUrl={questionImageUrl}
             onLoadCover={onLoadQuestionCover}
             onLoadError={onLoadQuestionCoverError}
+            title={'Question:'}
           />
           <CardFormPictureField
             imageUrl={answerImageUrl}
             onLoadCover={onLoadAnswerCover}
             onLoadError={onLoadAnswerCoverError}
+            title={'Answer:'}
           />
         </>
       )}

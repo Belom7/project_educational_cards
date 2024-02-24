@@ -4,6 +4,15 @@
 
   .row {
     margin-bottom: 1.6rem;
+
+    .imageBlock {
+      display: flex;
+      justify-content: center;
+
+      .image {
+        max-width: 15rem;
+      }
+    }
   }
 
   .buttons {

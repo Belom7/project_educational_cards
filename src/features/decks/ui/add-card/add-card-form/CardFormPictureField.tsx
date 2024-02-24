@@ -10,21 +10,24 @@ type CardFormPictureFieldProps = {
   imageUrl: null | string | undefined
   onLoadCover: (data: File) => void
   onLoadError: (error: string) => void
+  title: string
 }
 
 export const CardFormPictureField: FC<CardFormPictureFieldProps> = ({
   imageUrl,
   onLoadCover,
   onLoadError,
+  title,
 }) => {
   const buttonUploadText = imageUrl ? 'Change Cover' : ' Add Cover'
 
   return (
     <>
       <div className={s.row}>
+        <Typography variant={TypographyOption.Subtitle2}>{title}</Typography>
         {imageUrl && (
           <div className={s.imageBlock}>
-            <img alt={'Card cover'} src={imageUrl} />
+            <img alt={'Card cover'} className={s.image} src={imageUrl} />
           </div>
         )}
       </div>
