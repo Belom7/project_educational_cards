@@ -1,0 +1,18 @@
+.deckContainer{
+  display: flex;
+flex-direction: column;
+justify-content: start;
+}
+
+.buttonBackPosition {
+  position: relative;
+  left: -430px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 20px 0;
+  padding:0;
+
+}

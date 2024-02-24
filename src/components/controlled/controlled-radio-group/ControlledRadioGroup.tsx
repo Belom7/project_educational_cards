@@ -18,5 +18,5 @@ export const ControlledRadioGroup = <T extends FieldValues>({
     name,
   })
 
-  return <RadioGroup onValueChange={onChange} {...restProps} value={value} />
+  return <RadioGroup onValueChange={onChange} {...restProps} name={name} value={value} />
 }

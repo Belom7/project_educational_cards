@@ -40,6 +40,10 @@ const privateRoutes: RouteObject[] = [
     element: <ProfilePage />,
     path: Routes.Profile,
   },
+  {
+    element: <DeckPage />,
+    path: `${Routes.Decks}/:id/learn`,
+  },
 ]
 
 const AppComponent = () => {

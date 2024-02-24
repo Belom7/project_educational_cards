@@ -8,35 +8,39 @@ import { clsx } from 'clsx'
 import s from './RadioGroup.module.scss'
 type ItemsProps = {
   title: string
+  value: string
 }
 export type RadioGroupProps = {
   className?: string
   items: ItemsProps[]
 } & ComponentPropsWithoutRef<typeof RadixRadioGroup.Root>
 export const RadioGroup = forwardRef<ElementRef<typeof RadixRadioGroup.Root>, RadioGroupProps>(
-  ({ className, items }, ref) => {
+  ({ className, items, ...restProps }, ref) => {
     const cln = clsx(s.RadioGroupRoot, className)
 
+
     return (
-      <RadixRadioGroup.Root className={cln} ref={ref}>
+      <RadixRadioGroup.Root className={cln} ref={ref} {...restProps}>
         {items.map((el, index) => (
-          <RadioItem key={index} title={el.title} value={el.title} />
+          <RadioItem key={index} {...el} />
         ))}
       </RadixRadioGroup.Root>
     )
   }
 )
-type RadioItemProps = { className?: string; title: string } & ComponentPropsWithoutRef<
-  typeof RadixRadioGroup.Item
->
+export type RadioItemProps = {
+  className?: string
+  title: string
+  value: string
+} & ComponentPropsWithoutRef<typeof RadixRadioGroup.Item>
 const RadioItem = forwardRef<ElementRef<typeof RadixRadioGroup.Item>, RadioItemProps>(
-  ({ className, title }, ref) => {
+  ({ className, title, value }, ref) => {
     const clnItem = clsx(s.RadioGroupItem, className)
     const clnIndicator = clsx(s.button, s.RadioGroupIndicator)
 
     return (
       <Typography className={s.Label} component={'label'} variant={TypographyOption.Body2}>
-        <RadixRadioGroup.Item className={clnItem} ref={ref} value={title}>
+        <RadixRadioGroup.Item className={clnItem} ref={ref} value={value}>
           <RadixRadioGroup.Indicator className={clnIndicator} />
         </RadixRadioGroup.Item>
         {title}

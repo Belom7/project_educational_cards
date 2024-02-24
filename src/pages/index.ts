@@ -1,3 +1,4 @@
+export * from './decks-page'
 export * from './deck-page'
 export * from './decks-list-page'
 export * from './cards-page'

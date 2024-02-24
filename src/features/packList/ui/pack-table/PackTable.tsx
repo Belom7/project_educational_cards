@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { ButtonPlayIcon, EditTablePencilIcon, TrashIcon } from '@/assets'
 import { ButtonOption, Routes, TypographyOption, formatDate } from '@/common'
@@ -25,6 +25,11 @@ type Props = {
 }
 
 export const PackTable: React.FC<Props> = ({ data, onSort, sort, userId }) => {
+  const navigate = useNavigate()
+  const learnCallback = (id: string) => {
+    navigate(`${Routes.Decks}/:${id}/learn`)
+  }
+
   return (
     <>
       <div className={s.cardWrapper}>
@@ -55,7 +60,7 @@ export const PackTable: React.FC<Props> = ({ data, onSort, sort, userId }) => {
                   <TableCell>{el.author.name}</TableCell>
                   <TableCell>
                     <span>
-                      <Button variant={ButtonOption.Icon}>
+                      <Button onClick={() => learnCallback(el.id)} variant={ButtonOption.Icon}>
                         <ButtonPlayIcon />
                       </Button>
                       {isMyDeck && (

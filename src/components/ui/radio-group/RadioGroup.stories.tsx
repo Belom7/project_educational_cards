@@ -16,15 +16,7 @@ export const NoAuthorized: Story = {
     items: [
       {
         title: 'RadioGroup1',
-      },
-      {
-        title: 'RadioGroup2',
-      },
-      {
-        title: 'RadioGroup3',
-      },
-      {
-        title: 'RadioGroup4',
+        value: '1',
       },
     ],
   },
