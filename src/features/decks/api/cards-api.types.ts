@@ -46,8 +46,9 @@ export type CardBody = {
 }
 export type CardForm = CardBody & { condition: 'picture' | 'text' }
 export type CreateUpdateCardParams = {
-  body: CardBody // FormData???
-  id: string
+  body: FormData
+  cardId: string
+  deckId: string
 }
 // type ItemCard without 'grade: number'
 export type CreateUpdateCardResponse = {

@@ -8,12 +8,12 @@ import {
 
 export const cardsApi = baseApi.injectEndpoints({
   endpoints: builder => ({
-    createCard: builder.mutation<CreateUpdateCardResponse, { body: FormData; id: string }>({
+    createCard: builder.mutation<CreateUpdateCardResponse, CreateUpdateCardParams>({
       invalidatesTags: ['Cards'],
-      query: ({ body, id }) => ({
+      query: ({ body, deckId }) => ({
         body,
         method: 'POST',
-        url: `decks/${id}/cards`,
+        url: `decks/${deckId}/cards`,
       }),
     }),
     deleteCard: builder.mutation<void, string>({
@@ -32,10 +32,10 @@ export const cardsApi = baseApi.injectEndpoints({
     }),
     updateCard: builder.mutation<CreateUpdateCardResponse, CreateUpdateCardParams>({
       invalidatesTags: ['Cards'],
-      query: ({ body, id }) => ({
+      query: ({ body, cardId }) => ({
         body,
         method: 'PATCH',
-        url: `/cards/${id}`,
+        url: `/cards/${cardId}`,
       }),
     }),
   }),
