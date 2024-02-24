@@ -8,7 +8,7 @@ import {
 
 export const cardsApi = baseApi.injectEndpoints({
   endpoints: builder => ({
-    createCard: builder.mutation<CreateUpdateCardResponse, CreateUpdateCardParams>({
+    createCard: builder.mutation<CreateUpdateCardResponse, { body: FormData; id: string }>({
       invalidatesTags: ['Cards'],
       query: ({ body, id }) => ({
         body,

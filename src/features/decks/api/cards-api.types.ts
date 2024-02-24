@@ -44,6 +44,7 @@ export type CardBody = {
   questionImg?: string
   questionVideo?: string
 }
+export type CardForm = CardBody & { condition: 'picture' | 'text' }
 export type CreateUpdateCardParams = {
   body: CardBody // FormData???
   id: string
