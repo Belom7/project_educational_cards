@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { ButtonPlayIcon, EditTablePencilIcon, TrashIcon } from '@/assets'
 import VerticalDotsIcon from '@/assets/icons/components/VerticalDotsIcon'
 import { Routes, TypographyOption } from '@/common'
-import { Button, Typography } from '@/components'
+import { Typography } from '@/components'
 import { GetDeckResponse } from '@/features'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
@@ -27,12 +27,16 @@ export const Dropdown = forwardRef<ElementRef<typeof DropdownMenu.Root>, Dropdow
         <DropdownMenu.Portal>
           <DropdownMenu.Content className={s.DropdownMenuContent} sideOffset={5}>
             <DropdownMenu.Item className={s.DropdownMenuItem}>
-              <Button as={Link} to={`${Routes.Decks}/${deck?.id}/learn`}>
-                <ButtonPlayIcon />
+              <Link
+                className={s.link}
+                style={{ display: 'flex' }}
+                to={`${Routes.Decks}/${deck?.id}/learn`}
+              >
+                <ButtonPlayIcon height={20} width={20} />
                 <Typography className={s.typographyItem} variant={TypographyOption.Subtitle2}>
                   Learn
                 </Typography>
-              </Button>
+              </Link>
             </DropdownMenu.Item>
             <DropdownMenu.Separator className={s.DropdownMenuSeparator} />
             <DropdownMenu.Item className={s.DropdownMenuItem} onClick={onEdit}>
