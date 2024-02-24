@@ -5,6 +5,7 @@ import { Routes, TypographyOption, useDebounce } from '@/common'
 import {
   BackToDecksLink,
   Button,
+  Dropdown,
   Pagination,
   TextField,
   Typography,
@@ -60,9 +61,12 @@ export const CardsPage = () => {
           {isDeckNotEmpty ? (
             <div>
               <div className={s.deckName}>
-                <Typography variant={TypographyOption.H1}>{deck?.name}</Typography>
+                <div className={s.title}>
+                  <Typography variant={TypographyOption.H1}>{deck?.name}</Typography>
+                  <Dropdown deck={deck} onDelete={() => {}} onEdit={() => {}} />
+                </div>
                 {isCurrentUser ? (
-                  <AddCard />
+                  <AddCard id={id} />
                 ) : (
                   <Button as={Link} to={`${Routes.Decks}/${deck?.id}/learn`}>
                     <Typography variant={TypographyOption.Subtitle2}>Learn to Deck</Typography>
@@ -80,17 +84,15 @@ export const CardsPage = () => {
                 onSort={onChangeSort}
                 sort={sort}
               />
-              {deckData?.pagination.totalItems > Number(paginationData[1].child) && (
-                <Pagination
-                  currentPage={currentPage}
-                  itemsCount={deckData?.pagination.totalPages}
-                  itemsPerPage={itemsPerPage}
-                  onValueChange={onChangeItemsPerPage}
-                  placeholder={paginationData[1].child}
-                  selectItems={paginationData}
-                  setCurrentPage={onChangeCurrentPage}
-                />
-              )}
+              <Pagination
+                currentPage={currentPage}
+                itemsCount={deckData?.pagination.totalPages}
+                itemsPerPage={itemsPerPage}
+                onValueChange={onChangeItemsPerPage}
+                placeholder={paginationData[1].child}
+                selectItems={paginationData}
+                setCurrentPage={onChangeCurrentPage}
+              />
             </div>
           ) : (
             <div>
@@ -100,7 +102,7 @@ export const CardsPage = () => {
               <div className={s.addingCardContentInfo}>
                 {isCurrentUser ? (
                   <WithoutTable text={'This deck is empty. Click add new card to fill this deck'}>
-                    <AddCard />
+                    <AddCard id={id} />
                   </WithoutTable>
                 ) : (
                   <WithoutTable text={'This deck is empty. Click Back to Decks List'}>

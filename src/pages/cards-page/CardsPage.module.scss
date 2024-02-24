@@ -28,6 +28,13 @@
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 30px;
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+  }
 }
 
 .addingCardContentInfo {
