@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { EditTablePencilIcon, TrashIcon } from '@/assets'
+import { TrashIcon } from '@/assets'
 import { ButtonOption, formatDate } from '@/common'
 import {
   Button,
@@ -12,7 +12,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components'
-import { Card, DeleteCard } from '@/features'
+import { Card, DeleteCard, EditCard } from '@/features'
 import { getCardsFieldsHeaders } from '@/features/decks/ui/cards-table/cards-fields-headers'
 
 import s from './CardsTable.module.scss'
@@ -35,32 +35,30 @@ export const CardsTable: FC<Props> = ({ cards, isCurrentUser, onSort, sort }) =>
           sort={sort}
         ></TableHeader>
         <TableBody>
-          {cards?.map((el: Card, index: number) => {
+          {cards?.map((card: Card, index: number) => {
             return (
               <TableRow className={s.tableRow} key={index}>
                 <TableCell>
                   <div className={s.tableCell}>
-                    {el.questionImg && <img className={s.img} src={el.questionImg} />}
-                    {el.question}
+                    {card.questionImg && <img className={s.img} src={card.questionImg} />}
+                    {card.question}
                   </div>
                 </TableCell>
                 <TableCell>
                   <div className={s.tableCell}>
-                    {el.answerImg && <img className={s.img} src={el.answerImg} />}
-                    {el.answer}
+                    {card.answerImg && <img className={s.img} src={card.answerImg} />}
+                    {card.answer}
                   </div>
                 </TableCell>
-                <TableCell>{formatDate(el.updated)}</TableCell>
+                <TableCell>{formatDate(card.updated)}</TableCell>
                 <TableCell className={s.tableCreatedBy}>
-                  <Rating rating={el.grade} />
+                  <Rating rating={card.grade} />
                 </TableCell>
                 {isCurrentUser && (
                   <TableCell>
-                    <Button className={s.icon} variant={ButtonOption.Icon}>
-                      <EditTablePencilIcon />
-                    </Button>
+                    <EditCard card={card} />
                     <DeleteCard
-                      cardId={el.id}
+                      cardId={card.id}
                       trigger={
                         <Button className={s.icon} variant={ButtonOption.Icon}>
                           <TrashIcon />
