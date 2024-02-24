@@ -31,3 +31,8 @@ export enum Routes {
   Profile = '/profile',
   SignUp = '/sign-up',
 }
+
+export enum CardFormSelectItems {
+  Picture = 'picture',
+  Text = 'text',
+}
