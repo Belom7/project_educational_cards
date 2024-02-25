@@ -7,14 +7,14 @@ type DeletePackProps = {
   buttonTitle: string
   closeModal: () => void
   deletePackCallback: () => void
-  packName: string
+  packName?: string
 }
 
 export const DeletePack = ({
   buttonTitle,
   closeModal,
   deletePackCallback,
-  packName,
+  packName = 'this deck',
 }: DeletePackProps) => {
   return (
     <div className={s.root}>
