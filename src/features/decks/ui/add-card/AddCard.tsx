@@ -11,7 +11,7 @@ type AddCardProps = {
 export const AddCard: FC<AddCardProps> = ({ id }) => {
   return (
     <AddCardModal
-      id={id}
+      deckId={id}
       trigger={
         <Button>
           <Typography variant={TypographyOption.Subtitle2}>Add New Card</Typography>
