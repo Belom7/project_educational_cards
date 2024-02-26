@@ -3,13 +3,17 @@ import { JSX, ReactNode, useState } from 'react'
 import { Modal } from '@/components'
 import { DeletePack, useDeletePackMutation } from '@/features'
 
-export type EditPackModalProps = {
+export type DeletePackModalProps = {
   deckId?: string
   packName?: string
   trigger: ReactNode
 }
 
-export const DeletePackModal = ({ deckId, packName, trigger }: EditPackModalProps): JSX.Element => {
+export const DeletePackModal = ({
+  deckId,
+  packName,
+  trigger,
+}: DeletePackModalProps): JSX.Element => {
   const [open, setOpen] = useState(false)
   const [deletePack, { error }] = useDeletePackMutation()
 

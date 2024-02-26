@@ -66,6 +66,7 @@ export const PackTable: React.FC<Props> = ({ data, onSort, sort, userId }) => {
                       {isMyDeck && (
                         <>
                           <EditPackModal
+                            packId={el.id}
                             trigger={
                               <Button variant={ButtonOption.Icon}>
                                 <EditTablePencilIcon />
@@ -74,7 +75,7 @@ export const PackTable: React.FC<Props> = ({ data, onSort, sort, userId }) => {
                             values={values}
                           />
                           <DeletePackModal
-                            id={el.id}
+                            deckId={el.id}
                             packName={el.name}
                             trigger={
                               <Button variant={ButtonOption.Icon}>
