@@ -9,7 +9,7 @@ type Props = {
 }
 
 export const EditCardModal = ({ card, trigger }: Props): JSX.Element => {
-  const [open, setOpen] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const [updateCard] = useUpdateCardMutation()
   const { answer, answerImg, deckId, id, question, questionImg } = card
@@ -17,13 +17,13 @@ export const EditCardModal = ({ card, trigger }: Props): JSX.Element => {
 
   const onSubmit = (body: FormData) => {
     updateCard({ body, cardId: id, deckId })
-    setOpen(false)
+    setIsOpen(false)
   }
 
-  const onSetOpen = () => setOpen(!open)
+  const onSetOpen = () => setIsOpen(!isOpen)
 
   return (
-    <Modal open={open} setOpen={setOpen} title={'Edit Card'} trigger={trigger}>
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={'Edit Card'} trigger={trigger}>
       <CardForm
         buttonTitle={'Save Changes'}
         cardValues={cardValues}

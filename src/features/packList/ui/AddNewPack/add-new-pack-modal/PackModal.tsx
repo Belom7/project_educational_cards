@@ -8,12 +8,12 @@ export type AddPackModalProps = {
 }
 
 export const AddPackModal = ({ trigger }: AddPackModalProps): JSX.Element => {
-  const [open, setOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const [createPack, { error }] = useCreatePackMutation()
 
   console.log(error)
   const closeModal = () => {
-    setOpen(false)
+    setIsOpen(false)
   }
   const createPackCallback = (data: any) => {
     createPack(data)
@@ -21,7 +21,7 @@ export const AddPackModal = ({ trigger }: AddPackModalProps): JSX.Element => {
   }
 
   return (
-    <Modal open={open} setOpen={setOpen} title={'Add New Deck'} trigger={trigger}>
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={'Add New Deck'} trigger={trigger}>
       <PackFormIcon buttonTitle={'Add New Pack'} onSubmit={createPackCallback} />
     </Modal>
   )

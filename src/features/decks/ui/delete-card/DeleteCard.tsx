@@ -12,19 +12,19 @@ type DeleteCardProps = {
 }
 
 export const DeleteCard: FC<DeleteCardProps> = ({ cardId, trigger }) => {
-  const [open, setOpen] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const [deleteCard] = useDeleteCardMutation()
 
   const onDeleteCard = () => {
     deleteCard(cardId)
-    setOpen(!open)
+    setIsOpen(!isOpen)
   }
 
-  const onSetOpen = () => setOpen(!open)
+  const onSetOpen = () => setIsOpen(!isOpen)
 
   return (
-    <Modal open={open} setOpen={onSetOpen} title={'Delete card'} trigger={trigger}>
+    <Modal isOpen={isOpen} setIsOpen={onSetOpen} title={'Delete card'} trigger={trigger}>
       <div className={s.root}>
         <div className={s.text}>
           <Typography variant={TypographyOption.Body1}>

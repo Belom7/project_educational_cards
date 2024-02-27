@@ -10,13 +10,13 @@ import { AnimatePresence, motion } from 'framer-motion'
 import s from './Modal.module.scss'
 
 type Props = {
-  open: boolean
-  setOpen: (open: boolean) => void
+  isOpen: boolean
+  setIsOpen: (open: boolean) => void
   title: string
   trigger: ReactNode
 } & ComponentPropsWithoutRef<'div'>
 export const Modal = forwardRef<ElementRef<'div'>, Props>(
-  ({ children, className, open, setOpen, title, trigger, ...restProps }, ref) => {
+  ({ children, className, isOpen, setIsOpen, title, trigger, ...restProps }, ref) => {
     const classNames = {
       header: s.header,
       overlay: s.overlay,
@@ -24,10 +24,10 @@ export const Modal = forwardRef<ElementRef<'div'>, Props>(
     }
 
     return (
-      <ModalPrimitive.Root onOpenChange={setOpen}>
+      <ModalPrimitive.Root onOpenChange={setIsOpen}>
         <ModalPrimitive.Trigger asChild>{trigger}</ModalPrimitive.Trigger>
         <AnimatePresence>
-          {open && (
+          {isOpen && (
             <ModalPrimitive.Portal forceMount>
               <motion.div {...modalAnimations.overlay}>
                 <ModalPrimitive.Overlay className={classNames.overlay} forceMount />

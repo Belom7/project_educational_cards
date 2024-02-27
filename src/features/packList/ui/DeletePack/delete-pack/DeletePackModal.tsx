@@ -14,12 +14,12 @@ export const DeletePackModal = ({
   packName,
   trigger,
 }: DeletePackModalProps): JSX.Element => {
-  const [open, setOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const [deletePack, { error }] = useDeletePackMutation()
 
   console.log(error)
   const closeModal = () => {
-    setOpen(false)
+    setIsOpen(false)
   }
   const deletePackCallback = () => {
     deletePack({ id: deckId ? deckId : '' })
@@ -27,7 +27,7 @@ export const DeletePackModal = ({
   }
 
   return (
-    <Modal open={open} setOpen={setOpen} title={'Delete Pack'} trigger={trigger}>
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={'Delete Pack'} trigger={trigger}>
       <DeletePack
         buttonTitle={'Delete Pack'}
         closeModal={closeModal}

@@ -9,18 +9,18 @@ type AddCardModalProps = {
 }
 
 export const AddCardModal: FC<AddCardModalProps> = ({ deckId, trigger }) => {
-  const [open, setOpen] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   const [createCard] = useCreateCardMutation()
 
   const onSubmitForm = (body: FormData) => {
     createCard({ body, deckId })
-    setOpen(false)
+    setIsOpen(false)
   }
 
-  const onSetOpen = () => setOpen(!open)
+  const onSetOpen = () => setIsOpen(!isOpen)
 
   return (
-    <Modal open={open} setOpen={onSetOpen} title={'Add new card'} trigger={trigger}>
+    <Modal isOpen={isOpen} setIsOpen={onSetOpen} title={'Add new card'} trigger={trigger}>
       <CardForm onCloseModal={onSetOpen} onSubmit={onSubmitForm} />
     </Modal>
   )
