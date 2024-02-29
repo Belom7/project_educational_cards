@@ -63,7 +63,7 @@ export const CardsPage = () => {
               <div className={s.deckName}>
                 <div className={s.title}>
                   <Typography variant={TypographyOption.H1}>{deck?.name}</Typography>
-                  <Dropdown deck={deck} onDelete={() => {}} onEdit={() => {}} />
+                  {isCurrentUser && <Dropdown deck={deck} />}
                 </div>
                 {isCurrentUser ? (
                   <AddCard id={id} />

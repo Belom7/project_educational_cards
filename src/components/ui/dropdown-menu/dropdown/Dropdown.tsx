@@ -5,19 +5,17 @@ import { ButtonPlayIcon, EditTablePencilIcon, TrashIcon } from '@/assets'
 import VerticalDotsIcon from '@/assets/icons/components/VerticalDotsIcon'
 import { Routes, TypographyOption } from '@/common'
 import { Typography } from '@/components'
-import { GetDeckResponse } from '@/features'
+import { DeletePackModal, EditPackModal, GetDeckResponse } from '@/features'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
 import s from './Dropdown.module.scss'
 
 type DropdownProps = {
   deck: GetDeckResponse | undefined
-  onDelete: () => void
-  onEdit: () => void
 } & ComponentPropsWithoutRef<typeof DropdownMenu.Root>
 
 export const Dropdown = forwardRef<ElementRef<typeof DropdownMenu.Root>, DropdownProps>(
-  ({ deck, onDelete, onEdit, ...restProps }, ref): JSX.Element => {
+  ({ deck, ...restProps }, ref): JSX.Element => {
     return (
       <DropdownMenu.Root {...restProps}>
         <DropdownMenu.Trigger asChild ref={ref}>
@@ -35,19 +33,29 @@ export const Dropdown = forwardRef<ElementRef<typeof DropdownMenu.Root>, Dropdow
               </Link>
             </DropdownMenu.Item>
             <DropdownMenu.Separator className={s.DropdownMenuSeparator} />
-            <DropdownMenu.Item className={s.DropdownMenuItem} onClick={onEdit}>
-              <EditTablePencilIcon />
-              <Typography className={s.typographyItem} variant={TypographyOption.Subtitle2}>
-                Edit
-              </Typography>
-            </DropdownMenu.Item>
+            <EditPackModal
+              packId={deck?.id}
+              trigger={
+                <button className={s.DropdownMenuItem}>
+                  <EditTablePencilIcon />
+                  <Typography className={s.typographyItem} variant={TypographyOption.Subtitle2}>
+                    Edit
+                  </Typography>
+                </button>
+              }
+            />
             <DropdownMenu.Separator className={s.DropdownMenuSeparator} />
-            <DropdownMenu.Item className={s.DropdownMenuItem} onClick={onDelete}>
-              <TrashIcon />
-              <Typography className={s.typographyItem} variant={TypographyOption.Subtitle2}>
-                Delete
-              </Typography>
-            </DropdownMenu.Item>
+            <DeletePackModal
+              deckId={deck?.id}
+              trigger={
+                <button className={s.DropdownMenuItem}>
+                  <TrashIcon />
+                  <Typography className={s.typographyItem} variant={TypographyOption.Subtitle2}>
+                    Delete
+                  </Typography>
+                </button>
+              }
+            />
             <DropdownMenu.Arrow className={s.DropdownMenuArrow} />
           </DropdownMenu.Content>
         </DropdownMenu.Portal>

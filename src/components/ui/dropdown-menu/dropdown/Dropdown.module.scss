@@ -51,6 +51,7 @@ button {
 .DropdownMenuCheckboxItem,
 .DropdownMenuRadioItem,
 .DropdownMenuSubTrigger {
+  cursor: pointer;
   user-select: none;
 
   position: relative;
@@ -73,6 +74,10 @@ button {
     align-items: center;
     text-decoration: none;
   }
+}
+
+button.DropdownMenuItem {
+  height: 1px;
 }
 
 .DropdownMenuSubTrigger[data-state='open'] {
