@@ -27,7 +27,7 @@ export const Dropdown = forwardRef<ElementRef<typeof DropdownMenu.Root>, Dropdow
         <DropdownMenu.Portal>
           <DropdownMenu.Content className={s.DropdownMenuContent} sideOffset={5}>
             <DropdownMenu.Item className={s.DropdownMenuItem}>
-              <Link className={s.link} to={`${Routes.Decks}/${deck?.id}/learn`}>
+              <Link className={s.link} to={`${Routes.Decks}/:${deck?.id}/learn`}>
                 <ButtonPlayIcon height={20} width={20} />
                 <Typography className={s.typographyItem} variant={TypographyOption.Subtitle2}>
                   Learn
