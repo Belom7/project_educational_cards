@@ -1,4 +1,4 @@
-.cardWrapper{
+.cardWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,26 +13,23 @@
   width: 100%;
 }
 
-.tableHeader{
+.tableHeader {
   background-color: var(--color-dark-500);
   border: 1px solid var(--color-dark-500);
 }
 
-.tableHeader th{
+.tableHeader th {
   cursor: pointer;
   padding: 6px 0 0 20px;
-
 }
 
-.tableHeaderTypography span{
-  padding:100px ;
-
+.tableHeaderTypography span {
+  padding: 100px;
 }
 
-.icon{
+.icon {
   transform: rotate(180deg);
 }
-
 
 .tableHeader th:nth-child(1) {
   width: 20%;
@@ -46,15 +43,15 @@
   width: 20%;
 }
 
-.tableRow{
+.tableRow {
   border: 1px solid var(--color-dark-500);
 }
 
-.tableCell{
+.tableCell {
   padding: 6px 0 0 20px;
 }
 
-.cellImage{
+.cellImage {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -62,7 +59,7 @@
 }
 
 .cellIcon {
- display: flex;
+  display: flex;
   align-items: center;
   height: 3.6rem;
   text-decoration: none;
@@ -74,7 +71,12 @@
   margin-right: 10px;
 }
 
-.deckLinkText{
+.deckLinkText {
   color: var(--color-light-100);
   text-decoration: none;
+}
+
+.buttons {
+  display: flex;
+  gap: 5px;
 }

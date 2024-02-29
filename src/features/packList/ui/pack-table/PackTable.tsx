@@ -59,9 +59,9 @@ export const PackTable: React.FC<Props> = ({ data, onSort, sort, userId }) => {
                   <TableCell>{formatDate(el.updated)}</TableCell>
                   <TableCell>{el.author.name}</TableCell>
                   <TableCell>
-                    <span>
+                    <span className={s.buttons}>
                       <Button onClick={() => learnCallback(el.id)} variant={ButtonOption.Icon}>
-                        <ButtonPlayIcon />
+                        <ButtonPlayIcon height={16} width={16} />
                       </Button>
                       {isMyDeck && (
                         <>
